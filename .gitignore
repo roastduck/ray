@@ -1,0 +1,7 @@
+*.swp
+*~
+*.o
+*.gch
+.depend
+main
+genmesh
