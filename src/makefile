@@ -6,9 +6,15 @@ endif
 
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:%.cpp=%.o)
+BACKENDOBJ = $(filter-out genmesh.o debug.o, $(OBJ))
 
-genmesh : .depend $(OBJ)
-	g++ $(OBJ) -o $@ $(PARAM)
+all : genmesh debug
+
+genmesh : .depend genmesh.o $(BACKENDOBJ)
+	g++ genmesh.o $(BACKENDOBJ) -o $@ $(PARAM)
+
+debug : .depend debug.o $(BACKENDOBJ)
+	g++ debug.o $(BACKENDOBJ) -o $@ $(PARAM)
 
 .depend : $(SRC)
 	rm -f .depend

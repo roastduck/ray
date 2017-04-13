@@ -5,3 +5,6 @@
 .depend
 main
 genmesh
+
+debug
+debug.obj
