@@ -11,22 +11,26 @@ class Bezier3 : public Curve
 {
 private:
     Vec2 p0, p1, p2, p3;
-    Vec2 a, b, c, d; /// Expanded polynomial coefficient
+    Vec2t<double> a, b, c, d; /// Expanded polynomial coefficient
     float tx1, tx2, ty1, ty2; /// Coresponding t for extream values
     Vec2 px1, px2, py1, py2; /// Extream value for x and y
 
 public:
     /// Construct with 4 control points
+    /// Subtracting similar numbers decreses accuracy, so use double
     Bezier3(const Vec2 &_p0, const Vec2 &_p1, const Vec2 &_p2, const Vec2 &_p3)
-        : p0(_p0), p1(_p1), p2(_p2), p3(_p3),
-          a(-p0 + 3*p1 - 3*p2 + p3), b(3 * (p0 - 2*p1 + p2)), c(3 * (-p0 + p1)), d(p0)
+        : p0(_p0), p1(_p1), p2(_p2), p3(_p3)
     {
-        Vec2 da(3 * a), db(2 * b), dc(c);
-        float deltax(sqrtf(db.x * db.x - 4 * da.x * dc.x)), deltay(sqrtf(db.y * db.y - 4 * da.y * dc.y));
+        Vec2t<double> p0d(p0), p1d(p1), p2d(p2), p3d(p3);
+        a = -p0d + 3.*p1d - 3.*p2d + p3d, b = 3. * (p0d - 2.*p1d + p2d), c = 3. * (-p0d + p1d), d = p0d;
+        Vec2t<double> da(3. * a), db(2. * b), dc(c);
+        double deltax(sqrt(db.x * db.x - 4 * da.x * dc.x)), deltay(sqrt(db.y * db.y - 4 * da.y * dc.y));
         tx1 = (-b.x - deltax) / (2 * a.x), tx2 = (-b.x + deltax) / (2 * a.x);
         ty1 = (-b.y - deltay) / (2 * a.y), ty2 = (-b.y + deltay) / (2 * a.y);
-        px1 = position(tx1), px2 = position(tx2);
-        py1 = position(ty1), py2 = position(ty2);
+        if (tx1 >= 0 && tx1 <= 1) px1 = position(tx1);
+        if (tx2 >= 0 && tx2 <= 1) px2 = position(tx2);
+        if (ty1 >= 0 && ty1 <= 1) py1 = position(ty1);
+        if (ty2 >= 0 && ty2 <= 1) py2 = position(ty2);
     }
 
     Vec2 position(float t) const override;
@@ -48,8 +52,8 @@ inline Vec2 Bezier3::position(float t) const
 inline Vec2 Bezier3::derivation(float t) const
 {
     assert(inrange(t, 0, 1));
-    Vec2 _p0(3 * (p1 - p0)), _p1(3 * (p2 - p1)), _p2(3 * (p3 - p2));
-    return mix(mix(_p0, _p1, t), mix(_p1, _p2, t), t);
+    Vec2 _p0(p1 - p0), _p1(p2 - p1), _p2(p3 - p2);
+    return 3.f * mix(mix(_p0, _p1, t), mix(_p1, _p2, t), t);
 }
 
 inline Box2 Bezier3::xyMinMax(float t1, float t2) const

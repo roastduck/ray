@@ -4,9 +4,8 @@
 #include <memory>
 #include <vector>
 #include "utils.h"
+#include "boxtree.h"
 #include "intersection.h"
-
-class BoxTree;
 
 /** Surface base class
  *  Surface decided by parameter (u,v) in [0,1] * [0,1]

@@ -11,50 +11,69 @@
 #include <iostream>
 #include <algorithm>
 
-struct Vec2
+template <class T>
+struct Vec2t
 {
-    float x, y;
-    Vec2() {}
-    Vec2(float _x, float _y) : x(_x), y(_y) {}
+    T x, y;
+    Vec2t() {}
+    Vec2t(T _x, T _y) : x(_x), y(_y) {}
+    template <class T2> Vec2t(const Vec2t<T2> &rhs) : x(rhs.x), y(rhs.y) {}
 
-    Vec2 operator-() const { return Vec2(-x, -y); }
+    Vec2t operator-() const { return Vec2t(-x, -y); }
 };
 
-struct Vec3
+template <class T>
+struct Vec3t
 {
-    float x, y, z;
-    Vec3() {}
-    Vec3(float _x, float _y, float _z) : x(_x), y(_y), z(_z) {}
+    T x, y, z;
+    Vec3t() {}
+    Vec3t(T _x, T _y, T _z) : x(_x), y(_y), z(_z) {}
+    template <class T2> Vec3t(const Vec3t<T2> &rhs) : x(rhs.x), y(rhs.y), z(rhs.z) {}
 
-    Vec3 operator-() const { return Vec3(-x, -y, -z); }
+    Vec3t operator-() const { return Vec3t(-x, -y, -z); }
 };
 
-inline std::istream &operator>>(std::istream &is, Vec2 &v)
+typedef Vec2t<float> Vec2; // other type only used in few situations to increase accuracy
+typedef Vec3t<float> Vec3;
+
+template <class T>
+inline std::istream &operator>>(std::istream &is, Vec2t<T> &v)
 {
     is >> v.x >> v.y; return is;
 }
-inline std::istream &operator>>(std::istream &is, Vec3 &v)
+template <class T>
+inline std::istream &operator>>(std::istream &is, Vec3t<T> &v)
 {
     is >> v.x >> v.y >> v.z; return is;
 }
-inline std::ostream &operator<<(std::ostream &os, const Vec2 &v)
+template <class T>
+inline std::ostream &operator<<(std::ostream &os, const Vec2t<T> &v)
 {
     os << std::fixed << std::setprecision(3) << v.x << " " << v.y; return os;
 }
-inline std::ostream &operator<<(std::ostream &os, const Vec3 &v)
+template <class T>
+inline std::ostream &operator<<(std::ostream &os, const Vec3t<T> &v)
 {
     os << std::fixed << std::setprecision(3) << v.x << " " << v.y << " " << v.z; return os;
 }
 
-inline Vec2 operator+(const Vec2 &lhs, const Vec2 &rhs) { return Vec2(lhs.x + rhs.x, lhs.y + rhs.y); }
-inline Vec2 operator-(const Vec2 &lhs, const Vec2 &rhs) { return Vec2(lhs.x - rhs.x, lhs.y - rhs.y); }
-inline Vec2 operator*(const Vec2 &v, float k) { return Vec2(v.x * k, v.y * k); }
-inline Vec2 operator*(float k, const Vec2 &v) { return Vec2(v.x * k, v.y * k); }
+template <class T>
+inline Vec2t<T> operator+(const Vec2t<T> &lhs, const Vec2t<T> &rhs) { return Vec2(lhs.x + rhs.x, lhs.y + rhs.y); }
+template <class T>
+inline Vec2t<T> operator-(const Vec2t<T> &lhs, const Vec2t<T> &rhs) { return Vec2(lhs.x - rhs.x, lhs.y - rhs.y); }
+template <class T>
+inline Vec2t<T> operator*(const Vec2t<T> &v, T k) { return Vec2t<T>(v.x * k, v.y * k); }
+template <class T>
+inline Vec2t<T> operator*(T k, const Vec2t<T> &v) { return Vec2t<T>(v.x * k, v.y * k); }
 
-inline Vec3 operator+(const Vec3 &lhs, const Vec3 &rhs) { return Vec3(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z); }
-inline Vec3 operator-(const Vec3 &lhs, const Vec3 &rhs) { return Vec3(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z); }
-inline Vec3 operator*(const Vec3 &v, float k) { return Vec3(v.x * k, v.y * k, v.z * k); }
-inline Vec3 operator*(float k, const Vec3 &v) { return Vec3(v.x * k, v.y * k, v.z * k); }
+template <class T>
+inline Vec3t<T> operator+(const Vec3t<T> &lhs, const Vec3t<T> &rhs) { return Vec3(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z); }
+template <class T>
+inline Vec3t<T> operator-(const Vec3t<T> &lhs, const Vec3t<T> &rhs) { return Vec3(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z); }
+template <class T>
+inline Vec3t<T> operator*(const Vec3t<T> &v, T k) { return Vec3(v.x * k, v.y * k, v.z * k); }
+template <class T>
+inline Vec3t<T> operator*(T k, const Vec3t<T> &v) { return Vec3(v.x * k, v.y * k, v.z * k); }
 
 struct Box2
 {

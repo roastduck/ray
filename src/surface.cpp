@@ -1,6 +1,5 @@
 #include <cassert>
 #include <fstream>
-#include "boxtree.h"
 #include "curve/bezier3.h"
 #include "surface/axisymmetric.h"
 
