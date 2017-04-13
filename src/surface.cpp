@@ -1,7 +1,18 @@
 #include <cassert>
 #include <fstream>
+#include "boxtree.h"
 #include "curve/bezier3.h"
 #include "surface/axisymmetric.h"
+
+void Surface::init()
+{
+    boxTree = std::unique_ptr<BoxTree>(new BoxTree(*this));
+}
+
+Optional<InterType> Surface::findInter(const Ray &ray) const
+{
+    // TODO
+}
 
 std::vector< std::unique_ptr<Surface> > Surface::load(const char filename[])
 {

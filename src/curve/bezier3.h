@@ -30,6 +30,7 @@ public:
     }
 
     Vec2 position(float t) const override;
+    Vec2 derivation(float t) const override;
 
     Box2 xyMinMax(float t1, float t2) const override;
 
@@ -39,9 +40,17 @@ private:
 
 inline Vec2 Bezier3::position(float t) const
 {
+    assert(inrange(t, 0, 1));
     Vec2 _p0(mix(p0, p1, t)), _p1(mix(p1, p2, t)), _p2(mix(p2, p3, t));
     return mix(mix(_p0, _p1, t), mix(_p1, _p2, t), t);
 };
+
+inline Vec2 Bezier3::derivation(float t) const
+{
+    assert(inrange(t, 0, 1));
+    Vec2 _p0(p1 - p0), _p1(p2 - p1), _p2(p3 - p2);
+    return mix(mix(_p0, _p1, t), mix(_p1, _p2, t), t);
+}
 
 inline Box2 Bezier3::xyMinMax(float t1, float t2) const
 {

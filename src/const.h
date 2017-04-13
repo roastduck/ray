@@ -8,5 +8,8 @@ const char MESH_FILE[] = "mesh.obj";
 // MESH
 const int MESH_1D_NUM = 100;
 
+// MATH
+const float eps = 1e-5;
+
 #endif // CONST_H_
 

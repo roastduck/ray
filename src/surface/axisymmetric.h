@@ -21,6 +21,8 @@ public:
     Axisymmetric &operator=(const Axisymmetric &) = delete;
 
     Vec3 position(float u, float v) const override;
+    Vec3 derivativeU(float u, float v) const override;
+    Vec3 derivativeV(float u, float v) const override;
 
     Box3 xyzMinMax(float u1, float u2, float v1, float v2) const override;
 
@@ -34,6 +36,22 @@ inline Vec3 Axisymmetric::position(float u, float v) const
     Vec2 flat = curve->position(v);
     float omega = u * 2 * PI;
     return Vec3(flat.y * cosf(omega), flat.y * sinf(omega), flat.x);
+}
+
+inline Vec3 Axisymmetric::derivativeU(float u, float v) const
+{
+    assert(inrange(u, 0, 1) && inrange(v, 0, 1));
+    Vec2 flat = curve->position(v);
+    float omega = u * 2 * PI;
+    return Vec3(flat.y * 2 * PI * -sinf(omega), flat.y * 2 * PI * cosf(omega), flat.x);
+}
+
+inline Vec3 Axisymmetric::derivativeV(float u, float v) const
+{
+    assert(inrange(u, 0, 1) && inrange(v, 0, 1));
+    Vec2 dflat = curve->derivation(v);
+    float omega = u * 2 * PI;
+    return Vec3(dflat.y * cosf(omega), dflat.y * sinf(omega), dflat.x);
 }
 
 inline Box3 Axisymmetric::xyzMinMax(float u1, float u2, float v1, float v2) const

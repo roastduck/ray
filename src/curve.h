@@ -14,6 +14,9 @@ public:
     /// Get point on the curve
     virtual Vec2 position(float t) const = 0;
 
+    /// Get derivation
+    virtual Vec2 derivation(float t) const = 0;
+
     /// (x:(min, max), y:(min, max)) when t in [x1, x2]
     virtual Box2 xyMinMax(float t1, float t2) const = 0;
 };

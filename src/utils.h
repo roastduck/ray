@@ -1,7 +1,12 @@
+/** Miscellaneous
+ *  Vectors, Boxes, helper functions, mathematical constants
+ */
+
 #ifndef UTILS_H_
 #define UTILS_H_
 
 #include <cmath>
+#include <cassert>
 #include <iomanip>
 #include <iostream>
 #include <algorithm>
@@ -55,6 +60,8 @@ struct Box2
 {
     float xMin, xMax, yMin, yMax;
 
+    Box2(float _xMin, float _xMax, float _yMin, float _yMax)
+        : xMin(_xMin), xMax(_xMax), yMin(_yMin), yMax(_yMax) {}
     Box2(Vec2 p1, Vec2 p2)
         : xMin(std::min(p1.x, p2.x)), xMax(std::max(p1.x, p2.x)),
           yMin(std::min(p1.y, p2.y)), yMax(std::max(p1.y, p2.y))
@@ -65,14 +72,63 @@ struct Box2
         xMin = std::min(xMin, p.x), xMax = std::max(xMax, p.x);
         yMin = std::min(yMin, p.y), yMax = std::max(yMax, p.y);
     }
+
+    bool contains(const Vec2 &v) const
+    {
+        return v.x >= xMin && v.x <= xMax && v.y >= yMin && v.y <= yMax;
+    }
 };
 
 struct Box3
 {
     float xMin, xMax, yMin, yMax, zMin, zMax;
 
+    Box3() {}
     Box3(float _xMin, float _xMax, float _yMin, float _yMax, float _zMin, float _zMax)
-        : xMin(_xMin), xMax(_xMax), yMin(_yMin), yMax(_yMax), zMin(_zMin), zMax(_zMax) {}
+        : xMin(_xMin), xMax(_xMax), yMin(_yMin), yMax(_yMax), zMin(_zMin), zMax(_zMax)
+    {
+        assert(xMin < xMax && yMin < yMax && zMin < zMax);
+    }
+
+    float size() const
+    {
+        return (xMax - xMin) * (yMax - yMin) * (zMax - zMin);
+    }
+
+    bool contains(const Vec3 &v) const
+    {
+        return v.x >= xMin && v.x <= xMax && v.y >= yMin && v.y <= yMax && v.z >= zMin && v.z <= zMax;
+    }
+
+    Box2 xySide() const { return Box2(xMin, xMax, yMin, yMax); }
+    Box2 yzSide() const { return Box2(yMin, yMax, zMin, zMax); }
+    Box2 xzSide() const { return Box2(xMin, xMax, zMin, zMax); }
+};
+
+struct Ray
+{
+    Vec3 st; /// Starting point
+    Vec3 dir; /// Direction
+};
+
+class None {};
+
+template <class T>
+class Optional
+{
+private:
+    bool valid;
+    T content;
+
+public:
+    Optional() : valid(false) {}
+    Optional(None) : valid(false) {}
+    Optional(T &_content) : valid(true), content(_content) {}
+    Optional(T &&_content) : valid(true), content(_content) {}
+
+    bool isOk() const { return valid; }
+    T &ok() { assert(valid); return content; }
+    const T &ok() const { assert(valid); return content; }
 };
 
 inline bool inrange(float x, float l, float r)
