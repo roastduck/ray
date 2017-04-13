@@ -1,6 +1,7 @@
 #ifndef AXISYMMETRIC_H_
 #define AXISYMMETRIC_H_
 
+#include <memory>
 #include "../surface.h"
 #include "../curve.h"
 
@@ -11,11 +12,12 @@
 class Axisymmetric : public Surface
 {
 private:
-    const Curve *curve; /// Responsible to destroy it
+    std::unique_ptr<const Curve> curve; /// Responsible to destroy it
 
 public:
     Axisymmetric(const Curve *_curve) : curve(_curve) {}
-    ~Axisymmetric() { delete curve; }
+    Axisymmetric(const Axisymmetric &) = delete;
+    Axisymmetric &operator=(const Axisymmetric &) = delete;
 
     Vec3 position(float u, float v) const override;
 

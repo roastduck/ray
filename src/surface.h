@@ -1,6 +1,7 @@
 #ifndef SURFACE_H_
 #define SURFACE_H_
 
+#include <memory>
 #include <vector>
 #include "utils.h"
 
@@ -24,8 +25,7 @@ public:
     virtual bool vIsCircular() = 0;
 
     /// Load surfaces from file
-    /// Remember to destroy them
-    static std::vector<Surface*> load(const char filename[]);
+    static std::vector< std::unique_ptr<Surface> > load(const char filename[]);
 };
 
 #endif // SURFACE_H_
