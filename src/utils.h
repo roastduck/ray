@@ -33,9 +33,6 @@ struct Vec3t
     Vec3t operator-() const { return Vec3t(-x, -y, -z); }
 };
 
-typedef Vec2t<float> Vec2; // other type only used in few situations to increase accuracy
-typedef Vec3t<float> Vec3;
-
 template <class T>
 inline std::istream &operator>>(std::istream &is, Vec2t<T> &v)
 {
@@ -58,22 +55,37 @@ inline std::ostream &operator<<(std::ostream &os, const Vec3t<T> &v)
 }
 
 template <class T>
-inline Vec2t<T> operator+(const Vec2t<T> &lhs, const Vec2t<T> &rhs) { return Vec2(lhs.x + rhs.x, lhs.y + rhs.y); }
+inline Vec2t<T> operator+(const Vec2t<T> &lhs, const Vec2t<T> &rhs) { return Vec2t<T>(lhs.x + rhs.x, lhs.y + rhs.y); }
 template <class T>
-inline Vec2t<T> operator-(const Vec2t<T> &lhs, const Vec2t<T> &rhs) { return Vec2(lhs.x - rhs.x, lhs.y - rhs.y); }
+inline Vec2t<T> operator-(const Vec2t<T> &lhs, const Vec2t<T> &rhs) { return Vec2t<T>(lhs.x - rhs.x, lhs.y - rhs.y); }
 template <class T>
 inline Vec2t<T> operator*(const Vec2t<T> &v, T k) { return Vec2t<T>(v.x * k, v.y * k); }
 template <class T>
 inline Vec2t<T> operator*(T k, const Vec2t<T> &v) { return Vec2t<T>(v.x * k, v.y * k); }
 
 template <class T>
-inline Vec3t<T> operator+(const Vec3t<T> &lhs, const Vec3t<T> &rhs) { return Vec3(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z); }
+inline Vec3t<T> operator+(const Vec3t<T> &lhs, const Vec3t<T> &rhs) { return Vec3t<T>(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z); }
 template <class T>
-inline Vec3t<T> operator-(const Vec3t<T> &lhs, const Vec3t<T> &rhs) { return Vec3(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z); }
+inline Vec3t<T> operator-(const Vec3t<T> &lhs, const Vec3t<T> &rhs) { return Vec3t<T>(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z); }
 template <class T>
-inline Vec3t<T> operator*(const Vec3t<T> &v, T k) { return Vec3(v.x * k, v.y * k, v.z * k); }
+inline Vec3t<T> operator*(const Vec3t<T> &v, T k) { return Vec3t<T>(v.x * k, v.y * k, v.z * k); }
 template <class T>
-inline Vec3t<T> operator*(T k, const Vec3t<T> &v) { return Vec3(v.x * k, v.y * k, v.z * k); }
+inline Vec3t<T> operator*(T k, const Vec3t<T> &v) { return Vec3t<T>(v.x * k, v.y * k, v.z * k); }
+
+template <class T>
+inline Vec3t<T> cross(const Vec3t<T> &lhs, const Vec3t<T> &rhs)
+{
+    return Vec3t<T>(lhs.y * rhs.z - lhs.z * rhs.y, lhs.z * rhs.x - lhs.x * rhs.z, lhs.x * rhs.y - lhs.y * rhs.x);
+}
+
+template <class T>
+inline T dot(const Vec3t<T> &lhs, const Vec3t<T> &rhs)
+{
+    return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
+}
+
+typedef Vec2t<float> Vec2; /// Other type only used in few situations to increase accuracy
+typedef Vec3t<float> Vec3;
 
 struct Box2
 {
