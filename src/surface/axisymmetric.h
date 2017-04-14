@@ -32,7 +32,6 @@ public:
 
 inline Vec3 Axisymmetric::position(float u, float v) const
 {
-    assert(inrange(u, 0, 1) && inrange(v, 0, 1));
     Vec2 flat = curve->position(v);
     float omega = u * 2 * PI;
     return Vec3(flat.y * cosf(omega), flat.y * sinf(omega), flat.x);
@@ -40,7 +39,6 @@ inline Vec3 Axisymmetric::position(float u, float v) const
 
 inline Vec3 Axisymmetric::derivativeU(float u, float v) const
 {
-    assert(inrange(u, 0, 1) && inrange(v, 0, 1));
     Vec2 flat = curve->position(v);
     float omega = u * 2 * PI;
     return Vec3(flat.y * 2 * PI * -sinf(omega), flat.y * 2 * PI * cosf(omega), flat.x);
@@ -48,7 +46,6 @@ inline Vec3 Axisymmetric::derivativeU(float u, float v) const
 
 inline Vec3 Axisymmetric::derivativeV(float u, float v) const
 {
-    assert(inrange(u, 0, 1) && inrange(v, 0, 1));
     Vec2 dflat = curve->derivation(v);
     float omega = u * 2 * PI;
     return Vec3(dflat.y * cosf(omega), dflat.y * sinf(omega), dflat.x);

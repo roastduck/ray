@@ -20,6 +20,7 @@ struct Vec2t
     template <class T2> Vec2t(const Vec2t<T2> &rhs) : x(rhs.x), y(rhs.y) {}
 
     Vec2t operator-() const { return Vec2t(-x, -y); }
+    T dist2() const { return x * x + y * y; }
 };
 
 template <class T>
@@ -31,6 +32,7 @@ struct Vec3t
     template <class T2> Vec3t(const Vec3t<T2> &rhs) : x(rhs.x), y(rhs.y), z(rhs.z) {}
 
     Vec3t operator-() const { return Vec3t(-x, -y, -z); }
+    T dist2() const { return x * x + y * y + z * z; }
 };
 
 template <class T>
@@ -118,7 +120,8 @@ struct Box3
     Box3(float _xMin, float _xMax, float _yMin, float _yMax, float _zMin, float _zMax)
         : xMin(_xMin), xMax(_xMax), yMin(_yMin), yMax(_yMax), zMin(_zMin), zMax(_zMax)
     {
-        assert(xMin < xMax && yMin < yMax && zMin < zMax);
+        assert(xMin <= xMax && yMin <= yMax && zMin <= zMax);
+        assert(xMin < xMax || yMin < yMax || zMin < zMax);
     }
 
     float size() const
@@ -140,6 +143,9 @@ struct Ray
 {
     Vec3 st; /// Starting point
     Vec3 dir; /// Direction
+
+    Ray(const Vec3 &_st, const Vec3 &_dir)
+        : st(_st), dir(_dir) {}
 };
 
 class None {};

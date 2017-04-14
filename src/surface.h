@@ -39,7 +39,14 @@ public:
     virtual bool uIsCircular() = 0;
     virtual bool vIsCircular() = 0;
 
-    Optional<InterType> findInter(const Ray &ray) const;
+    struct SurfInterType
+    {
+        float t, u, v;
+        SurfInterType() {}
+        SurfInterType(float _t, float _u, float _v) : t(_t), u(_u), v(_v) {}
+    };
+
+    Optional<SurfInterType> findInter(const Ray &ray) const;
 
     /// Load surfaces from file
     static std::vector< std::unique_ptr<Surface> > load(const char filename[]);

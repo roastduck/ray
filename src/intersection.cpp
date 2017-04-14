@@ -36,7 +36,9 @@ Optional<InterType> intersecXY(float z, const Box2 &box, const Ray &ray)
 
 Optional<InterType> intersec(const Box3 &box, const Ray &ray)
 {
-    assert(! box.contains(ray.st));
+    if (box.contains(ray.st))
+        return InterType(ray.st, 0);
+
     if (ray.st.x <= box.xMin && ray.dir.x <= 0) return None();
     if (ray.st.x >= box.xMax && ray.dir.x >= 0) return None();
     if (ray.st.y <= box.yMin && ray.dir.y <= 0) return None();

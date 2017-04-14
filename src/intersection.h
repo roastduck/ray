@@ -19,7 +19,6 @@ Optional<InterType> intersecXZ(float y, const Box2 &box, const Ray &ray);
 Optional<InterType> intersecXY(float z, const Box2 &box, const Ray &ray);
 
 /** Find intersection between box and ray
- *  Asserting ray comes from out of box
  *  @return : (Intersection point, Ray parameter)
  */
 Optional<InterType> intersec(const Box3 &box, const Ray &ray);

@@ -25,8 +25,8 @@ public:
         a = -p0d + 3.*p1d - 3.*p2d + p3d, b = 3. * (p0d - 2.*p1d + p2d), c = 3. * (-p0d + p1d), d = p0d;
         Vec2t<double> da(3. * a), db(2. * b), dc(c);
         double deltax(sqrt(db.x * db.x - 4 * da.x * dc.x)), deltay(sqrt(db.y * db.y - 4 * da.y * dc.y));
-        tx1 = (-b.x - deltax) / (2 * a.x), tx2 = (-b.x + deltax) / (2 * a.x);
-        ty1 = (-b.y - deltay) / (2 * a.y), ty2 = (-b.y + deltay) / (2 * a.y);
+        tx1 = (-db.x - deltax) / (2 * da.x), tx2 = (-db.x + deltax) / (2 * da.x);
+        ty1 = (-db.y - deltay) / (2 * da.y), ty2 = (-db.y + deltay) / (2 * da.y);
         if (tx1 >= 0 && tx1 <= 1) px1 = position(tx1);
         if (tx2 >= 0 && tx2 <= 1) px2 = position(tx2);
         if (ty1 >= 0 && ty1 <= 1) py1 = position(ty1);
@@ -44,14 +44,12 @@ private:
 
 inline Vec2 Bezier3::position(float t) const
 {
-    assert(inrange(t, 0, 1));
     Vec2 _p0(mix(p0, p1, t)), _p1(mix(p1, p2, t)), _p2(mix(p2, p3, t));
     return mix(mix(_p0, _p1, t), mix(_p1, _p2, t), t);
 };
 
 inline Vec2 Bezier3::derivation(float t) const
 {
-    assert(inrange(t, 0, 1));
     Vec2 _p0(p1 - p0), _p1(p2 - p1), _p2(p3 - p2);
     return 3.f * mix(mix(_p0, _p1, t), mix(_p1, _p2, t), t);
 }
