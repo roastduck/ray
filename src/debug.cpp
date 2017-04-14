@@ -11,7 +11,6 @@ int main()
     auto surfaces = Surface::load(INPUT_FILE);
     const auto &surface = surfaces[0];
     assert(surface);
-    surface->init();
     std::vector<Ray> rays = {
         Ray(Vec3(0, -10, 0), Vec3(0.05, 1, 0.5))
     };

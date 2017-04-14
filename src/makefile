@@ -6,9 +6,12 @@ endif
 
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:%.cpp=%.o)
-BACKENDOBJ = $(filter-out genmesh.o debug.o, $(OBJ))
+BACKENDOBJ = $(filter-out genmesh.o debug.o main.o, $(OBJ))
 
-all : genmesh debug
+all : genmesh debug main
+
+main : .depend main.o $(BACKENDOBJ)
+	g++ main.o $(BACKENDOBJ) -o $@ $(PARAM) -lopencv_core -lopencv_imgproc -lopencv_imgcodecs
 
 genmesh : .depend genmesh.o $(BACKENDOBJ)
 	g++ genmesh.o $(BACKENDOBJ) -o $@ $(PARAM)
@@ -26,6 +29,6 @@ debug : .depend debug.o $(BACKENDOBJ)
 	g++ $< -c $(PARAM)
 
 clean :
-	-rm *.o *.gch .depend main
+	-rm *.o *.gch .depend main genmesh debug
 
 .PHONY : clean

@@ -15,6 +15,7 @@ Optional<Surface::SurfInterType> Surface::findInter(const Ray &ray) const
     auto boxInterOpt = boxTree->findInter(ray);
     if (! boxInterOpt.isOk())
         return None();
+
     const auto &boxInter = boxInterOpt.ok();
 
     float u((boxInter.first->u1 + boxInter.first->u2) * 0.5);
@@ -59,7 +60,9 @@ std::vector< std::unique_ptr<Surface> > Surface::load(const char filename[])
         case SYM_BEZIER3: {
             Vec2 p0, p1, p2, p3;
             is >> p0 >> p1 >> p2 >> p3;
-            ret.push_back(std::unique_ptr<Surface>(new Axisymmetric(new Bezier3(p0, p1, p2, p3))));
+            auto surf = std::unique_ptr<Surface>(new Axisymmetric(new Bezier3(p0, p1, p2, p3)));
+            surf->init();
+            ret.push_back(std::move(surf));
             break;
         }
         default:

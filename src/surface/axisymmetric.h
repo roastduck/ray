@@ -41,7 +41,7 @@ inline Vec3 Axisymmetric::derivativeU(float u, float v) const
 {
     Vec2 flat = curve->position(v);
     float omega = u * 2 * PI;
-    return Vec3(flat.y * 2 * PI * -sinf(omega), flat.y * 2 * PI * cosf(omega), flat.x);
+    return Vec3(flat.y * 2 * PI * -sinf(omega), flat.y * 2 * PI * cosf(omega), 0);
 }
 
 inline Vec3 Axisymmetric::derivativeV(float u, float v) const

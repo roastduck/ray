@@ -6,11 +6,11 @@ int Mesh::vertCnt = 0;
 
 void Mesh::outputSurfaces(std::ostream &os)
 {
-    int baseCnt = vertCnt;
     auto surfaces = Surface::load(INPUT_FILE);
     float interval(1.0 / MESH_1D_NUM);
     for (const std::unique_ptr<Surface> &surf : surfaces)
     {
+        int baseCnt = vertCnt;
         for (int i = 0; i < MESH_1D_NUM + ! surf->uIsCircular(); i++)
             for (int j = 0; j < MESH_1D_NUM + ! surf->vIsCircular(); j++)
             {
