@@ -12,15 +12,9 @@ int main()
         for (int j = 0; j < SCREEN_HEIGHT; j++)
         {
             Ray ray(Vec3(0, -1000, 250), Vec3((i - SCREEN_WIDTH * 0.5) * RES_ANGLE, 1, (j - SCREEN_HEIGHT * 0.5) * RES_ANGLE));
-            for (const auto &surf : surfaces)
-            {
-                auto interOpt = surf->findInter(ray);
-                if (interOpt.isOk())
-                {
-                    canvas(SCREEN_HEIGHT - j - 1, i) = cv::Vec3b(255, 255, 255);
-                    break;
-                }
-            }
+            auto interOpt = Surface::findInter(surfaces, ray);
+            if (interOpt.isOk())
+                canvas(SCREEN_HEIGHT - j - 1, i) = cv::Vec3b(255, 255, 255);
         }
 
     cv::imwrite(OUTPUT_FILE, canvas);

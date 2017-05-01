@@ -160,7 +160,7 @@ private:
 public:
     Optional() : valid(false) {}
     Optional(None) : valid(false) {}
-    Optional(T &_content) : valid(true), content(_content) {}
+    Optional(const T &_content) : valid(true), content(_content) {}
     Optional(T &&_content) : valid(true), content(_content) {}
 
     bool isOk() const { return valid; }

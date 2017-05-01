@@ -32,6 +32,7 @@ public:
     virtual Vec3 derivativeU(float u, float v) const = 0;
     /// Get partial S / partial v on the surface
     virtual Vec3 derivativeV(float u, float v) const = 0;
+    // Normal of the surface is defined to be du * dv
 
     /// (x:(min, max), y:(min, max), z: (min, max)) when (u,v) in [u1, u2] * [v1, v2]
     virtual Box3 xyzMinMax(float u1, float u2, float v1, float v2) const = 0;
@@ -42,11 +43,17 @@ public:
     struct SurfInterType
     {
         float t, u, v;
+        Vec3 pos, normal;
         SurfInterType() {}
-        SurfInterType(float _t, float _u, float _v) : t(_t), u(_u), v(_v) {}
+        SurfInterType(float _t, float _u, float _v, const Vec3 &_pos, const Vec3 &_normal)
+            : t(_t), u(_u), v(_v), pos(_pos), normal(_normal) {}
     };
 
+    /// Find intersection on 1 surface
     Optional<SurfInterType> findInter(const Ray &ray) const;
+
+    /// Find nearest intersection on all surfaces
+    static Optional<SurfInterType> findInter(const std::vector< std::unique_ptr<Surface> > &surfaces, const Ray &ray);
 
     /// Load surfaces from file
     static std::vector< std::unique_ptr<Surface> > load(const char filename[]);

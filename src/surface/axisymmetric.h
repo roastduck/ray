@@ -9,6 +9,7 @@
 /** Rotate a curve around z-axis to form a surface
  *  omega = u * 2 * PI, curve param = v
  *  Curve(x, y) => Surface(z, x ~ y)
+ *  If curve parameter v is positively correlated with x, normal goes outwards
  */
 class Axisymmetric : public Surface
 {
