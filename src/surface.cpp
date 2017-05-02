@@ -39,28 +39,12 @@ Optional<Surface::SurfInterType> Surface::findInter(const Ray &ray) const
         if (f.dist2() < EPS * EPS)
         {
             if (t > EPS) // Move out of original position
-                return SurfInterType(t, u, v, s, cross(su, sv));
+                return SurfInterType(this, t, u, v, s, cross(su, sv));
             else
                 return None();
         }
     }
     return None();
-}
-
-Optional<Surface::SurfInterType> Surface::findInter(const std::vector< std::unique_ptr<Surface> > &surfaces, const Ray &ray)
-{
-    Optional<SurfInterType> ret;
-    for (const auto &surf : surfaces)
-    {
-        auto interOpt = surf->findInter(ray);
-        if (interOpt.isOk())
-        {
-            const auto &inter(interOpt.ok());
-            if (!ret.isOk() || inter.t < ret.ok().t)
-                ret = inter;
-        }
-    }
-    return ret;
 }
 
 std::vector< std::unique_ptr<Surface> > Surface::load(const char filename[])
@@ -69,14 +53,17 @@ std::vector< std::unique_ptr<Surface> > Surface::load(const char filename[])
 
     std::vector< std::unique_ptr<Surface> > ret;
     int name = INVALID;
-    while (is >> name)
+    int material = Material::INVALID;
+    while (is >> name >> material)
     {
         switch (Name(name))
         {
         case SYM_BEZIER3: {
             Vec2 p0, p1, p2, p3;
             is >> p0 >> p1 >> p2 >> p3;
-            auto surf = std::unique_ptr<Surface>(new Axisymmetric(new Bezier3(p0, p1, p2, p3)));
+            auto surf = std::unique_ptr<Surface>(
+                new Axisymmetric(Material::byName(Material::MaterialName(material)), new Bezier3(p0, p1, p2, p3))
+            );
             surf->init();
             ret.push_back(std::move(surf));
             break;

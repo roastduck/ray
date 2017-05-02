@@ -5,6 +5,8 @@
 #include <algorithm>
 #include "vec.h"
 
+const float BOX_EPS = 1e-3;
+
 struct Box2
 {
     float xMin, xMax, yMin, yMax;
@@ -22,9 +24,10 @@ struct Box2
         yMin = std::min(yMin, p.y), yMax = std::max(yMax, p.y);
     }
 
+    /// Containing includes falling nearing the edge
     bool contains(const Vec2 &v) const
     {
-        return v.x >= xMin && v.x <= xMax && v.y >= yMin && v.y <= yMax;
+        return v.x >= xMin - BOX_EPS && v.x <= xMax + BOX_EPS && v.y >= yMin - BOX_EPS && v.y <= yMax + BOX_EPS;
     }
 };
 
@@ -46,9 +49,12 @@ struct Box3
         return (xMax - xMin) * (yMax - yMin) * (zMax - zMin);
     }
 
+    /// Containing includes falling nearing the edge
     bool contains(const Vec3 &v) const
     {
-        return v.x >= xMin && v.x <= xMax && v.y >= yMin && v.y <= yMax && v.z >= zMin && v.z <= zMax;
+        return v.x >= xMin - BOX_EPS && v.x <= xMax + BOX_EPS
+            && v.y >= yMin - BOX_EPS && v.y <= yMax + BOX_EPS
+            && v.z >= zMin - BOX_EPS && v.z <= zMax + BOX_EPS;
     }
 
     float dist2(const Vec3 &v) const

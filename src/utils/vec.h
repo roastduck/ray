@@ -1,6 +1,7 @@
 #ifndef VEC_H_
 #define VEC_H_
 
+#include <cmath>
 #include <cassert>
 #include <iomanip>
 #include <iostream>
@@ -27,6 +28,34 @@ struct Vec3t
 
     Vec3t operator-() const { return Vec3t(-x, -y, -z); }
     T dist2() const { return x * x + y * y + z * z; }
+
+    Vec3t &operator+=(const Vec3t &rhs) { x += rhs.x, y += rhs.y, z += rhs.z; return *this; }
+    Vec3t &operator-=(const Vec3t &rhs) { x -= rhs.x, y -= rhs.y, z -= rhs.z; return *this; }
+    Vec3t &operator*=(T k) { x *= k, y *= k, z *= k; return *this; }
+
+    /// Rotate around X-axis
+    Vec3t rotateX(T theta) const
+    {
+        T c(cos(theta)), s(sin(theta));
+        return Vec3t(x, y * c - z * s, y * s + z * c);
+    }
+    /// Rotate around Y-axis
+    Vec3t rotateY(T theta) const
+    {
+        T c(cos(theta)), s(sin(theta));
+        return Vec3t(x * c - z * s, y, x * s + z * c);
+    }
+    /// Rotate around Z-axis
+    Vec3t rotateZ(T theta) const
+    {
+        T c(cos(theta)), s(sin(theta));
+        return Vec3t(x * c - y * s, x * s + y * c, z);
+    }
+    /// Skew theta angle with phi direction in a semisphere
+    Vec3t rotate(T phi, T theta) const
+    {
+        return rotateZ(-phi).rotateY(-theta).rotateZ(phi);
+    }
 };
 
 template <class T>
@@ -78,6 +107,12 @@ template <class T>
 inline T dot(const Vec3t<T> &lhs, const Vec3t<T> &rhs)
 {
     return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
+}
+
+template <class T>
+inline Vec3t<T> multiple(const Vec3t<T> &lhs, const Vec3t<T> &rhs)
+{
+    return Vec3t<T>(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z);
 }
 
 typedef Vec2t<float> Vec2; /// Other type only used in few situations to increase accuracy

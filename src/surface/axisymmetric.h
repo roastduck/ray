@@ -17,7 +17,8 @@ private:
     std::unique_ptr<const Curve> curve; /// Responsible to destroy it
 
 public:
-    Axisymmetric(const Curve *_curve) : curve(_curve) {}
+    Axisymmetric(const Material &_material, const Curve *_curve)
+        : Surface(_material), curve(_curve) {}
     Axisymmetric(const Axisymmetric &) = delete;
     Axisymmetric &operator=(const Axisymmetric &) = delete;
 

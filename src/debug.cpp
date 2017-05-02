@@ -8,7 +8,7 @@
 
 int main()
 {
-    auto surfaces = Surface::load(INPUT_FILE);
+    auto surfaces = Surface::load(INPUT_OBJECTS_FILE);
     const auto &surface = surfaces[0];
     assert(surface);
     std::vector<Ray> rays = {

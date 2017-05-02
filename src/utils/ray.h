@@ -8,6 +8,7 @@ struct Ray
     Vec3 st; /// Starting point
     Vec3 dir; /// Direction
 
+    Ray() {}
     Ray(const Vec3 &_st, const Vec3 &_dir)
         : st(_st), dir(_dir) {}
 };
@@ -18,6 +19,7 @@ struct ColoredRay
 {
     color_t color;
     Ray ray;
+    ColoredRay() {}
     ColoredRay(const color_t &_color, const Ray &_ray)
         : color(_color), ray(_ray) {}
 };

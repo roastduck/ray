@@ -6,7 +6,7 @@ int Mesh::vertCnt = 0;
 
 void Mesh::outputSurfaces(std::ostream &os)
 {
-    auto surfaces = Surface::load(INPUT_FILE);
+    auto surfaces = Surface::load(INPUT_OBJECTS_FILE);
     float interval(1.0 / MESH_1D_NUM);
     for (const std::unique_ptr<Surface> &surf : surfaces)
     {
