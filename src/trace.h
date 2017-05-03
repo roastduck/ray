@@ -33,12 +33,16 @@ public:
     /// Calculate light attenuation
     static Vec3 colorFactor(const Vec3 &ray1, const Vec3 &ray2, const Surface::SurfInterType &inter);
 
-    /// Monte Carlo photon trace for `depth` depth
+    /// Monte Carlo photon trace
+    /// @param surfaces : All surfaces
+    /// @param ray : Incoming ray
+    /// @param depth : Recursion depth
+    /// @param callback : fn(intersection, incoming ray, depth left). Return false to stop tracing
     static void trace(
         const std::vector< std::unique_ptr<Surface> > &surfaces,
         const ColoredRay &ray,
         int depth,
-        const std::function<void(const Surface::SurfInterType&, const ColoredRay &ray)> &callback
+        const std::function<bool(const Surface::SurfInterType&, const ColoredRay &ray, int depth)> &callback
     );
 };
 

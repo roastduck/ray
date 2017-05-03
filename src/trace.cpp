@@ -49,7 +49,7 @@ void Trace::correctFrontBack(const Vec3 &input, Vec3 &norm, float &refrIdx)
 
 Vec3 Trace::colorFactor(const Vec3 &ray1, const Vec3 &ray2, const Surface::SurfInterType &inter)
 {
-    const Material &mat(inter.surf->material);
+    const Material &mat(*(inter.surf->material));
     float refrIdx = mat.Rn;
     Vec3 norm(inter.normal);
     correctFrontBack(ray1, norm, refrIdx);
@@ -57,7 +57,7 @@ Vec3 Trace::colorFactor(const Vec3 &ray1, const Vec3 &ray2, const Surface::SurfI
     
     Vec3 reflection(reflectDir(ray1, norm));
     auto refrection(refrectDir(ray1, norm, refrIdx));
-    color_t ret(ENV_COLOR);
+    color_t ret(0, 0, 0);
     Vec3 uniRay2 = ray2 * (1.0f / sqrtf(ray2.dist2()));
     ret += mat.Creflec * std::max(0.0f, mat.Kd * dot(uniRay2, norm));
     ret += mat.Creflec * std::max(0.0f, mat.Ks * powf(dot(uniRay2, reflection), mat.Sn));
@@ -71,17 +71,17 @@ void Trace::trace(
     const std::vector< std::unique_ptr<Surface> > &surfaces,
     const ColoredRay &ray,
     int depth,
-    const std::function<void(const Surface::SurfInterType&, const ColoredRay &ray)> &callback
+    const std::function<bool(const Surface::SurfInterType&, const ColoredRay &ray, int depth)> &callback
 )
 {
     auto interOpt(findInter(surfaces, ray.ray));
     if (!interOpt.isOk()) return;
     auto inter(interOpt.ok());
-    callback(inter, ray);
+    if (!callback(inter, ray, depth)) return;
     if (!depth) return;
     if (ray.color.dist2() < sqr(0.004)) return;
 
-    const Material &mat(inter.surf->material);
+    const Material &mat(*(inter.surf->material));
     float refrIdx = mat.Rn;
     Vec3 norm(inter.normal);
     correctFrontBack(ray.ray.dir, norm, refrIdx);

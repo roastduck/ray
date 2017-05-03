@@ -16,44 +16,44 @@ class Axisymmetric : public Surface
 private:
     std::unique_ptr<const Curve> curve; /// Responsible to destroy it
 
+protected:
+    Vec3 positionImpl(float u, float v) const override;
+    Vec3 derivativeUImpl(float u, float v) const override;
+    Vec3 derivativeVImpl(float u, float v) const override;
+
+    Box3 xyzMinMaxImpl(float u1, float u2, float v1, float v2) const override;
+
 public:
-    Axisymmetric(const Material &_material, const Curve *_curve)
-        : Surface(_material), curve(_curve) {}
+    Axisymmetric(const Curve *_curve) : curve(_curve) {}
     Axisymmetric(const Axisymmetric &) = delete;
     Axisymmetric &operator=(const Axisymmetric &) = delete;
 
-    Vec3 position(float u, float v) const override;
-    Vec3 derivativeU(float u, float v) const override;
-    Vec3 derivativeV(float u, float v) const override;
-
-    Box3 xyzMinMax(float u1, float u2, float v1, float v2) const override;
-
-    bool uIsCircular() override { return true; }
-    bool vIsCircular() override { return false; }
+    bool uIsCircular() const override { return true; }
+    bool vIsCircular() const override { return false; }
 };
 
-inline Vec3 Axisymmetric::position(float u, float v) const
+inline Vec3 Axisymmetric::positionImpl(float u, float v) const
 {
     Vec2 flat = curve->position(v);
     float omega = u * 2 * PI;
     return Vec3(flat.y * cosf(omega), flat.y * sinf(omega), flat.x);
 }
 
-inline Vec3 Axisymmetric::derivativeU(float u, float v) const
+inline Vec3 Axisymmetric::derivativeUImpl(float u, float v) const
 {
     Vec2 flat = curve->position(v);
     float omega = u * 2 * PI;
     return Vec3(flat.y * 2 * PI * -sinf(omega), flat.y * 2 * PI * cosf(omega), 0);
 }
 
-inline Vec3 Axisymmetric::derivativeV(float u, float v) const
+inline Vec3 Axisymmetric::derivativeVImpl(float u, float v) const
 {
     Vec2 dflat = curve->derivation(v);
     float omega = u * 2 * PI;
     return Vec3(dflat.y * cosf(omega), dflat.y * sinf(omega), dflat.x);
 }
 
-inline Box3 Axisymmetric::xyzMinMax(float u1, float u2, float v1, float v2) const
+inline Box3 Axisymmetric::xyzMinMaxImpl(float u1, float u2, float v1, float v2) const
 {
     assert(inrange(u1, 0, 1) && inrange(u2, 0, 1) && inrange(v1, 0, 1) && inrange(v2, 0, 1));
     assert(v1 <= v2);

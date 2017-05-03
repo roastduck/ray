@@ -6,7 +6,6 @@
 
 // File names
 const char INPUT_OBJECTS_FILE[] = "objects.txt";
-const char INPUT_LIGHTS_FILE[] = "lights.txt";
 const char OUTPUT_FILE[] = "output.png";
 const char MESH_FILE[] = "mesh.obj";
 
@@ -27,9 +26,6 @@ const int RAY_PER_LIGHT = 10000000;
 const int DEPTH_PER_PIXEL = 1;
 const int RAY_PER_PIXEL = 10;
 const int KNN_K = 5;
-
-// DECORATION
-const color_t ENV_COLOR(0.1, 0.1, 0.1);
 
 #endif // CONST_H_
 

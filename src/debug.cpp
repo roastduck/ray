@@ -24,8 +24,6 @@ int main()
         }
         auto inter(interOpt.ok());
         std::cout << "t = " << inter.t << std::endl;
-        std::cout << "u = " << inter.u << std::endl;
-        std::cout << "v = " << inter.v << std::endl;
     }
     return 0;
 }

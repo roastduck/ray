@@ -8,16 +8,7 @@
 #include "const.h"
 #include "surface.h"
 #include "photonmap.h"
-
-std::vector<ColoredRay> loadLights()
-{
-    std::ifstream is(INPUT_LIGHTS_FILE);
-    std::vector<ColoredRay> ret;
-    ColoredRay cur;
-    while (is >> cur.color >> cur.ray.st >> cur.ray.dir)
-        ret.push_back(cur);
-    return ret;
-}
+#include "surface/lightsource.h"
 
 color_t screenColor[SCREEN_WIDTH][SCREEN_HEIGHT];
 float screenWeight[SCREEN_WIDTH][SCREEN_HEIGHT];
@@ -30,21 +21,28 @@ int main()
     memset(screenWeight, 0, sizeof screenWeight);
 
     auto surfaces = Surface::load(INPUT_OBJECTS_FILE);
-    auto lights = loadLights();
 
     std::cout << "Emitting photons" << std::endl;
-    for (const ColoredRay &light : lights)
-        for (int i = 0; i < RAY_PER_LIGHT; i++)
+    for (const auto &surf : surfaces)
+        if (surf->isLightSource())
         {
-            ColoredRay ray(light.color, randSemisphere(light.ray.st, light.ray.dir));
-            Trace::trace(surfaces, ray, DEPTH_PER_LIGHT, [](const Surface::SurfInterType &inter, const ColoredRay &ray) {
-                const_cast<Surface*>(inter.surf)->photonMap.addRay(ColoredRay(ray.color, Ray(inter.pos, ray.ray.dir))); // `st` must be on the surface
-            });
+            auto light = dynamic_cast<const LightSource*>(surf.get());
+            for (int i = 0; i < RAY_PER_LIGHT; i++)
+            {
+                ColoredRay ray(light->color, randSemisphere(randInBall(light->translate, light->radius), light->direction));
+                Trace::trace(surfaces, ray, DEPTH_PER_LIGHT, [](const Surface::SurfInterType &inter, const ColoredRay &ray, int) {
+                    if (inter.surf->isLightSource()) return false;
+                    const_cast<Surface*>(inter.surf)->photonMap->addRay(ColoredRay(ray.color, Ray(inter.pos, ray.ray.dir)));
+                    // `st` must be on the surface
+                    return true;
+                });
+            }
         }
 
     std::cout << "Building kd-tree" << std::endl;
     for (const auto &surf : surfaces)
-        surf->photonMap.buildTree();
+        if (!surf->isLightSource())
+            surf->photonMap->buildTree();
 
     std::cout << "Tracing sight" << std::endl;
     for (int i = 0; i < SCREEN_WIDTH; i++)
@@ -55,8 +53,14 @@ int main()
                 Ray(Vec3(0, -1000, 0), Vec3((i - SCREEN_WIDTH * 0.5) * RES_ANGLE, 1, (j - SCREEN_HEIGHT * 0.5) * RES_ANGLE))
             );
             for (int k = 0; k < RAY_PER_PIXEL; k++)
-                Trace::trace(surfaces, ray, DEPTH_PER_PIXEL, [i,j](const Surface::SurfInterType &inter, const ColoredRay &ray) {
-                    auto photons = inter.surf->photonMap.getKNN(inter.pos, KNN_K);
+                Trace::trace(surfaces, ray, DEPTH_PER_PIXEL, [i,j](const Surface::SurfInterType &inter, const ColoredRay &ray, int depth) {
+                    if (inter.surf->isLightSource())
+                    {
+                        auto light = dynamic_cast<const LightSource*>(inter.surf);
+                        screenColor[i][j] += multiple(light->color, ray.color) * float(depth + 1);
+                        return false;
+                    }
+                    auto photons = inter.surf->photonMap->getKNN(inter.pos, KNN_K);
                     float r2 = 0;
                     color_t color(0, 0, 0);
                     for (const ColoredRay &photon : photons)
@@ -66,8 +70,9 @@ int main()
                     }
                     color *= PI / r2;
                     screenColor[i][j] += multiple(color, ray.color);
-                    screenWeight[i][j] += 1;
+                    return true;
                 });
+            screenWeight[i][j] = RAY_PER_PIXEL * DEPTH_PER_PIXEL;
         }
     // TODO: check if lights directly go into screen or the contrary
     

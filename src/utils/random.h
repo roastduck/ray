@@ -21,3 +21,12 @@ inline Ray randSemisphere(const Vec3 &st, const Vec3 &norm, int n = 1)
     return Ray(st, dir);
 }
 
+/// Random point in a ball
+inline Vec3 randInBall(const Vec3 &center, float radius)
+{
+    float phi = rand01() * 2 * PI;
+    float theta = rand01() * PI;
+    float r = rand01() * radius;
+    return center + Vec3(sinf(theta) * cosf(phi), sinf(theta) * sinf(phi), cosf(theta)) * r;
+}
+
