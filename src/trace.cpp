@@ -4,9 +4,9 @@
 #include "trace.h"
 #include "const.h"
 
-Optional<Surface::SurfInterType> Trace::findInter(const std::vector< std::unique_ptr<Surface> > &surfaces, const Ray &ray)
+Optional<SurfInterType> Trace::findInter(const std::vector< std::unique_ptr<Surface> > &surfaces, const Ray &ray)
 {
-    Optional<Surface::SurfInterType> ret;
+    Optional<SurfInterType> ret;
     for (const auto &surf : surfaces)
     {
         auto interOpt = surf->findInter(ray);
@@ -47,7 +47,7 @@ void Trace::correctFrontBack(const Vec3 &input, Vec3 &norm, float &refrIdx)
         norm = -norm, refrIdx = 1.0f / refrIdx;
 }
 
-Vec3 Trace::colorFactor(const Vec3 &ray1, const Vec3 &ray2, const Surface::SurfInterType &inter)
+Vec3 Trace::colorFactor(const Vec3 &ray1, const Vec3 &ray2, const SurfInterType &inter)
 {
     const Material &mat(*(inter.surf->material));
     float refrIdx = mat.Rn;
@@ -71,7 +71,7 @@ void Trace::trace(
     const std::vector< std::unique_ptr<Surface> > &surfaces,
     const ColoredRay &ray,
     int depth,
-    const std::function<bool(const Surface::SurfInterType&, const ColoredRay &ray, int depth)> &callback
+    const std::function<bool(const SurfInterType&, const ColoredRay &ray, int depth)> &callback
 )
 {
     auto interOpt(findInter(surfaces, ray.ray));

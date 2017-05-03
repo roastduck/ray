@@ -6,6 +6,7 @@
 #include "utils.h"
 #include "surface.h"
 #include "material.h"
+#include "intersection.h"
 
 /** Perform tracing
  *  This is a static class
@@ -17,7 +18,7 @@ private:
 
 public:
     /// Find nearest intersection on all surfaces
-    static Optional<Surface::SurfInterType> findInter(const std::vector< std::unique_ptr<Surface> > &surfaces, const Ray &ray);
+    static Optional<SurfInterType> findInter(const std::vector< std::unique_ptr<Surface> > &surfaces, const Ray &ray);
 
     /// Calculate reflection direction
     /// @param input : Ray goes in
@@ -31,7 +32,7 @@ public:
     static Optional<Vec3> refrectDir(const Vec3 &input, const Vec3 &norm, float refrIdx);
 
     /// Calculate light attenuation
-    static Vec3 colorFactor(const Vec3 &ray1, const Vec3 &ray2, const Surface::SurfInterType &inter);
+    static Vec3 colorFactor(const Vec3 &ray1, const Vec3 &ray2, const SurfInterType &inter);
 
     /// Monte Carlo photon trace
     /// @param surfaces : All surfaces
@@ -42,7 +43,7 @@ public:
         const std::vector< std::unique_ptr<Surface> > &surfaces,
         const ColoredRay &ray,
         int depth,
-        const std::function<bool(const Surface::SurfInterType&, const ColoredRay &ray, int depth)> &callback
+        const std::function<bool(const SurfInterType&, const ColoredRay &ray, int depth)> &callback
     );
 };
 

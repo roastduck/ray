@@ -13,7 +13,7 @@ class Surface;
  */
 class BoxTree
 {
-private:
+public:
     struct Node
     {
         enum SlideDir
@@ -32,22 +32,21 @@ private:
             : l(nullptr), r(nullptr), u1(_u1), u2(_u2), v1(_v1), v2(_v2), box(_box), slideBy(LEAF) {}
     };
 
-    std::unique_ptr<Node> root;
+    BoxTree(const Surface &_surf);
 
-public:
-    BoxTree(const Surface &surf);
-
-    /// Find intersection (box (leaf)*, (intersection point, ray parameter)) between surface and ray
-    Optional< std::pair<const Node*, InterType> > findInter(const Ray &ray);
+    Optional<SurfInterType> findInter(const Ray &ray);
 
 private:
+    std::unique_ptr<Node> root;
+    const Surface &surf;
+
     void buildTree(const Surface &surf, std::unique_ptr<Node> &node, float u1, float u2, float v1, float v2);
 
     /** Implement of findInter
      *  Asserting ray is intersecting with node->box
      *  @param inter : intersecting point with 
      */
-    Optional< std::pair<const Node*, InterType> > findInterRecur(const Ray &ray, const std::unique_ptr<Node> &node, const InterType &inter);
+    Optional<SurfInterType> findInterRecur(const Ray &ray, const std::unique_ptr<Node> &node, const InterType &inter);
 };
 
 #endif // BOXTREE_H_

@@ -3,7 +3,7 @@
 #include "surface.h"
 #include "boxtree.h"
 
-BoxTree::BoxTree(const Surface &surf)
+BoxTree::BoxTree(const Surface &_surf) : surf(_surf)
 {
     assert(! root);
     root = std::unique_ptr<Node>(new Node(0, 1, 0, 1, surf.xyzMinMax(0, 1, 0, 1)));
@@ -45,7 +45,7 @@ void BoxTree::buildTree(const Surface &surf, std::unique_ptr<Node> &node, float 
     }
 }
 
-Optional< std::pair<const BoxTree::Node*, InterType> > BoxTree::findInter(const Ray &ray)
+Optional<SurfInterType> BoxTree::findInter(const Ray &ray)
 {
     assert(root);
     assert(root->slideBy != Node::LEAF);
@@ -54,16 +54,16 @@ Optional< std::pair<const BoxTree::Node*, InterType> > BoxTree::findInter(const 
     return findInterRecur(ray, root, inter.ok());
 }
 
-Optional< std::pair<const BoxTree::Node*, InterType> > BoxTree::findInterRecur(const Ray &ray, const std::unique_ptr<Node> &node, const InterType &inter)
+Optional<SurfInterType> BoxTree::findInterRecur(const Ray &ray, const std::unique_ptr<Node> &node, const InterType &inter)
 {
     assert(intersec(node->box, ray).isOk());
     if (node->slideBy == Node::LEAF)
-        return std::pair<const Node*, InterType>(node.get(), inter);
+        return intersec(inter.second, (node->u1 + node->u2) * 0.5, (node->v1 + node->v2) * 0.5, inter.first, surf, ray);
     assert(node->l && node->r);
-    Optional< std::pair<Vec3, float> > iL(intersec(node->l->box, ray)), iR(intersec(node->r->box, ray));
+    Optional<InterType> iL(intersec(node->l->box, ray)), iR(intersec(node->r->box, ray));
     if (! iL.isOk() && ! iR.isOk())
         return None();
-    Optional< std::pair< const Node*, std::pair<Vec3, float> > > ret;
+    Optional<SurfInterType> ret;
     if (iL.isOk() && (! iR.isOk() || iL.ok().second < iR.ok().second))
         return (ret = findInterRecur(ray, node->l, iL.ok())).isOk() ? ret : iR.isOk() ? findInterRecur(ray, node->r, iR.ok()) : None();
     else // ! iL.isOk() || iR.isOk() && iL.ok().second >= iR.ok().second

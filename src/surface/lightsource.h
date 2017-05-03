@@ -6,6 +6,7 @@
 #include "../const.h"
 #include "../utils.h"
 #include "../surface.h"
+#include "../intersection.h"
 
 /** Light source as a ball
  *  Cannot be used as a normal object
@@ -36,7 +37,7 @@ public:
     Optional<SurfInterType> findInter(const Ray &ray) const override;
 };
 
-inline Optional<LightSource::SurfInterType> LightSource::findInter(const Ray &ray) const
+inline Optional<SurfInterType> LightSource::findInter(const Ray &ray) const
 {
     Vec3 _st(ray.st - translate);
     double a(ray.dir.dist2()), b(2 * dot(_st, ray.dir)), c(_st.dist2() - sqr(radius));

@@ -30,7 +30,7 @@ int main()
             for (int i = 0; i < RAY_PER_LIGHT; i++)
             {
                 ColoredRay ray(light->color, randSemisphere(randInBall(light->translate, light->radius), light->direction));
-                Trace::trace(surfaces, ray, DEPTH_PER_LIGHT, [](const Surface::SurfInterType &inter, const ColoredRay &ray, int) {
+                Trace::trace(surfaces, ray, DEPTH_PER_LIGHT, [](const SurfInterType &inter, const ColoredRay &ray, int) {
                     if (inter.surf->isLightSource()) return false;
                     const_cast<Surface*>(inter.surf)->photonMap->addRay(ColoredRay(ray.color, Ray(inter.pos, ray.ray.dir)));
                     // `st` must be on the surface
@@ -53,7 +53,7 @@ int main()
                 Ray(Vec3(0, -1000, 0), Vec3((i - SCREEN_WIDTH * 0.5) * RES_ANGLE, 1, (j - SCREEN_HEIGHT * 0.5) * RES_ANGLE))
             );
             for (int k = 0; k < RAY_PER_PIXEL; k++)
-                Trace::trace(surfaces, ray, DEPTH_PER_PIXEL, [i,j](const Surface::SurfInterType &inter, const ColoredRay &ray, int depth) {
+                Trace::trace(surfaces, ray, DEPTH_PER_PIXEL, [i,j](const SurfInterType &inter, const ColoredRay &ray, int depth) {
                     if (inter.surf->isLightSource())
                     {
                         auto light = dynamic_cast<const LightSource*>(inter.surf);

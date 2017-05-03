@@ -57,16 +57,6 @@ public:
 
     virtual bool isLightSource() const { return false; }
 
-    struct SurfInterType
-    {
-        const Surface *surf;
-        float t;
-        Vec3 pos, normal;
-        SurfInterType() : surf(0) {}
-        SurfInterType(const Surface *_surf, float _t, const Vec3 &_pos, const Vec3 &_normal)
-            : surf(_surf), t(_t), pos(_pos), normal(_normal) {}
-    };
-
     /// Find intersection on 1 surface
     virtual Optional<SurfInterType> findInter(const Ray &ray) const;
 

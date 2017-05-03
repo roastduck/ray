@@ -12,45 +12,10 @@ void Surface::init()
     boxTree = std::unique_ptr<BoxTree>(new BoxTree(*this));
 }
 
-Optional<Surface::SurfInterType> Surface::findInter(const Ray &ray) const
+Optional<SurfInterType> Surface::findInter(const Ray &ray) const
 {
     assert(boxTree);
-    auto boxInterOpt = boxTree->findInter(ray);
-    if (! boxInterOpt.isOk())
-        return None();
-
-    const auto &boxInter = boxInterOpt.ok();
-
-    float u((boxInter.first->u1 + boxInter.first->u2) * 0.5);
-    float v((boxInter.first->v1 + boxInter.first->v2) * 0.5);
-    float t(boxInter.second.second);
-    Vec3 s(position(u, v)), c(boxInter.second.first), f(c - s);
-    Vec3 su(derivativeU(u, v)), sv(derivativeV(u, v));
-    const Vec3 &ct(ray.dir);
-
-    for (int i = 0; i < 5; i++)
-    {
-        u -= dot(ct, cross(sv, f)) / dot(ct, cross(sv, -su)); // 1
-        if (!std::isfinite(u)) return None();
-        s = position(u, v), f = c - s, su = derivativeU(u, v), sv = derivativeV(u, v);
-
-        v -= dot(ct, cross(su, f)) / dot(ct, cross(su, -sv)); // 2
-        if (!std::isfinite(v)) return None();
-        s = position(u, v), f = c - s, su = derivativeU(u, v), sv = derivativeV(u, v);
-
-        t -= dot(su, cross(sv, f)) / dot(su, cross(sv, ct)); // 3
-        if (!std::isfinite(t)) return None();
-        c = ray.st + t * ray.dir, f = c - s;
-
-        if (f.dist2() < EPS * EPS)
-        {
-            if (t > EPS) // Move out of original position
-                return SurfInterType(this, t, s, cross(su, sv));
-            else
-                return None();
-        }
-    }
-    return None();
+    return boxTree->findInter(ray);
 }
 
 std::vector< std::unique_ptr<Surface> > Surface::load(const char filename[])
