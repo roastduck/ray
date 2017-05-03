@@ -11,8 +11,16 @@ struct Vec2t
 {
     T x, y;
     Vec2t() {}
-    Vec2t(T _x, T _y) : x(_x), y(_y) {}
-    template <class T2> Vec2t(const Vec2t<T2> &rhs) : x(rhs.x), y(rhs.y) {}
+    Vec2t(T _x, T _y) : x(_x), y(_y)
+    {
+        assert(!std::isnan(x));
+        assert(!std::isnan(y));
+    }
+    template <class T2> Vec2t(const Vec2t<T2> &rhs) : x(rhs.x), y(rhs.y)
+    {
+        assert(!std::isnan(x));
+        assert(!std::isnan(y));
+    }
 
     Vec2t operator-() const { return Vec2t(-x, -y); }
     T dist2() const { return x * x + y * y; }
@@ -23,8 +31,18 @@ struct Vec3t
 {
     T x, y, z;
     Vec3t() {}
-    Vec3t(T _x, T _y, T _z) : x(_x), y(_y), z(_z) {}
-    template <class T2> Vec3t(const Vec3t<T2> &rhs) : x(rhs.x), y(rhs.y), z(rhs.z) {}
+    Vec3t(T _x, T _y, T _z) : x(_x), y(_y), z(_z)
+    {
+        assert(!std::isnan(x));
+        assert(!std::isnan(y));
+        assert(!std::isnan(z));
+    }
+    template <class T2> Vec3t(const Vec3t<T2> &rhs) : x(rhs.x), y(rhs.y), z(rhs.z)
+    {
+        assert(!std::isnan(x));
+        assert(!std::isnan(y));
+        assert(!std::isnan(z));
+    }
 
     Vec3t operator-() const { return Vec3t(-x, -y, -z); }
     T dist2() const { return x * x + y * y + z * z; }

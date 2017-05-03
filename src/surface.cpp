@@ -1,3 +1,4 @@
+#include <cmath>
 #include <cassert>
 #include <fstream>
 #include "const.h"
@@ -28,12 +29,15 @@ Optional<Surface::SurfInterType> Surface::findInter(const Ray &ray) const
     for (int i = 0; i < 5; i++)
     {
         u -= dot(ct, cross(sv, f)) / dot(ct, cross(sv, -su)); // 1
+        if (!std::isfinite(u)) return None();
         s = position(u, v), f = c - s, su = derivativeU(u, v), sv = derivativeV(u, v);
 
         v -= dot(ct, cross(su, f)) / dot(ct, cross(su, -sv)); // 2
+        if (!std::isfinite(v)) return None();
         s = position(u, v), f = c - s, su = derivativeU(u, v), sv = derivativeV(u, v);
 
         t -= dot(su, cross(sv, f)) / dot(su, cross(sv, ct)); // 3
+        if (!std::isfinite(t)) return None();
         c = ray.st + t * ray.dir, f = c - s;
 
         if (f.dist2() < EPS * EPS)

@@ -1,6 +1,7 @@
 #include <cstring>
 #include <vector>
 #include <fstream>
+#include <iostream>
 #include <opencv2/opencv.hpp>
 #include "trace.h"
 #include "utils.h"
@@ -31,15 +32,21 @@ int main()
     auto surfaces = Surface::load(INPUT_OBJECTS_FILE);
     auto lights = loadLights();
 
-    for (const ColoredRay &ray : lights)
+    std::cout << "Emitting photons" << std::endl;
+    for (const ColoredRay &light : lights)
         for (int i = 0; i < RAY_PER_LIGHT; i++)
+        {
+            ColoredRay ray(light.color, randSemisphere(light.ray.st, light.ray.dir));
             Trace::trace(surfaces, ray, DEPTH_PER_LIGHT, [](const Surface::SurfInterType &inter, const ColoredRay &ray) {
                 const_cast<Surface*>(inter.surf)->photonMap.addRay(ColoredRay(ray.color, Ray(inter.pos, ray.ray.dir))); // `st` must be on the surface
             });
+        }
 
+    std::cout << "Building kd-tree" << std::endl;
     for (const auto &surf : surfaces)
         surf->photonMap.buildTree();
 
+    std::cout << "Tracing sight" << std::endl;
     for (int i = 0; i < SCREEN_WIDTH; i++)
         for (int j = 0; j < SCREEN_HEIGHT; j++)
         {
@@ -57,19 +64,24 @@ int main()
                         color += multiple(photon.color, Trace::colorFactor(photon.ray.dir, ray.ray.dir, inter));
                         r2 = std::max(r2, (inter.pos - photon.ray.st).dist2());
                     }
-                    color *= 1.0f / r2;
+                    color *= PI / r2;
                     screenColor[i][j] += multiple(color, ray.color);
                     screenWeight[i][j] += 1;
                 });
         }
     // TODO: check if lights directly go into screen or the contrary
     
+    std::cout << "Final output" << std::endl;
     for (int i = 0; i < SCREEN_WIDTH; i++)
         for (int j = 0; j < SCREEN_HEIGHT; j++)
-        {
-            color_t color(screenColor[i][j] * (1.0f / screenWeight[i][j]));
-            canvas(SCREEN_HEIGHT - j - 1, i) = cv::Vec3b(color.z, color.y, color.x); // BGR
-        }
+            if (screenWeight[i][j]) // Avoid dividing by 0
+            {
+                color_t color(screenColor[i][j] * (1.0f / screenWeight[i][j]));
+                unsigned char R(std::min<int>(255, color.x * 256));
+                unsigned char G(std::min<int>(255, color.y * 256));
+                unsigned char B(std::min<int>(255, color.z * 256));
+                canvas(SCREEN_HEIGHT - j - 1, i) = cv::Vec3b(B, G, R);
+            }
     cv::imwrite(OUTPUT_FILE, canvas);
 
     return 0;

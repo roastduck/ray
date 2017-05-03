@@ -40,7 +40,6 @@ struct Box3
         : xMin(_xMin), xMax(_xMax), yMin(_yMin), yMax(_yMax), zMin(_zMin), zMax(_zMax)
     {
         assert(xMin <= xMax && yMin <= yMax && zMin <= zMax);
-        assert(xMin < xMax || yMin < yMax || zMin < zMax);
     }
     Box3(const Vec3 &v) : Box3(v.x, v.x, v.y, v.y, v.z, v.z) {}
 

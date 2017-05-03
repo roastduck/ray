@@ -24,23 +24,25 @@ Vec3 Trace::reflectDir(const Vec3 &input, const Vec3 &norm)
 {
     assert(fabs(norm.dist2() - 1) < EPS * EPS);
     assert(dot(input, norm) < 0);
-    return Vec3(input + 2 * dot(input, norm) * norm);
+    return Vec3(input - 2 * dot(input, norm) * norm);
 }
 
-Vec3 Trace::refrectDir(const Vec3 &input, const Vec3 &norm, float refrIdx)
+Optional<Vec3> Trace::refrectDir(const Vec3 &input, const Vec3 &norm, float refrIdx)
 {
+    float sinThetaI = sqrtf(cross(input, norm).dist2() / input.dist2());
+    if (sinThetaI < EPS) return -norm;
+    float sinThetaT = sinThetaI / refrIdx;
+    if (sinThetaT > 1) return None(); // Total refrection
     assert(fabs(norm.dist2() - 1) < EPS * EPS);
     assert(dot(input, norm) < 0);
-    Vec3 horizontal(input + dot(input, norm) * norm);
+    Vec3 horizontal(input - dot(input, norm) * norm);
     assert(fabs(dot(horizontal, norm)) < EPS);
-    float sinThetaI = sqrtf(cross(input, norm).dist2() / input.dist2());
-    float sinThetaT = sinThetaI / refrIdx;
     return Vec3(horizontal - sqrtf(horizontal.dist2()) / tanf(asin(sinThetaT)) * norm);
 }
 
 void Trace::correctFrontBack(const Vec3 &input, Vec3 &norm, float &refrIdx)
 {
-    norm = norm * (1.0f / sqrtf(norm.dist2())); // `norm` is unified
+    norm *= 1.0f / sqrtf(norm.dist2()); // `norm` is unified
     if (dot(norm, input) > 0) // inside -> outside
         norm = -norm, refrIdx = 1.0f / refrIdx;
 }
@@ -51,13 +53,17 @@ Vec3 Trace::colorFactor(const Vec3 &ray1, const Vec3 &ray2, const Surface::SurfI
     float refrIdx = mat.Rn;
     Vec3 norm(inter.normal);
     correctFrontBack(ray1, norm, refrIdx);
+    assert(fabs(norm.dist2() - 1) < EPS * EPS);
+    
     Vec3 reflection(reflectDir(ray1, norm));
-    Vec3 refrection(refrectDir(ray1, norm, refrIdx));
+    auto refrection(refrectDir(ray1, norm, refrIdx));
     color_t ret(ENV_COLOR);
-    ret += mat.Creflec * std::max(0.0f, mat.Kd * dot(ray2, norm));
-    ret += mat.Creflec * std::max(0.0f, mat.Ks * dot(ray2, reflection));
-    ret += mat.Ctrans * std::max(0.0f, mat.Ktd * dot(ray2, -norm));
-    ret += mat.Ctrans * std::max(0.0f, mat.Kts * dot(ray2, refrection));
+    Vec3 uniRay2 = ray2 * (1.0f / sqrtf(ray2.dist2()));
+    ret += mat.Creflec * std::max(0.0f, mat.Kd * dot(uniRay2, norm));
+    ret += mat.Creflec * std::max(0.0f, mat.Ks * powf(dot(uniRay2, reflection), mat.Sn));
+    ret += mat.Ctrans * std::max(0.0f, mat.Ktd * dot(uniRay2, -norm));
+    if (refrection.isOk())
+        ret += mat.Ctrans * std::max(0.0f, mat.Kts * powf(dot(uniRay2, refrection.ok()), mat.Sn));
     return ret;
 }
 
@@ -79,8 +85,11 @@ void Trace::trace(
     float refrIdx = mat.Rn;
     Vec3 norm(inter.normal);
     correctFrontBack(ray.ray.dir, norm, refrIdx);
+    assert(fabs(norm.dist2() - 1) < EPS * EPS);
 
-    float emitType = rand01() * (mat.Kd + mat.Ks + mat.Ktd + mat.Kts);
+    auto refrectionOpt(refrectDir(ray.ray.dir, norm, refrIdx));
+
+    float emitType = rand01() * (mat.Kd + mat.Ks + mat.Ktd + (refrectionOpt.isOk() ? mat.Kts : 0));
     ColoredRay emit;
     if (emitType < mat.Kd) // Diffuse reflection
     {
@@ -92,18 +101,18 @@ void Trace::trace(
         emit.color = multiple(ray.color, mat.Creflec);
         do
             emit.ray = randSemisphere(inter.pos, reflection, mat.Sn);
-        while (dot(emit.ray.dir, norm) > 0);
+        while (dot(emit.ray.dir, norm) <= 0);
     } else if ((emitType -= mat.Ks) < mat.Ktd) // Diffuse transition
     {
         emit.color = multiple(ray.color, mat.Ctrans);
         emit.ray = randSemisphere(inter.pos, -norm, 0);
     } else // Specular transition
     {
-        Vec3 refrection(refrectDir(ray.ray.dir, norm, refrIdx));
+        Vec3 refrection(refrectionOpt.ok());
         emit.color = multiple(ray.color, mat.Ctrans);
         do
             emit.ray = randSemisphere(inter.pos, refrection, mat.Sn);
-        while (dot(emit.ray.dir, norm) < 0);
+        while (dot(emit.ray.dir, norm) >= 0);
     }
     trace(surfaces, emit, depth - 1, callback);
 }

@@ -28,7 +28,7 @@ public:
     /// @param input : Ray goes in
     /// @param norm : UNIFIED normal vector points OPPOSITE to input
     /// @param refrIdx : Relative refrection index
-    static Vec3 refrectDir(const Vec3 &input, const Vec3 &norm, float refrIdx);
+    static Optional<Vec3> refrectDir(const Vec3 &input, const Vec3 &norm, float refrIdx);
 
     /// Calculate light attenuation
     static Vec3 colorFactor(const Vec3 &ray1, const Vec3 &ray2, const Surface::SurfInterType &inter);

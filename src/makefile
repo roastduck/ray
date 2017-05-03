@@ -1,5 +1,5 @@
 ifeq ($(DEBUG), true)
-	PARAM = -g -Wall -std=c++11
+	PARAM = -ggdb3 -Wall -std=c++11
 else
 	PARAM = -O2 -DNDEBUG -std=c++11
 endif
