@@ -3,12 +3,12 @@
 #include <fstream>
 #include "const.h"
 #include "curve/bezier3.h"
+#include "surface/square.h"
 #include "surface/lightsource.h"
 #include "surface/axisymmetric.h"
 
 void Surface::init()
 {
-    photonMap = std::unique_ptr<PhotonMap>(new PhotonMap(*this));
     boxTree = std::unique_ptr<BoxTree>(new BoxTree(*this));
 }
 
@@ -30,6 +30,12 @@ std::vector< std::unique_ptr<Surface> > Surface::load(const char filename[])
         std::unique_ptr<Surface> surf(nullptr);
         switch (Name(name))
         {
+        case SQUARE: {
+            float edge;
+            is >> edge;
+            surf = std::unique_ptr<Surface>(new Square(edge));
+            break;
+        }
         case SYM_BEZIER3: {
             Vec2 p0, p1, p2, p3;
             is >> p0 >> p1 >> p2 >> p3;
@@ -41,6 +47,7 @@ std::vector< std::unique_ptr<Surface> > Surface::load(const char filename[])
             color_t color;
             float radius;
             is >> radius >> color >> direction;
+            color *= 1.0f / RAY_PER_LIGHT;
             surf = std::unique_ptr<Surface>(new LightSource(radius, color, direction));
             break;
         }
@@ -51,6 +58,7 @@ std::vector< std::unique_ptr<Surface> > Surface::load(const char filename[])
         {
             is >> material;
             surf->material = std::unique_ptr<Material>(new Material(Material::byName(Material::MaterialName(material))));
+            surf->photonMap = std::unique_ptr<PhotonMap>(new PhotonMap(*surf));
         }
         is >> surf->translate;
         surf->init();

@@ -6,7 +6,7 @@
 Optional<InterType> intersecYZ(float x, const Box2 &box, const Ray &ray)
 {
     float t((x - ray.st.x) / ray.dir.x);
-    assert(t >= 0);
+    if (!std::isfinite(t)) return None();
     Vec3 p(ray.st + t * ray.dir);
     if (box.contains(Vec2(p.y, p.z)))
         return InterType(p, t);
@@ -17,7 +17,7 @@ Optional<InterType> intersecYZ(float x, const Box2 &box, const Ray &ray)
 Optional<InterType> intersecXZ(float y, const Box2 &box, const Ray &ray)
 {
     float t((y - ray.st.y) / ray.dir.y);
-    assert(t >= 0);
+    if (!std::isfinite(t)) return None();
     Vec3 p(ray.st + t * ray.dir);
     if (box.contains(Vec2(p.x, p.z)))
         return InterType(p, t);
@@ -28,7 +28,7 @@ Optional<InterType> intersecXZ(float y, const Box2 &box, const Ray &ray)
 Optional<InterType> intersecXY(float z, const Box2 &box, const Ray &ray)
 {
     float t((z - ray.st.z) / ray.dir.z);
-    assert(t >= 0);
+    if (!std::isfinite(t)) return None();
     Vec3 p(ray.st + t * ray.dir);
     if (box.contains(Vec2(p.x, p.y)))
         return InterType(p, t);

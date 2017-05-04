@@ -59,11 +59,11 @@ Vec3 Trace::colorFactor(const Vec3 &ray1, const Vec3 &ray2, const SurfInterType 
     auto refrection(refrectDir(ray1, norm, refrIdx));
     color_t ret(0, 0, 0);
     Vec3 uniRay2 = ray2 * (1.0f / sqrtf(ray2.dist2()));
-    ret += mat.Creflec * std::max(0.0f, mat.Kd * dot(uniRay2, norm));
-    ret += mat.Creflec * std::max(0.0f, mat.Ks * powf(dot(uniRay2, reflection), mat.Sn));
-    ret += mat.Ctrans * std::max(0.0f, mat.Ktd * dot(uniRay2, -norm));
+    ret += mat.Creflec * std::max(0.0f, mat.Kd * -dot(uniRay2, norm));
+    ret += mat.Creflec * std::max(0.0f, mat.Ks * powf(-dot(uniRay2, reflection), mat.Sn));
+    ret += mat.Ctrans * std::max(0.0f, mat.Ktd * -dot(uniRay2, norm));
     if (refrection.isOk())
-        ret += mat.Ctrans * std::max(0.0f, mat.Kts * powf(dot(uniRay2, refrection.ok()), mat.Sn));
+        ret += mat.Ctrans * std::max(0.0f, mat.Kts * powf(-dot(uniRay2, refrection.ok()), mat.Sn));
     return ret;
 }
 

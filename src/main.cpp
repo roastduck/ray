@@ -30,8 +30,9 @@ int main()
             for (int i = 0; i < RAY_PER_LIGHT; i++)
             {
                 ColoredRay ray(light->color, randSemisphere(randInBall(light->translate, light->radius), light->direction));
-                Trace::trace(surfaces, ray, DEPTH_PER_LIGHT, [](const SurfInterType &inter, const ColoredRay &ray, int) {
-                    if (inter.surf->isLightSource()) return false;
+                Trace::trace(surfaces, ray, DEPTH_PER_LIGHT, [](const SurfInterType &inter, const ColoredRay &ray, int depth) {
+                    if (inter.surf->isLightSource())
+                        return false;
                     const_cast<Surface*>(inter.surf)->photonMap->addRay(ColoredRay(ray.color, Ray(inter.pos, ray.ray.dir)));
                     // `st` must be on the surface
                     return true;
@@ -48,11 +49,14 @@ int main()
     for (int i = 0; i < SCREEN_WIDTH; i++)
         for (int j = 0; j < SCREEN_HEIGHT; j++)
         {
-            ColoredRay ray(
-                Vec3(1, 1, 1),
-                Ray(Vec3(0, -1000, 0), Vec3((i - SCREEN_WIDTH * 0.5) * RES_ANGLE, 1, (j - SCREEN_HEIGHT * 0.5) * RES_ANGLE))
-            );
             for (int k = 0; k < RAY_PER_PIXEL; k++)
+            {
+                float _i = i + rand01() - 0.5;
+                float _j = j + rand01() - 0.5;
+                ColoredRay ray(
+                    Vec3(1, 1, 1),
+                    Ray(Vec3(0, -1000, 0), Vec3((_i - SCREEN_WIDTH * 0.5) * RES_ANGLE, 1, (_j - SCREEN_HEIGHT * 0.5) * RES_ANGLE))
+                );
                 Trace::trace(surfaces, ray, DEPTH_PER_PIXEL, [i,j](const SurfInterType &inter, const ColoredRay &ray, int depth) {
                     if (inter.surf->isLightSource())
                     {
@@ -72,9 +76,9 @@ int main()
                     screenColor[i][j] += multiple(color, ray.color);
                     return true;
                 });
-            screenWeight[i][j] = RAY_PER_PIXEL * DEPTH_PER_PIXEL;
+            }
+            screenWeight[i][j] = RAY_PER_PIXEL * (DEPTH_PER_PIXEL + 1);
         }
-    // TODO: check if lights directly go into screen or the contrary
     
     std::cout << "Final output" << std::endl;
     for (int i = 0; i < SCREEN_WIDTH; i++)

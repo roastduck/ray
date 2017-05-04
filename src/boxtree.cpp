@@ -57,6 +57,7 @@ Optional<SurfInterType> BoxTree::findInter(const Ray &ray)
 Optional<SurfInterType> BoxTree::findInterRecur(const Ray &ray, const std::unique_ptr<Node> &node, const InterType &inter)
 {
     assert(intersec(node->box, ray).isOk());
+    assert(inter.second >= 0);
     if (node->slideBy == Node::LEAF)
         return intersec(inter.second, (node->u1 + node->u2) * 0.5, (node->v1 + node->v2) * 0.5, inter.first, surf, ray);
     assert(node->l && node->r);

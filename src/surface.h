@@ -29,6 +29,7 @@ public:
     std::unique_ptr<Material> material;
 
     enum Name {
+        SQUARE = 0,
         SYM_BEZIER3 = 1,
         LIGHT_SOURCE = -2,
         INVALID = -1
