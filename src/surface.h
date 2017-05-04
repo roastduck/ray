@@ -28,13 +28,6 @@ public:
     std::unique_ptr<PhotonMap> photonMap;
     std::unique_ptr<Material> material;
 
-    enum Name {
-        SQUARE = 0,
-        SYM_BEZIER3 = 1,
-        LIGHT_SOURCE = -2,
-        INVALID = -1
-    };
-
     Surface()
         : boxTree(nullptr), translate(0, 0, 0), photonMap(nullptr), material(nullptr) {}
     virtual ~Surface() {}

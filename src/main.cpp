@@ -98,6 +98,7 @@ void collect(const std::vector< std::unique_ptr<Surface> > &surfaces, cv::Mat3b 
                             return false;
                         }
                         auto photons = inter.surf->photonMap->getKNN(inter.pos, KNN_K);
+                        if (photons.empty()) return true;
                         float r2 = 0;
                         color_t color(0, 0, 0);
                         for (const ColoredRay &photon : photons)
@@ -119,7 +120,7 @@ void collect(const std::vector< std::unique_ptr<Surface> > &surfaces, cv::Mat3b 
     for (int i = 0; i < SCREEN_WIDTH; i++)
         for (int j = 0; j < SCREEN_HEIGHT; j++)
         {
-            const color_t &color(screenColor[i][j]);
+            const color_t &color(screenColor[i][j] * (1.0f / RAY_PER_PIXEL));
             unsigned char R(std::min<int>(255, color.x * 256));
             unsigned char G(std::min<int>(255, color.y * 256));
             unsigned char B(std::min<int>(255, color.z * 256));

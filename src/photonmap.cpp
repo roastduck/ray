@@ -7,14 +7,14 @@ PhotonMap::PhotonMap(const Surface &_surf)
 void PhotonMap::buildTree()
 {
     assert(rawData && !tree);
-    assert(!rawData->empty());
+    if (rawData->empty()) return;
     tree = std::unique_ptr<KDTree>(new KDTree(*rawData));
     rawData = nullptr;
 }
 
 std::vector<ColoredRay> PhotonMap::getKNN(const Vec3 &center, int k) const
 {
-    assert(!rawData && tree);
+    if (!tree) return std::vector<ColoredRay>();
     return tree->getKNN(center, k);
 }
 

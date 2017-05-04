@@ -90,7 +90,8 @@ void Trace::trace(
 
     auto refrectionOpt(refrectDir(ray.ray.dir, norm, refrIdx));
 
-    int emitType = std::discrete_distribution<int>({mat.Kd, mat.Ks, mat.Ktd, (refrectionOpt.isOk() ? mat.Kts : 0)})(urng);
+    float _Kts = refrectionOpt.isOk() ? mat.Kts : 0;
+    int emitType = std::discrete_distribution<int>({mat.Kd, mat.Ks, mat.Ktd, _Kts})(urng);
     ColoredRay emit;
     switch (emitType)
     {
@@ -123,6 +124,7 @@ void Trace::trace(
     default:
         assert(false);
     }
+    emit.color *= mat.Kd + mat.Ks + mat.Ktd + _Kts; // Others are absorbed
     trace(urng, surfaces, emit, depth - 1, callback);
 }
 

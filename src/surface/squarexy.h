@@ -1,5 +1,5 @@
-#ifndef SQUARE_H_
-#define SQUARE_H_
+#ifndef SQUAREXY_H_
+#define SQUAREXY_H_
 
 #include "../utils.h"
 #include "../const.h"
@@ -9,7 +9,7 @@
 /** Square on x-y plane
  *  Upwards means outwards
  */
-class Square : public Surface
+class SquareXY : public Surface
 {
 private:
     float edge;
@@ -26,7 +26,7 @@ protected:
     }
 
 public:
-    Square(float _edge) : edge(_edge) {}
+    SquareXY(float _edge) : edge(_edge) {}
 
     bool uIsCircular() const override { return false; }
     bool vIsCircular() const override { return false; }
@@ -41,5 +41,5 @@ public:
     }
 };
 
-#endif // SQUARE_H_
+#endif // SQUAREXY_H_
 

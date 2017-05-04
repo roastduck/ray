@@ -3,7 +3,9 @@
 #include <fstream>
 #include "const.h"
 #include "curve/bezier3.h"
-#include "surface/square.h"
+#include "surface/squarexy.h"
+#include "surface/squareyz.h"
+#include "surface/squarezx.h"
 #include "surface/lightsource.h"
 #include "surface/axisymmetric.h"
 
@@ -20,6 +22,15 @@ Optional<SurfInterType> Surface::findInter(const Ray &ray) const
 
 std::vector< std::unique_ptr<Surface> > Surface::load(const char filename[])
 {
+    enum Name {
+        SYM_BEZIER3 = 1,
+        SQUAREXY = 2,
+        SQUAREYZ = 3,
+        SQUAREZX = 4,
+        LIGHT_SOURCE = -2,
+        INVALID = -1
+    };
+
     std::ifstream is(filename);
 
     std::vector< std::unique_ptr<Surface> > ret;
@@ -30,10 +41,22 @@ std::vector< std::unique_ptr<Surface> > Surface::load(const char filename[])
         std::unique_ptr<Surface> surf(nullptr);
         switch (Name(name))
         {
-        case SQUARE: {
+        case SQUAREXY: {
             float edge;
             is >> edge;
-            surf = std::unique_ptr<Surface>(new Square(edge));
+            surf = std::unique_ptr<Surface>(new SquareXY(edge));
+            break;
+        }
+        case SQUAREYZ: {
+            float edge;
+            is >> edge;
+            surf = std::unique_ptr<Surface>(new SquareYZ(edge));
+            break;
+        }
+        case SQUAREZX: {
+            float edge;
+            is >> edge;
+            surf = std::unique_ptr<Surface>(new SquareZX(edge));
             break;
         }
         case SYM_BEZIER3: {
