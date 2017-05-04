@@ -85,7 +85,7 @@ void collect(const std::vector< std::unique_ptr<Surface> > &surfaces, cv::Mat3b 
                 float _j = j + randReal(*(collectRandEngine[i]), -0.5, 0.5);
                 ColoredRay ray(
                     Vec3(1, 1, 1),
-                    Ray(Vec3(0, -1000, 0), Vec3((_i - SCREEN_WIDTH * 0.5) * RES_ANGLE, 1, (_j - SCREEN_HEIGHT * 0.5) * RES_ANGLE))
+                    Ray(Vec3(0, -750, 0), Vec3((_i - SCREEN_WIDTH * 0.5) * RES_ANGLE, 1, (_j - SCREEN_HEIGHT * 0.5) * RES_ANGLE))
                 );
                 color_t curColor(0, 0, 0);
                 int curWeight(0);

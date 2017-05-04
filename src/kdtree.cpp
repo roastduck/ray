@@ -43,11 +43,9 @@ void KDTree::getKNNImpl(const Node *x, std::vector<KDTree::data_t> &res, const V
     if (int(res.size()) < k)
         res.push_back(x->data);
     else if (xD2 < (getPoint(res.back()) - center).dist2())
-    {
         res.back() = x->data;
-        for (int k = res.size() - 1; k >= 1 && xD2 < (getPoint(res[k - 1]) - center).dist2(); k--)
-            std::swap(res[k], res[k - 1]);
-    }
+    for (int k = res.size() - 1; k >= 1 && xD2 < (getPoint(res[k - 1]) - center).dist2(); k--)
+        std::swap(res[k], res[k - 1]);
 
     Node *first = x->l, *second = x->r;
     float firstD2 = first ? first->box.dist2(center) : INF;
