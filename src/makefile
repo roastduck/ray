@@ -1,7 +1,7 @@
 ifeq ($(DEBUG), true)
-	PARAM = -ggdb3 -Wall -std=c++11
+	PARAM = -ggdb3 -Wall -std=c++11 -fopenmp
 else
-	PARAM = -O2 -DNDEBUG -std=c++11
+	PARAM = -O2 -DNDEBUG -std=c++11 -fopenmp
 endif
 
 SRC = $(wildcard *.cpp)
@@ -21,7 +21,7 @@ debug : .depend debug.o $(BACKENDOBJ)
 
 .depend : $(SRC)
 	rm -f .depend
-	g++ $(PARAM) -MM $^ > .depend;
+	g++ $(PARAM) -MM $^ > .depend
 
 -include .depend
 

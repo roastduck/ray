@@ -11,14 +11,13 @@
 #include "surface/lightsource.h"
 
 color_t screenColor[SCREEN_WIDTH][SCREEN_HEIGHT];
-float screenWeight[SCREEN_WIDTH][SCREEN_HEIGHT];
+std::vector< std::pair<const Surface*, ColoredRay> > rayQueue[RAY_PER_LIGHT];
 
 int main()
 {
     srand(0);
     cv::Mat3b canvas(SCREEN_HEIGHT, SCREEN_WIDTH, cv::Vec3b(0, 0, 0));
     memset(screenColor, 0, sizeof screenColor);
-    memset(screenWeight, 0, sizeof screenWeight);
 
     auto surfaces = Surface::load(INPUT_OBJECTS_FILE);
 
@@ -27,16 +26,24 @@ int main()
         if (surf->isLightSource())
         {
             auto light = dynamic_cast<const LightSource*>(surf.get());
+//#pragma omp parallel for shared(rayQueue) DO NOT USE THIS YET because rand() isn't thread safe
             for (int i = 0; i < RAY_PER_LIGHT; i++)
             {
+                assert(rayQueue[i].empty());
                 ColoredRay ray(light->color, randSemisphere(randInBall(light->translate, light->radius), light->direction));
-                Trace::trace(surfaces, ray, DEPTH_PER_LIGHT, [](const SurfInterType &inter, const ColoredRay &ray, int depth) {
+                Trace::trace(surfaces, ray, DEPTH_PER_LIGHT, [i](const SurfInterType &inter, const ColoredRay &ray, int depth) {
                     if (inter.surf->isLightSource())
                         return false;
-                    const_cast<Surface*>(inter.surf)->photonMap->addRay(ColoredRay(ray.color, Ray(inter.pos, ray.ray.dir)));
+                    rayQueue[i].push_back(std::make_pair(inter.surf, ColoredRay(ray.color, Ray(inter.pos, ray.ray.dir))));
                     // `st` must be on the surface
                     return true;
                 });
+            }
+            for (int i = 0; i < RAY_PER_LIGHT; i++)
+            {
+                for (const auto &item : rayQueue[i])
+                    const_cast<Surface*>(item.first)->photonMap->addRay(item.second);
+                rayQueue[i].clear();
             }
         }
 
@@ -46,9 +53,9 @@ int main()
             surf->photonMap->buildTree();
 
     std::cout << "Tracing sight" << std::endl;
+//#pragma omp parallel for shared(screenColor) DO NOT USE THIS YET
     for (int i = 0; i < SCREEN_WIDTH; i++)
         for (int j = 0; j < SCREEN_HEIGHT; j++)
-        {
             for (int k = 0; k < RAY_PER_PIXEL; k++)
             {
                 float _i = i + rand01() - 0.5;
@@ -57,7 +64,9 @@ int main()
                     Vec3(1, 1, 1),
                     Ray(Vec3(0, -1000, 0), Vec3((_i - SCREEN_WIDTH * 0.5) * RES_ANGLE, 1, (_j - SCREEN_HEIGHT * 0.5) * RES_ANGLE))
                 );
-                Trace::trace(surfaces, ray, DEPTH_PER_PIXEL, [i,j](const SurfInterType &inter, const ColoredRay &ray, int depth) {
+                color_t curColor(0, 0, 0);
+                int curWeight(0);
+                Trace::trace(surfaces, ray, DEPTH_PER_PIXEL, [i,j,&curColor,&curWeight](const SurfInterType &inter, const ColoredRay &ray, int depth) {
                     if (inter.surf->isLightSource())
                     {
                         auto light = dynamic_cast<const LightSource*>(inter.surf);
@@ -73,24 +82,23 @@ int main()
                         r2 = std::max(r2, (inter.pos - photon.ray.st).dist2());
                     }
                     color *= PI / r2;
-                    screenColor[i][j] += multiple(color, ray.color);
+                    curColor += multiple(color, ray.color), curWeight++;
                     return true;
                 });
+                if (curWeight)
+                    screenColor[i][j] += curColor * (1.0f / curWeight);
             }
-            screenWeight[i][j] = RAY_PER_PIXEL * (DEPTH_PER_PIXEL + 1);
-        }
     
     std::cout << "Final output" << std::endl;
     for (int i = 0; i < SCREEN_WIDTH; i++)
         for (int j = 0; j < SCREEN_HEIGHT; j++)
-            if (screenWeight[i][j]) // Avoid dividing by 0
-            {
-                color_t color(screenColor[i][j] * (1.0f / screenWeight[i][j]));
-                unsigned char R(std::min<int>(255, color.x * 256));
-                unsigned char G(std::min<int>(255, color.y * 256));
-                unsigned char B(std::min<int>(255, color.z * 256));
-                canvas(SCREEN_HEIGHT - j - 1, i) = cv::Vec3b(B, G, R);
-            }
+        {
+            const color_t &color(screenColor[i][j]);
+            unsigned char R(std::min<int>(255, color.x * 256));
+            unsigned char G(std::min<int>(255, color.y * 256));
+            unsigned char B(std::min<int>(255, color.z * 256));
+            canvas(SCREEN_HEIGHT - j - 1, i) = cv::Vec3b(B, G, R);
+        }
     cv::imwrite(OUTPUT_FILE, canvas);
 
     return 0;
