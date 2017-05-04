@@ -34,7 +34,7 @@ public:
 
     BoxTree(const Surface &_surf);
 
-    Optional<SurfInterType> findInter(const Ray &ray);
+    Optional<SurfInterType> findInter(const Ray &ray) const;
 
 private:
     std::unique_ptr<Node> root;
@@ -46,7 +46,7 @@ private:
      *  Asserting ray is intersecting with node->box
      *  @param inter : intersecting point with 
      */
-    Optional<SurfInterType> findInterRecur(const Ray &ray, const std::unique_ptr<Node> &node, const InterType &inter);
+    Optional<SurfInterType> findInterRecur(const Ray &ray, const std::unique_ptr<Node> &node, const InterType &inter) const;
 };
 
 #endif // BOXTREE_H_

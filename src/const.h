@@ -22,10 +22,10 @@ const float RES_ANGLE = 1.f / SCREEN_WIDTH; /// Resolution angle of the central 
 
 // QUALITY
 const int DEPTH_PER_LIGHT = 3;
-const int RAY_PER_LIGHT = 25000000;
+const int RAY_PER_LIGHT = 250000000;
 const int DEPTH_PER_PIXEL = 1;
-const int RAY_PER_PIXEL = 50;
-const int KNN_K = 15;
+const int RAY_PER_PIXEL = 250;
+const int KNN_K = 25;
 
 #endif // CONST_H_
 

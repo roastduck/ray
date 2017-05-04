@@ -45,7 +45,7 @@ void BoxTree::buildTree(const Surface &surf, std::unique_ptr<Node> &node, float 
     }
 }
 
-Optional<SurfInterType> BoxTree::findInter(const Ray &ray)
+Optional<SurfInterType> BoxTree::findInter(const Ray &ray) const
 {
     assert(root);
     assert(root->slideBy != Node::LEAF);
@@ -54,7 +54,7 @@ Optional<SurfInterType> BoxTree::findInter(const Ray &ray)
     return findInterRecur(ray, root, inter.ok());
 }
 
-Optional<SurfInterType> BoxTree::findInterRecur(const Ray &ray, const std::unique_ptr<Node> &node, const InterType &inter)
+Optional<SurfInterType> BoxTree::findInterRecur(const Ray &ray, const std::unique_ptr<Node> &node, const InterType &inter) const
 {
     assert(intersec(node->box, ray).isOk());
     assert(inter.second >= 0);

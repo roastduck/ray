@@ -68,6 +68,7 @@ Vec3 Trace::colorFactor(const Vec3 &ray1, const Vec3 &ray2, const SurfInterType 
 }
 
 void Trace::trace(
+    std::default_random_engine &urng,
     const std::vector< std::unique_ptr<Surface> > &surfaces,
     const ColoredRay &ray,
     int depth,
@@ -89,31 +90,39 @@ void Trace::trace(
 
     auto refrectionOpt(refrectDir(ray.ray.dir, norm, refrIdx));
 
-    float emitType = rand01() * (mat.Kd + mat.Ks + mat.Ktd + (refrectionOpt.isOk() ? mat.Kts : 0));
+    int emitType = std::discrete_distribution<int>({mat.Kd, mat.Ks, mat.Ktd, (refrectionOpt.isOk() ? mat.Kts : 0)})(urng);
     ColoredRay emit;
-    if (emitType < mat.Kd) // Diffuse reflection
+    switch (emitType)
     {
+    case 0: { // Diffuse reflection
         emit.color = multiple(ray.color, mat.Creflec);
-        emit.ray = randSemisphere(inter.pos, norm, 0);
-    } else if ((emitType -= mat.Kd) < mat.Ks) // Specular reflection
-    {
+        emit.ray = randSemisphere(urng, inter.pos, norm, 0);
+        break;
+    }
+    case 1: {// Specular reflection
         Vec3 reflection(reflectDir(ray.ray.dir, norm));
         emit.color = multiple(ray.color, mat.Creflec);
         do
-            emit.ray = randSemisphere(inter.pos, reflection, mat.Sn);
+            emit.ray = randSemisphere(urng, inter.pos, reflection, mat.Sn);
         while (dot(emit.ray.dir, norm) <= 0);
-    } else if ((emitType -= mat.Ks) < mat.Ktd) // Diffuse transition
-    {
+        break;
+    }
+    case 2: {// Diffuse transition
         emit.color = multiple(ray.color, mat.Ctrans);
-        emit.ray = randSemisphere(inter.pos, -norm, 0);
-    } else // Specular transition
-    {
+        emit.ray = randSemisphere(urng, inter.pos, -norm, 0);
+        break;
+    }
+    case 3: { // Specular transition
         Vec3 refrection(refrectionOpt.ok());
         emit.color = multiple(ray.color, mat.Ctrans);
         do
-            emit.ray = randSemisphere(inter.pos, refrection, mat.Sn);
+            emit.ray = randSemisphere(urng, inter.pos, refrection, mat.Sn);
         while (dot(emit.ray.dir, norm) >= 0);
+        break;
     }
-    trace(surfaces, emit, depth - 1, callback);
+    default:
+        assert(false);
+    }
+    trace(urng, surfaces, emit, depth - 1, callback);
 }
 

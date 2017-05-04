@@ -35,11 +35,13 @@ public:
     static Vec3 colorFactor(const Vec3 &ray1, const Vec3 &ray2, const SurfInterType &inter);
 
     /// Monte Carlo photon trace
+    /// @param urng : Thread-safe random generator
     /// @param surfaces : All surfaces
     /// @param ray : Incoming ray
     /// @param depth : Recursion depth
     /// @param callback : fn(intersection, incoming ray, depth left). Return false to stop tracing
     static void trace(
+        std::default_random_engine &urng,
         const std::vector< std::unique_ptr<Surface> > &surfaces,
         const ColoredRay &ray,
         int depth,
