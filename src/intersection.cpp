@@ -80,7 +80,7 @@ Optional<SurfInterType> intersec(float t, float u, float v, const Vec3 &p0, cons
 
         if (f.dist2() < EPS * EPS)
         {
-            if (t > EPS) // Move out of original position
+            if (t > EPS /*Move out of original position*/ && inrange(u, 0, 1) && inrange(v, 0, 1))
                 return SurfInterType(&surf, t, s, cross(su, sv));
             else
                 return None();
