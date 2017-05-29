@@ -4,6 +4,7 @@
 #include <cmath>
 #include <cassert>
 #include "../curve.h"
+#include "../const.h"
 
 /** 3-dgree Bezier Curve
  */
@@ -24,9 +25,20 @@ public:
         Vec2t<double> p0d(p0), p1d(p1), p2d(p2), p3d(p3);
         a = -p0d + 3.*p1d - 3.*p2d + p3d, b = 3. * (p0d - 2.*p1d + p2d), c = 3. * (-p0d + p1d), d = p0d;
         Vec2t<double> da(3. * a), db(2. * b), dc(c);
-        double deltax(sqrt(db.x * db.x - 4 * da.x * dc.x)), deltay(sqrt(db.y * db.y - 4 * da.y * dc.y));
-        tx1 = (-db.x - deltax) / (2 * da.x), tx2 = (-db.x + deltax) / (2 * da.x);
-        ty1 = (-db.y - deltay) / (2 * da.y), ty2 = (-db.y + deltay) / (2 * da.y);
+        if (fabs(da.x) < EPS) // reduced to linear
+            tx1 = tx2 = -dc.x / db.x;
+        else
+        {
+            double deltax(sqrt(db.x * db.x - 4 * da.x * dc.x));
+            tx1 = (-db.x - deltax) / (2 * da.x), tx2 = (-db.x + deltax) / (2 * da.x);
+        }
+        if (fabs(da.y) < EPS) // reduced to linear
+            ty1 = ty2 = -dc.y / db.y;
+        else
+        {
+            double deltay(sqrt(db.y * db.y - 4 * da.y * dc.y));
+            ty1 = (-db.y - deltay) / (2 * da.y), ty2 = (-db.y + deltay) / (2 * da.y);
+        }
         if (tx1 >= 0 && tx1 <= 1) px1 = position(tx1);
         if (tx2 >= 0 && tx2 <= 1) px2 = position(tx2);
         if (ty1 >= 0 && ty1 <= 1) py1 = position(ty1);
