@@ -72,6 +72,7 @@ void Trace::trace(
     const std::vector< std::unique_ptr<Surface> > &surfaces,
     const ColoredRay &ray,
     int depth,
+    bool isSight,
     const std::function<bool(const SurfInterType&, const ColoredRay &ray, int depth)> &callback
 )
 {
@@ -96,11 +97,17 @@ void Trace::trace(
     switch (emitType)
     {
     case 0: { // Diffuse reflection
-        emit.color = multiple(ray.color, mat.Creflec);
-        emit.ray = randSemisphere(urng, inter.pos, norm, 0);
+        if (isSight)
+        {
+            emit.color = multiple(ray.color, mat.Creflec);
+            emit.ray = randSemisphere(urng, inter.pos, norm, 1);
+        } else {
+            emit.color = multiple(ray.color, mat.Creflec) * (fabsf(dot(ray.ray.dir, norm)) / sqrtf(ray.ray.dir.dist2()));
+            emit.ray = randSemisphere(urng, inter.pos, norm, 0);
+        }
         break;
     }
-    case 1: {// Specular reflection
+    case 1: { // Specular reflection
         Vec3 reflection(reflectDir(ray.ray.dir, norm));
         emit.color = multiple(ray.color, mat.Creflec);
         do
@@ -108,9 +115,16 @@ void Trace::trace(
         while (dot(emit.ray.dir, norm) <= 0);
         break;
     }
-    case 2: {// Diffuse transition
-        emit.color = multiple(ray.color, mat.Ctrans);
-        emit.ray = randSemisphere(urng, inter.pos, -norm, 0);
+    case 2: { // Diffuse transition
+        if (isSight)
+        {
+            emit.color = multiple(ray.color, mat.Ctrans);
+            emit.ray = randSemisphere(urng, inter.pos, -norm, 1);
+        } else
+        {
+            emit.color = multiple(ray.color, mat.Ctrans) * (fabsf(dot(ray.ray.dir, norm)) / sqrtf(ray.ray.dir.dist2()));
+            emit.ray = randSemisphere(urng, inter.pos, -norm, 0);
+        }
         break;
     }
     case 3: { // Specular transition
@@ -125,6 +139,6 @@ void Trace::trace(
         assert(false);
     }
     emit.color *= mat.Kd + mat.Ks + mat.Ktd + _Kts; // Others are absorbed
-    trace(urng, surfaces, emit, depth - 1, callback);
+    trace(urng, surfaces, emit, depth - 1, isSight, callback);
 }
 

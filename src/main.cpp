@@ -32,11 +32,12 @@ void emit(const std::vector< std::unique_ptr<Surface> > &surfaces)
                 for (int i = 0; i < POOL_SIZE; i++)
                 {
                     assert(rayQueue[i].empty());
+                    Vec3 st(randInBall(*(emitRandEngine[i]), light->translate, light->radius));
                     ColoredRay ray(
                         light->color,
-                        randSemisphere(*(emitRandEngine[i]), randInBall(*(emitRandEngine[i]), light->translate, light->radius), light->direction)
+                        Ray(st, randInBall(*(emitRandEngine[i]), Vec3(0, 0, 0), 1.0f))
                     );
-                    Trace::trace(*(emitRandEngine[i]), surfaces, ray, DEPTH_PER_LIGHT,
+                    Trace::trace(*(emitRandEngine[i]), surfaces, ray, DEPTH_PER_LIGHT, false,
                         [i](const SurfInterType &inter, const ColoredRay &ray, int depth) {
                             if (inter.surf->isLightSource())
                                 return false;
@@ -76,7 +77,7 @@ void collect(const std::vector< std::unique_ptr<Surface> > &surfaces, cv::Mat3b 
     memset(screenColor, 0, sizeof screenColor);
 
     std::cout << "Tracing sight" << std::endl;
-#pragma omp parallel for
+#pragma omp parallel for schedule(dynamic, 10) // use `dynamic` because tasks are not even
     for (int i = 0; i < SCREEN_WIDTH; i++)
         for (int j = 0; j < SCREEN_HEIGHT; j++)
             for (int k = 0; k < RAY_PER_PIXEL; k++)
@@ -89,7 +90,7 @@ void collect(const std::vector< std::unique_ptr<Surface> > &surfaces, cv::Mat3b 
                 );
                 color_t curColor(0, 0, 0);
                 int curWeight(0);
-                Trace::trace(*(collectRandEngine[i]), surfaces, ray, DEPTH_PER_PIXEL,
+                Trace::trace(*(collectRandEngine[i]), surfaces, ray, DEPTH_PER_PIXEL, true,
                     [i,j,&curColor,&curWeight](const SurfInterType &inter, const ColoredRay &ray, int depth) {
                         if (inter.surf->isLightSource())
                         {

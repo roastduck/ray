@@ -16,10 +16,9 @@ class LightSource : public Surface
 public:
     float radius;
     color_t color;
-    Vec3 direction;
 
-    LightSource(float _radius, const color_t &_color, const Vec3 &_direction)
-        : radius(_radius), color(_color), direction(_direction) {}
+    LightSource(float _radius, const color_t &_color)
+        : radius(_radius), color(_color) {}
 
 protected:
     void init() override {} /// Do nothing because findInter is overrided

@@ -33,7 +33,7 @@ public:
 
     Optional<SurfInterType> findInter(const Ray &ray) const override
     {
-        auto interOpt = intersecXZ(translate.y, Box2(translate.x, edgeZ + translate.x, translate.z, edgeX + translate.z), ray);
+        auto interOpt = intersecXZ(translate.y, Box2(translate.x, edgeX + translate.x, translate.z, edgeZ + translate.z), ray);
         if (!interOpt.isOk()) return None();
         auto inter(interOpt.ok());
         if (inter.second < EPS) return None();

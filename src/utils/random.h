@@ -17,7 +17,7 @@ inline float randReal(URNG &g, float a, float b)
  *  For each ray `x`, its weight is cos(x . norm)^n
  */
 template <class URNG>
-inline Ray randSemisphere(URNG &g, const Vec3 &st, const Vec3 &norm, int n = 1)
+inline Ray randSemisphere(URNG &g, const Vec3 &st, const Vec3 &norm, int n = 0)
 {
     float phi = randReal(g, 0, 2 * PI);
     float theta = acosf(n ? powf(randReal(g, 0, 1), 1.0f / (n + 1)) : randReal(g, 0, 1));
@@ -32,7 +32,7 @@ template <class URNG>
 inline Vec3 randInBall(URNG &g, const Vec3 &center, float radius)
 {
     float phi = randReal(g, 0, 2 * PI);
-    float theta = randReal(g, 0, PI);
+    float theta = acosf(randReal(g, -1, 1));
     return center + Vec3(sinf(theta) * cosf(phi), sinf(theta) * sinf(phi), cosf(theta)) * radius;
 }
 

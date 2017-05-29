@@ -66,12 +66,11 @@ std::vector< std::unique_ptr<Surface> > Surface::load(const char filename[])
             break;
         }
         case LIGHT_SOURCE: {
-            Vec3 direction;
             color_t color;
             float radius;
-            is >> radius >> color >> direction;
+            is >> radius >> color;
             color *= 1.0f / RAY_PER_LIGHT;
-            surf = std::unique_ptr<Surface>(new LightSource(radius, color, direction));
+            surf = std::unique_ptr<Surface>(new LightSource(radius, color));
             break;
         }
         default:
