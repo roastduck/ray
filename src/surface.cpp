@@ -42,21 +42,21 @@ std::vector< std::unique_ptr<Surface> > Surface::load(const char filename[])
         switch (Name(name))
         {
         case SQUAREXY: {
-            float edge;
-            is >> edge;
-            surf = std::unique_ptr<Surface>(new SquareXY(edge));
+            float edgeX, edgeY;
+            is >> edgeX >> edgeY;
+            surf = std::unique_ptr<Surface>(new SquareXY(edgeX, edgeY));
             break;
         }
         case SQUAREYZ: {
-            float edge;
-            is >> edge;
-            surf = std::unique_ptr<Surface>(new SquareYZ(edge));
+            float edgeY, edgeZ;
+            is >> edgeY >> edgeZ;
+            surf = std::unique_ptr<Surface>(new SquareYZ(edgeY, edgeZ));
             break;
         }
         case SQUAREZX: {
-            float edge;
-            is >> edge;
-            surf = std::unique_ptr<Surface>(new SquareZX(edge));
+            float edgeX, edgeZ;
+            is >> edgeX >> edgeZ;
+            surf = std::unique_ptr<Surface>(new SquareZX(edgeX, edgeZ));
             break;
         }
         case SYM_BEZIER3: {

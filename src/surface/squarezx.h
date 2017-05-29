@@ -12,28 +12,28 @@
 class SquareZX : public Surface
 {
 private:
-    float edge;
+    float edgeX, edgeZ;
 
 protected:
     void init() override {} /// Do nothing because findInter is overrided
-    Vec3 positionImpl(float u, float v) const override { return Vec3(v * edge, 0, u * edge); }
+    Vec3 positionImpl(float u, float v) const override { return Vec3(v * edgeX, 0, u * edgeZ); }
     Vec3 derivativeUImpl(float u, float v) const override { return Vec3(0, 0, 1); }
     Vec3 derivativeVImpl(float u, float v) const override { return Vec3(1, 0, 0); }
 
     Box3 xyzMinMaxImpl(float u1, float u2, float v1, float v2) const override
     {
-        return Box3(v1 * edge, v2 * edge, 0, 0, u1 * edge, u2 * edge);
+        return Box3(v1 * edgeX, v2 * edgeX, 0, 0, u1 * edgeZ, u2 * edgeZ);
     }
 
 public:
-    SquareZX(float _edge) : edge(_edge) {}
+    SquareZX(float _edgeX, float _edgeZ) : edgeX(_edgeX), edgeZ(_edgeZ) {}
 
     bool uIsCircular() const override { return false; }
     bool vIsCircular() const override { return false; }
 
     Optional<SurfInterType> findInter(const Ray &ray) const override
     {
-        auto interOpt = intersecXZ(translate.y, Box2(translate.x, edge + translate.x, translate.z, edge + translate.z), ray);
+        auto interOpt = intersecXZ(translate.y, Box2(translate.x, edgeZ + translate.x, translate.z, edgeX + translate.z), ray);
         if (!interOpt.isOk()) return None();
         auto inter(interOpt.ok());
         if (inter.second < EPS) return None();
