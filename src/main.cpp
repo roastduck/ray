@@ -77,7 +77,7 @@ void collect(const std::vector< std::unique_ptr<Surface> > &surfaces, cv::Mat3b 
     memset(screenColor, 0, sizeof screenColor);
 
     std::cout << "Tracing sight" << std::endl;
-#pragma omp parallel for schedule(dynamic, 10) // use `dynamic` because tasks are not even
+#pragma omp parallel for schedule(dynamic, 5) // use `dynamic` because tasks are not even
     for (int i = 0; i < SCREEN_WIDTH; i++)
         for (int j = 0; j < SCREEN_HEIGHT; j++)
             for (int k = 0; k < RAY_PER_PIXEL; k++)
@@ -95,7 +95,7 @@ void collect(const std::vector< std::unique_ptr<Surface> > &surfaces, cv::Mat3b 
                         if (inter.surf->isLightSource())
                         {
                             auto light = dynamic_cast<const LightSource*>(inter.surf);
-                            screenColor[i][j] += multiple(light->color, ray.color) * float(depth + 1);
+                            curColor += multiple(light->color, ray.color), curWeight++;
                             return false;
                         }
                         auto photons = inter.surf->photonMap->getKNN(inter.pos, KNN_K);

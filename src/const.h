@@ -21,9 +21,9 @@ const int SCREEN_HEIGHT = 600;
 const float RES_ANGLE = 1.f / SCREEN_WIDTH; /// Resolution angle of the central pixel. Horizontal opening angle = 45 dgr.
 
 // QUALITY
-const int DEPTH_PER_LIGHT = 3;
+const int DEPTH_PER_LIGHT = 5;
 const int RAY_PER_LIGHT = 25000000;
-const int DEPTH_PER_PIXEL = 1;
+const int DEPTH_PER_PIXEL = 2;
 const int RAY_PER_PIXEL = 250;
 const int KNN_K = 50;
 

@@ -27,7 +27,7 @@ struct Material
         switch (name)
         {
         case GLASS:
-            return { 0.005, 0.03, 0.05, 0.75, 1.6, 4, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0) };
+            return { 0.005, 0.20, 0.005, 0.75, 1.6, 7, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0) };
         case PLASTIC:
             return { 0.30, 0.03, 0.00, 0.00, 1.0, 3, color_t(1.1, 1.0, 0.9), color_t(1.0, 1.0, 1.0) };
         default:

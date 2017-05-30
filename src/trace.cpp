@@ -24,7 +24,7 @@ Vec3 Trace::reflectDir(const Vec3 &input, const Vec3 &norm)
 {
     assert(fabs(norm.dist2() - 1) < EPS * EPS);
     assert(dot(input, norm) < 0);
-    return Vec3(input - 2 * dot(input, norm) * norm);
+    return input - 2 * dot(input, norm) * norm;
 }
 
 Optional<Vec3> Trace::refrectDir(const Vec3 &input, const Vec3 &norm, float refrIdx)
@@ -37,7 +37,7 @@ Optional<Vec3> Trace::refrectDir(const Vec3 &input, const Vec3 &norm, float refr
     assert(dot(input, norm) < 0);
     Vec3 horizontal(input - dot(input, norm) * norm);
     assert(fabs(dot(horizontal, norm)) < EPS);
-    return Vec3(horizontal - sqrtf(horizontal.dist2()) / tanf(asin(sinThetaT)) * norm);
+    return horizontal - sqrtf(horizontal.dist2()) / tanf(asin(sinThetaT)) * norm;
 }
 
 void Trace::correctFrontBack(const Vec3 &input, Vec3 &norm, float &refrIdx)
@@ -55,15 +55,26 @@ Vec3 Trace::colorFactor(const Vec3 &ray1, const Vec3 &ray2, const SurfInterType 
     correctFrontBack(ray1, norm, refrIdx);
     assert(fabs(norm.dist2() - 1) < EPS * EPS);
     
-    Vec3 reflection(reflectDir(ray1, norm));
-    auto refrection(refrectDir(ray1, norm, refrIdx));
     color_t ret(0, 0, 0);
+    Vec3 uniRay1 = ray1 * (1.0f / sqrtf(ray1.dist2()));
     Vec3 uniRay2 = ray2 * (1.0f / sqrtf(ray2.dist2()));
-    ret += mat.Creflec * std::max(0.0f, mat.Kd * -dot(uniRay2, norm));
-    ret += mat.Creflec * std::max(0.0f, mat.Ks * powf(-dot(uniRay2, reflection), mat.Sn));
-    ret += mat.Ctrans * std::max(0.0f, mat.Ktd * -dot(uniRay2, norm));
-    if (refrection.isOk())
-        ret += mat.Ctrans * std::max(0.0f, mat.Kts * powf(-dot(uniRay2, refrection.ok()), mat.Sn));
+    if (dot(ray2, norm) < 0) // reflection
+    {
+        Vec3 reflection(reflectDir(uniRay1, norm));
+        assert(fabsf(reflection.dist2() - 1) < EPS);
+        ret = mat.Creflec * (
+            mat.Kd * -dot(uniRay1, norm) +
+            mat.Ks * powf(std::max(0.0f, -dot(uniRay2, reflection)), mat.Sn)
+        );
+    } else { // refrection
+        auto refrection(refrectDir(ray1, norm, refrIdx));
+        if (refrection.isOk()) refrection.ok() *= (1.0f / sqrtf(refrection.ok().dist2()));
+        ret = mat.Ctrans * (
+            mat.Ktd * -dot(uniRay1, norm) +
+            (refrection.isOk() ? mat.Kts * mat.Kts * powf(std::max(0.0f, -dot(uniRay2, refrection.ok())), mat.Sn) : 0)
+        );
+    }
+    assert(ret.x >= 0 && ret.y >= 0 && ret.z >= 0);
     return ret;
 }
 
