@@ -37,7 +37,9 @@ public:
         if (!interOpt.isOk()) return None();
         auto inter(interOpt.ok());
         if (inter.second < EPS) return None();
-        return SurfInterType(this, inter.second, inter.first, Vec3(0, 0, 1));
+        float u = (inter.first.x - translate.x) / edgeX;
+        float v = (inter.first.y - translate.y) / edgeY;
+        return SurfInterType(this, inter.second, u, v, inter.first, Vec3(0, 0, 1));
     }
 };
 

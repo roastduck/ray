@@ -13,11 +13,11 @@ typedef std::pair<Vec3, float> InterType;
 struct SurfInterType
 {
     const Surface *surf;
-    float t;
+    float t, u, v;
     Vec3 pos, normal;
     SurfInterType() : surf(0) {}
-    SurfInterType(const Surface *_surf, float _t, const Vec3 &_pos, const Vec3 &_normal)
-        : surf(_surf), t(_t), pos(_pos), normal(_normal) {}
+    SurfInterType(const Surface *_surf, float _t, float _u, float _v, const Vec3 &_pos, const Vec3 &_normal)
+        : surf(_surf), t(_t), u(_u), v(_v), pos(_pos), normal(_normal) {}
 };
 
 /** These functinos find intersection between yz/xz/xy-plane and ray

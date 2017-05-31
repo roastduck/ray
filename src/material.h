@@ -3,6 +3,7 @@
 
 #include <cassert>
 #include "utils.h"
+#include "texture.h"
 
 struct Material
 {
@@ -14,11 +15,15 @@ struct Material
     int Sn; /// Smoothness index (exponent)
     color_t Creflec; /// Reflection color factor. Actual color = Creflec * (Kd or Ks)
     color_t Ctrans; /// Transition color factor. Actual color = Ctrans * (Ktd or Kts)
+    Texture *texture;
+
+    color_t getCreflec(float u, float v) const { return texture ? texture->getColor(u, v) : Creflec; }
 
     enum MaterialName
     {
         GLASS = 0,
-        PLASTIC = 1,
+        PAPER = 1,
+        WALLPAPER = 2,
         INVALID = -1
     };
 
@@ -27,9 +32,11 @@ struct Material
         switch (name)
         {
         case GLASS:
-            return { 0.001, 0.2, 0.001, 0.96, 1.6, 15, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0) };
-        case PLASTIC:
-            return { 0.50, 0.10, 0.00, 0.00, 1.0, 3, color_t(1.1, 1.0, 0.9), color_t(1.0, 1.0, 1.0) };
+            return { 0.001, 0.2, 0.001, 0.96, 1.6, 15, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0), NULL };
+        case PAPER:
+            return { 0.50, 0.10, 0.00, 0.00, 1.0, 3, color_t(1.1, 1.0, 0.9), color_t(1.0, 1.0, 1.0), NULL };
+        case WALLPAPER:
+            return { 0.50, 0.10, 0.00, 0.00, 1.0, 3, color_t(0.0, 0.0, 0.0), color_t(1.0, 1.0, 1.0), &Texture::wallpaper };
         default:
             assert(false);
         }

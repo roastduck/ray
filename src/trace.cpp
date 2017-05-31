@@ -66,7 +66,7 @@ Vec3 Trace::colorFactor(const Vec3 &ray1, const Vec3 &ray2, const SurfInterType 
     {
         Vec3 reflection(reflectDir(uniRay1, norm));
         assert(fabsf(reflection.dist2() - 1) < EPS);
-        ret = mat.Creflec * (
+        ret = mat.getCreflec(inter.u, inter.v) * (
             mat.Kd * -dot(uniRay1, norm) +
             mat.Ks * powf(std::max(0.0f, -dot(uniRay2, reflection)), mat.Sn)
         );
@@ -114,17 +114,17 @@ void Trace::trace(
     case 0: { // Diffuse reflection
         if (isSight)
         {
-            emit.color = multiple(ray.color, mat.Creflec);
+            emit.color = multiple(ray.color, mat.getCreflec(inter.u, inter.v));
             emit.ray = randSemisphere(urng, inter.pos, norm, 1);
         } else {
-            emit.color = multiple(ray.color, mat.Creflec) * (fabsf(dot(ray.ray.dir, norm)) / sqrtf(ray.ray.dir.dist2()));
+            emit.color = multiple(ray.color, mat.getCreflec(inter.u, inter.v)) * (fabsf(dot(ray.ray.dir, norm)) / sqrtf(ray.ray.dir.dist2()));
             emit.ray = randSemisphere(urng, inter.pos, norm, 0);
         }
         break;
     }
     case 1: { // Specular reflection
         Vec3 reflection(reflectDir(ray.ray.dir, norm));
-        emit.color = multiple(ray.color, mat.Creflec);
+        emit.color = multiple(ray.color, mat.getCreflec(inter.u, inter.v));
         do
             emit.ray = randSemisphere(urng, inter.pos, reflection, mat.Sn);
         while (dot(emit.ray.dir, norm) <= 0);

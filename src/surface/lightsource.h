@@ -38,7 +38,8 @@ public:
 
 inline Optional<SurfInterType> LightSource::findInter(const Ray &ray) const
 {
-    Vec3 _st(ray.st - translate);
+    assert(false); // Deleted
+    /*Vec3 _st(ray.st - translate);
     double a(ray.dir.dist2()), b(2 * dot(_st, ray.dir)), c(_st.dist2() - sqr(radius));
     double delta = b * b - 4 * a * c;
     if (delta < 0) return None();
@@ -48,7 +49,7 @@ inline Optional<SurfInterType> LightSource::findInter(const Ray &ray) const
         t = (-b + delta) / (2 * a);
     if (t < EPS)
         return None();
-    return SurfInterType(this, t, ray.st + t * ray.dir, Vec3(0, 0, 0));
+    return SurfInterType(this, t, ray.st + t * ray.dir, Vec3(0, 0, 0));*/
 }
 
 #endif // LIGHT_SOURCE_H_
