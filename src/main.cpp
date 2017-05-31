@@ -35,12 +35,11 @@ void emit(const std::vector< std::unique_ptr<Surface> > &surfaces)
                     Vec3 st(randInBall(*(emitRandEngine[i]), light->translate, light->radius));
                     ColoredRay ray(
                         light->color,
-                        Ray(st, randInBall(*(emitRandEngine[i]), Vec3(0, 0, 0), 1.0f))
+                        randSemisphere(*(emitRandEngine[i]), st, Vec3(0, 0, -1), 1)
                     );
                     Trace::trace(*(emitRandEngine[i]), surfaces, ray, DEPTH_PER_LIGHT, false,
                         [i](const SurfInterType &inter, const ColoredRay &ray, int depth) {
-                            if (inter.surf->isLightSource())
-                                return false;
+                            assert(!inter.surf->isLightSource());
                             rayQueue[i].push_back(std::make_pair(inter.surf, ColoredRay(ray.color, Ray(inter.pos, ray.ray.dir))));
                             // `st` must be on the surface
                             return true;
@@ -92,12 +91,7 @@ void collect(const std::vector< std::unique_ptr<Surface> > &surfaces, cv::Mat3b 
                 int curWeight(0);
                 Trace::trace(*(collectRandEngine[i]), surfaces, ray, DEPTH_PER_PIXEL, true,
                     [i,j,&curColor,&curWeight](const SurfInterType &inter, const ColoredRay &ray, int depth) {
-                        if (inter.surf->isLightSource())
-                        {
-                            auto light = dynamic_cast<const LightSource*>(inter.surf);
-                            curColor += multiple(light->color, ray.color), curWeight++;
-                            return false;
-                        }
+                        assert(!inter.surf->isLightSource());
                         auto photons = inter.surf->photonMap->getKNN(inter.pos, KNN_K);
                         if (photons.empty()) return true;
                         float r2 = 0;

@@ -9,6 +9,8 @@ Optional<SurfInterType> Trace::findInter(const std::vector< std::unique_ptr<Surf
     Optional<SurfInterType> ret;
     for (const auto &surf : surfaces)
     {
+        if (surf->isLightSource())
+            continue; // Visible light source can produce much noise
         auto interOpt = surf->findInter(ray);
         if (interOpt.isOk())
         {
@@ -37,7 +39,9 @@ Optional<Vec3> Trace::refrectDir(const Vec3 &input, const Vec3 &norm, float refr
     assert(dot(input, norm) < 0);
     Vec3 horizontal(input - dot(input, norm) * norm);
     assert(fabs(dot(horizontal, norm)) < EPS);
-    return horizontal - sqrtf(horizontal.dist2()) / tanf(asin(sinThetaT)) * norm;
+    auto ret = horizontal - sqrtf(horizontal.dist2()) / tanf(asin(sinThetaT)) * norm;
+    assert(fabsf(sqrtf(cross(ret, norm).dist2() / ret.dist2()) - sinThetaT) < EPS);
+    return ret;
 }
 
 void Trace::correctFrontBack(const Vec3 &input, Vec3 &norm, float &refrIdx)

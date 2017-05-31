@@ -1,7 +1,7 @@
 ifeq ($(DEBUG), true)
 	PARAM = -ggdb3 -Wall -std=c++11 -fopenmp
 else
-	PARAM = -O2 -DNDEBUG -std=c++11 -fopenmp
+	PARAM = -O3 -DNDEBUG -std=c++11 -fopenmp
 endif
 
 SRC = $(wildcard *.cpp)
