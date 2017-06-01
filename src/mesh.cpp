@@ -7,31 +7,32 @@ int Mesh::vertCnt = 0;
 void Mesh::outputSurfaces(std::ostream &os)
 {
     auto surfaces = Surface::load(INPUT_OBJECTS_FILE);
-    float interval(1.0 / MESH_1D_NUM);
+    float interval(1.0 / OUTPUT_MESH_1D_NUM);
     for (const std::unique_ptr<Surface> &surf : surfaces)
     {
         if (surf->isLightSource()) continue;
         int baseCnt = vertCnt;
-        for (int i = 0; i < MESH_1D_NUM + ! surf->uIsCircular(); i++)
-            for (int j = 0; j < MESH_1D_NUM + ! surf->vIsCircular(); j++)
+        for (int i = 0; i < OUTPUT_MESH_1D_NUM + ! surf->uIsCircular(); i++)
+            for (int j = 0; j < OUTPUT_MESH_1D_NUM + ! surf->vIsCircular(); j++)
             {
                 os << "v " << surf->position(i * interval, j * interval) << std::endl;
                 vertCnt++;
             }
-        for (int i = 0; i < MESH_1D_NUM; i++)
-            for (int j = 0; j < MESH_1D_NUM; j++)
+        for (int i = 0; i < OUTPUT_MESH_1D_NUM; i++)
+            for (int j = 0; j < OUTPUT_MESH_1D_NUM; j++)
             {
-                int _i(i < MESH_1D_NUM - 1 || ! surf->uIsCircular() ? i + 1 : 0);
-                int _j(j < MESH_1D_NUM - 1 || ! surf->vIsCircular() ? j + 1 : 0);
-                int p0(baseCnt + i * (MESH_1D_NUM + ! surf->vIsCircular()) + j + 1);
-                int p1(baseCnt + i * (MESH_1D_NUM + ! surf->vIsCircular()) + _j + 1);
-                int p2(baseCnt + _i * (MESH_1D_NUM + ! surf->vIsCircular()) + _j + 1);
-                int p3(baseCnt + _i * (MESH_1D_NUM + ! surf->vIsCircular()) + j + 1);
-                os << "f " << p0 << " " << p1 << " " << p2 << " " << p3 << std::endl;
+                int _i(i < OUTPUT_MESH_1D_NUM - 1 || ! surf->uIsCircular() ? i + 1 : 0);
+                int _j(j < OUTPUT_MESH_1D_NUM - 1 || ! surf->vIsCircular() ? j + 1 : 0);
+                int p0(baseCnt + i * (OUTPUT_MESH_1D_NUM + ! surf->vIsCircular()) + j + 1);
+                int p1(baseCnt + i * (OUTPUT_MESH_1D_NUM + ! surf->vIsCircular()) + _j + 1);
+                int p2(baseCnt + _i * (OUTPUT_MESH_1D_NUM + ! surf->vIsCircular()) + _j + 1);
+                int p3(baseCnt + _i * (OUTPUT_MESH_1D_NUM + ! surf->vIsCircular()) + j + 1);
+                os << "f " << p3 << " " << p2 << " " << p1 << " " << p0 << std::endl;
             }
     }
 }
 
+#ifdef DEBUG
 void Mesh::outputBox3(std::ostream &os, const Box3 &box)
 {
     os << "v " << Vec3(box.xMin, box.yMin, box.zMin) << std::endl;
@@ -50,4 +51,5 @@ void Mesh::outputBox3(std::ostream &os, const Box3 &box)
     os << "f " << vertCnt + 2 << " " << vertCnt + 6 << " " << vertCnt + 8 << " " << vertCnt + 4 << std::endl;
     vertCnt += 8;
 }
+#endif // DEBUG
 

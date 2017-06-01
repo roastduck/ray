@@ -11,6 +11,7 @@ const char MESH_FILE[] = "mesh.obj";
 
 // MESH
 const int MESH_1D_NUM = 25;
+const int OUTPUT_MESH_1D_NUM = 100;
 
 // MATH
 const float EPS = 1e-3;
