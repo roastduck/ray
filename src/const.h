@@ -25,7 +25,7 @@ const int DEPTH_PER_LIGHT = 5;
 const int RAY_PER_LIGHT = 10000000;
 const int DEPTH_PER_PIXEL = 4;
 const int RAY_PER_PIXEL = 250;
-const int KNN_K = 50;
+const int KNN_K = 100;
 
 #endif // CONST_H_
 

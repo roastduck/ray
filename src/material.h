@@ -24,6 +24,7 @@ struct Material
         GLASS = 0,
         PAPER = 1,
         WALLPAPER = 2,
+        FROSTED_GLASS = 3,
         INVALID = -1
     };
 
@@ -32,11 +33,13 @@ struct Material
         switch (name)
         {
         case GLASS:
-            return { 0.001, 0.2, 0.001, 0.96, 1.6, 15, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0), NULL };
+            return { 0.00, 0.00, 0.00, 1.00, 1.6, 500, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0), NULL };
         case PAPER:
-            return { 0.50, 0.10, 0.00, 0.00, 1.0, 3, color_t(1.1, 1.0, 0.9), color_t(1.0, 1.0, 1.0), NULL };
+            return { 0.50, 0.10, 0.00, 0.00, 1.0, 7, color_t(1.1, 1.0, 0.9), color_t(1.0, 1.0, 1.0), NULL };
         case WALLPAPER:
-            return { 0.50, 0.10, 0.00, 0.00, 1.0, 3, color_t(0.0, 0.0, 0.0), color_t(1.0, 1.0, 1.0), &Texture::wallpaper };
+            return { 0.50, 0.10, 0.00, 0.00, 1.0, 7, color_t(0.0, 0.0, 0.0), color_t(1.0, 1.0, 1.0), &Texture::wallpaper };
+        case FROSTED_GLASS:
+            return { 0.001, 0.02, 0.001, 0.96, 1.6, 15, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0), NULL };
         default:
             assert(false);
         }

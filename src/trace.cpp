@@ -107,6 +107,7 @@ void Trace::trace(
     auto refrectionOpt(refrectDir(ray.ray.dir, norm, refrIdx));
 
     float _Kts = refrectionOpt.isOk() ? mat.Kts : 0;
+    if (mat.Kd + mat.Ks + mat.Ktd + _Kts < EPS) return;
     int emitType = std::discrete_distribution<int>({mat.Kd, mat.Ks, mat.Ktd, _Kts})(urng);
     ColoredRay emit;
     switch (emitType)
