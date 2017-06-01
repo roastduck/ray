@@ -18,7 +18,7 @@ public:
         return color_t(vec[2] / 256.0f, vec[1] / 256.0f, vec[0] / 256.0f); // BGR
     }
     
-    static Texture wallpaper;
+    static Texture wallpaper, apple;
 };
 
 #endif // TEXTURE_H_
