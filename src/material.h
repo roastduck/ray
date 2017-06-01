@@ -25,6 +25,7 @@ struct Material
         PAPER = 1,
         WALLPAPER = 2,
         FROSTED_GLASS = 3,
+        MATEL = 4,
         INVALID = -1
     };
 
@@ -40,6 +41,8 @@ struct Material
             return { 0.50, 0.10, 0.00, 0.00, 1.0, 7, color_t(0.0, 0.0, 0.0), color_t(1.0, 1.0, 1.0), &Texture::wallpaper };
         case FROSTED_GLASS:
             return { 0.001, 0.02, 0.001, 0.96, 1.6, 15, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0), NULL };
+        case MATEL:
+            return { 0.00, 0.90, 0.00, 0.00, 1.0, 100, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0), NULL };
         default:
             assert(false);
         }
