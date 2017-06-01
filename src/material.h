@@ -42,7 +42,7 @@ struct Material
         case FROSTED_GLASS:
             return { 0.001, 0.02, 0.001, 0.96, 1.6, 15, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0), NULL };
         case MATEL:
-            return { 0.00, 0.90, 0.00, 0.00, 1.0, 100, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0), NULL };
+            return { 0.15, 0.80, 0.00, 0.00, 1.0, 100, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0), NULL };
         default:
             assert(false);
         }
