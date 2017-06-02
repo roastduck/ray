@@ -1,0 +1,7 @@
+<map id="KDTree::Node" name="KDTree::Node">
+<area shape="rect" id="node2" href="$structColoredRay.html" title="{ColoredRay\n||+ ColoredRay()\l+ ColoredRay()\l}" alt="" coords="45,755,156,847"/>
+<area shape="rect" id="node3" href="$structRay.html" title="{Ray\n||+ Ray()\l+ Ray()\l}" alt="" coords="25,439,91,531"/>
+<area shape="rect" id="node4" href="$structVec3t.html" title="{Vec3t\&lt; float \&gt;\n|+ x\l+ y\l+ z\l|+ Vec3t()\l+ Vec3t()\l+ Vec3t()\l+ operator&#45;()\l+ dist2()\l+ operator+=()\l+ operator&#45;=()\l+ operator*=()\l+ rotateX()\l+ rotateY()\l+ rotateZ()\l+ rotate()\l}" alt="" coords="5,5,111,273"/>
+<area shape="rect" id="node5" href="$structVec3t.html" title="{Vec3t\&lt; T \&gt;\n||+ Vec3t()\l+ Vec3t()\l+ Vec3t()\l+ operator&#45;()\l+ dist2()\l+ operator+=()\l+ operator&#45;=()\l+ operator*=()\l+ rotateX()\l+ rotateY()\l+ rotateZ()\l+ rotate()\l}" alt="" coords="116,365,221,604"/>
+<area shape="rect" id="node7" href="$structBox3.html" title="{Box3\n|+ xMin\l+ xMax\l+ yMin\l+ yMax\l+ zMin\l+ zMax\l|+ Box3()\l+ Box3()\l+ Box3()\l+ size()\l+ contains()\l+ dist2()\l+ xySide()\l+ yzSide()\l+ xzSide()\l}" alt="" coords="181,667,271,935"/>
+</map>

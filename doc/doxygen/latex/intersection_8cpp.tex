@@ -1,0 +1,109 @@
+\hypertarget{intersection_8cpp}{}\section{intersection.\+cpp File Reference}
+\label{intersection_8cpp}\index{intersection.\+cpp@{intersection.\+cpp}}
+{\ttfamily \#include $<$cassert$>$}\\*
+{\ttfamily \#include \char`\"{}const.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}surface.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}intersection.\+h\char`\"{}}\\*
+Include dependency graph for intersection.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{intersection_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classOptional}{Optional}$<$ \hyperlink{intersection_8h_a880ab27cdd7ea5eab91289bba0bacadb}{Inter\+Type} $>$ \hyperlink{intersection_8cpp_a8d26d293d4190e1ae37cd92106d195de}{intersec\+YZ} (float x, const \hyperlink{structBox2}{Box2} \&box, const \hyperlink{structRay}{Ray} \&ray)
+\begin{DoxyCompactList}\small\item\em These functinos find intersection between yz/xz/xy-\/plane and ray Asserting the ray intersecting with the extended infinte plane. \end{DoxyCompactList}\item 
+\hyperlink{classOptional}{Optional}$<$ \hyperlink{intersection_8h_a880ab27cdd7ea5eab91289bba0bacadb}{Inter\+Type} $>$ \hyperlink{intersection_8cpp_ac2aaa5d853c940674478ca872272b443}{intersec\+XZ} (float y, const \hyperlink{structBox2}{Box2} \&box, const \hyperlink{structRay}{Ray} \&ray)
+\item 
+\hyperlink{classOptional}{Optional}$<$ \hyperlink{intersection_8h_a880ab27cdd7ea5eab91289bba0bacadb}{Inter\+Type} $>$ \hyperlink{intersection_8cpp_a92bc7a78315904bcef807c694583143b}{intersec\+XY} (float z, const \hyperlink{structBox2}{Box2} \&box, const \hyperlink{structRay}{Ray} \&ray)
+\item 
+\hyperlink{classOptional}{Optional}$<$ \hyperlink{intersection_8h_a880ab27cdd7ea5eab91289bba0bacadb}{Inter\+Type} $>$ \hyperlink{intersection_8cpp_afcbfaca43609cb5fdc84fde37a56857a}{intersec} (const \hyperlink{structBox3}{Box3} \&box, const \hyperlink{structRay}{Ray} \&ray)
+\begin{DoxyCompactList}\small\item\em Find intersection between box and ray. \end{DoxyCompactList}\item 
+\hyperlink{classOptional}{Optional}$<$ \hyperlink{structSurfInterType}{Surf\+Inter\+Type} $>$ \hyperlink{intersection_8cpp_ac780126b09d234c205b14017ed48cc0e}{intersec} (float t, float u, float v, const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&p0, const \hyperlink{classSurface}{Surface} \&surf, const \hyperlink{structRay}{Ray} \&ray)
+\begin{DoxyCompactList}\small\item\em Find intersection with a surface based on box intersection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{intersection.\+cpp@{intersection.\+cpp}!intersec@{intersec}}
+\index{intersec@{intersec}!intersection.\+cpp@{intersection.\+cpp}}
+\subsubsection[{\texorpdfstring{intersec(const Box3 \&box, const Ray \&ray)}{intersec(const Box3 &box, const Ray &ray)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Optional}$<${\bf Inter\+Type}$>$ intersec (
+\begin{DoxyParamCaption}
+\item[{const {\bf Box3} \&}]{box, }
+\item[{const {\bf Ray} \&}]{ray}
+\end{DoxyParamCaption}
+)}\hypertarget{intersection_8cpp_afcbfaca43609cb5fdc84fde37a56857a}{}\label{intersection_8cpp_afcbfaca43609cb5fdc84fde37a56857a}
+
+
+Find intersection between box and ray. 
+
+\begin{DoxyReturn}{Returns}
+\+: (Intersection point, \hyperlink{structRay}{Ray} parameter) 
+\end{DoxyReturn}
+\index{intersection.\+cpp@{intersection.\+cpp}!intersec@{intersec}}
+\index{intersec@{intersec}!intersection.\+cpp@{intersection.\+cpp}}
+\subsubsection[{\texorpdfstring{intersec(float t, float u, float v, const Vec3 \&p0, const Surface \&surf, const Ray \&ray)}{intersec(float t, float u, float v, const Vec3 &p0, const Surface &surf, const Ray &ray)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Optional}$<${\bf Surf\+Inter\+Type}$>$ intersec (
+\begin{DoxyParamCaption}
+\item[{float}]{t, }
+\item[{float}]{u, }
+\item[{float}]{v, }
+\item[{const {\bf Vec3} \&}]{p0, }
+\item[{const {\bf Surface} \&}]{surf, }
+\item[{const {\bf Ray} \&}]{ray}
+\end{DoxyParamCaption}
+)}\hypertarget{intersection_8cpp_ac780126b09d234c205b14017ed48cc0e}{}\label{intersection_8cpp_ac780126b09d234c205b14017ed48cc0e}
+
+
+Find intersection with a surface based on box intersection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t,u,v} & \+: Initial values \\
+\hline
+{\em p0} & \+: Initial intersection \\
+\hline
+\end{DoxyParams}
+\index{intersection.\+cpp@{intersection.\+cpp}!intersec\+XY@{intersec\+XY}}
+\index{intersec\+XY@{intersec\+XY}!intersection.\+cpp@{intersection.\+cpp}}
+\subsubsection[{\texorpdfstring{intersec\+X\+Y(float z, const Box2 \&box, const Ray \&ray)}{intersecXY(float z, const Box2 &box, const Ray &ray)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Optional}$<${\bf Inter\+Type}$>$ intersec\+XY (
+\begin{DoxyParamCaption}
+\item[{float}]{z, }
+\item[{const {\bf Box2} \&}]{box, }
+\item[{const {\bf Ray} \&}]{ray}
+\end{DoxyParamCaption}
+)}\hypertarget{intersection_8cpp_a92bc7a78315904bcef807c694583143b}{}\label{intersection_8cpp_a92bc7a78315904bcef807c694583143b}
+\index{intersection.\+cpp@{intersection.\+cpp}!intersec\+XZ@{intersec\+XZ}}
+\index{intersec\+XZ@{intersec\+XZ}!intersection.\+cpp@{intersection.\+cpp}}
+\subsubsection[{\texorpdfstring{intersec\+X\+Z(float y, const Box2 \&box, const Ray \&ray)}{intersecXZ(float y, const Box2 &box, const Ray &ray)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Optional}$<${\bf Inter\+Type}$>$ intersec\+XZ (
+\begin{DoxyParamCaption}
+\item[{float}]{y, }
+\item[{const {\bf Box2} \&}]{box, }
+\item[{const {\bf Ray} \&}]{ray}
+\end{DoxyParamCaption}
+)}\hypertarget{intersection_8cpp_ac2aaa5d853c940674478ca872272b443}{}\label{intersection_8cpp_ac2aaa5d853c940674478ca872272b443}
+\index{intersection.\+cpp@{intersection.\+cpp}!intersec\+YZ@{intersec\+YZ}}
+\index{intersec\+YZ@{intersec\+YZ}!intersection.\+cpp@{intersection.\+cpp}}
+\subsubsection[{\texorpdfstring{intersec\+Y\+Z(float x, const Box2 \&box, const Ray \&ray)}{intersecYZ(float x, const Box2 &box, const Ray &ray)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Optional}$<${\bf Inter\+Type}$>$ intersec\+YZ (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{const {\bf Box2} \&}]{box, }
+\item[{const {\bf Ray} \&}]{ray}
+\end{DoxyParamCaption}
+)}\hypertarget{intersection_8cpp_a8d26d293d4190e1ae37cd92106d195de}{}\label{intersection_8cpp_a8d26d293d4190e1ae37cd92106d195de}
+
+
+These functinos find intersection between yz/xz/xy-\/plane and ray Asserting the ray intersecting with the extended infinte plane. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x,y,z} & \+: Plane position \\
+\hline
+{\em box} & \+: Plane size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: (Intersection point, \hyperlink{structRay}{Ray} parameter) 
+\end{DoxyReturn}

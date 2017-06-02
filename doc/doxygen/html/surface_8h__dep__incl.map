@@ -1,0 +1,16 @@
+<map id="surface.h" name="surface.h">
+<area shape="rect" id="node2" href="$boxtree_8cpp.html" title="boxtree.cpp" alt="" coords="5,80,96,107"/>
+<area shape="rect" id="node3" href="$debug_8cpp.html" title="debug.cpp" alt="" coords="120,80,203,107"/>
+<area shape="rect" id="node4" href="$intersection_8cpp.html" title="intersection.cpp" alt="" coords="227,80,341,107"/>
+<area shape="rect" id="node5" href="$trace_8h.html" title="trace.h" alt="" coords="366,80,429,107"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title="main.cpp" alt="" coords="444,155,519,181"/>
+<area shape="rect" id="node8" href="$lightsource_8h.html" title="lightsource.h" alt="" coords="504,80,600,107"/>
+<area shape="rect" id="node10" href="$mesh_8cpp.html" title="mesh.cpp" alt="" coords="625,80,703,107"/>
+<area shape="rect" id="node11" href="$photonmap_8cpp.html" title="photonmap.cpp" alt="" coords="727,80,838,107"/>
+<area shape="rect" id="node12" href="$axisymmetric_8h.html" title="axisymmetric.h" alt="" coords="862,80,973,107"/>
+<area shape="rect" id="node13" href="$squarexy_8h.html" title="squarexy.h" alt="" coords="997,80,1083,107"/>
+<area shape="rect" id="node14" href="$squareyz_8h.html" title="squareyz.h" alt="" coords="1107,80,1194,107"/>
+<area shape="rect" id="node15" href="$squarezx_8h.html" title="squarezx.h" alt="" coords="1218,80,1305,107"/>
+<area shape="rect" id="node7" href="$trace_8cpp.html" title="trace.cpp" alt="" coords="343,155,419,181"/>
+<area shape="rect" id="node9" href="$surface_8cpp.html" title="surface.cpp" alt="" coords="995,155,1085,181"/>
+</map>

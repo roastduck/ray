@@ -1,0 +1,75 @@
+\hypertarget{random_8h}{}\section{random.\+h File Reference}
+\label{random_8h}\index{random.\+h@{random.\+h}}
+{\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include $<$random$>$}\\*
+{\ttfamily \#include \char`\"{}ray.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}./math.\+h\char`\"{}}\\*
+Include dependency graph for random.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class U\+R\+NG $>$ }\\float \hyperlink{random_8h_afb0a729a7ee60b1dcdf9399b90ddb6af}{rand\+Real} (U\+R\+NG \&g, float a, float b)
+\begin{DoxyCompactList}\small\item\em Random distributions Functions here uses C++11 random generators to provide thread-\/safe feature. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class U\+R\+NG $>$ }\\\hyperlink{structRay}{Ray} \hyperlink{random_8h_ab2d793c9f208115b2ca484dff8553420}{rand\+Semisphere} (U\+R\+NG \&g, const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&st, const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&norm, int n=0)
+\begin{DoxyCompactList}\small\item\em Random ray goes from {\ttfamily st}, with the direction in the semi sphere around {\ttfamily norm} For each ray {\ttfamily x}, its weight is cos(x . \end{DoxyCompactList}\item 
+{\footnotesize template$<$class U\+R\+NG $>$ }\\\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{random_8h_ac30894ff402852cc01f9b06aaed48838}{rand\+In\+Ball} (U\+R\+NG \&g, const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&center, float radius)
+\begin{DoxyCompactList}\small\item\em Random point on a ball. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{random.\+h@{random.\+h}!rand\+In\+Ball@{rand\+In\+Ball}}
+\index{rand\+In\+Ball@{rand\+In\+Ball}!random.\+h@{random.\+h}}
+\subsubsection[{\texorpdfstring{rand\+In\+Ball(\+U\+R\+N\+G \&g, const Vec3 \&center, float radius)}{randInBall(URNG &g, const Vec3 &center, float radius)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class U\+R\+NG $>$ {\bf Vec3} rand\+In\+Ball (
+\begin{DoxyParamCaption}
+\item[{U\+R\+NG \&}]{g, }
+\item[{const {\bf Vec3} \&}]{center, }
+\item[{float}]{radius}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{random_8h_ac30894ff402852cc01f9b06aaed48838}{}\label{random_8h_ac30894ff402852cc01f9b06aaed48838}
+
+
+Random point on a ball. 
+
+\index{random.\+h@{random.\+h}!rand\+Real@{rand\+Real}}
+\index{rand\+Real@{rand\+Real}!random.\+h@{random.\+h}}
+\subsubsection[{\texorpdfstring{rand\+Real(\+U\+R\+N\+G \&g, float a, float b)}{randReal(URNG &g, float a, float b)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class U\+R\+NG $>$ float rand\+Real (
+\begin{DoxyParamCaption}
+\item[{U\+R\+NG \&}]{g, }
+\item[{float}]{a, }
+\item[{float}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{random_8h_afb0a729a7ee60b1dcdf9399b90ddb6af}{}\label{random_8h_afb0a729a7ee60b1dcdf9399b90ddb6af}
+
+
+Random distributions Functions here uses C++11 random generators to provide thread-\/safe feature. 
+
+\index{random.\+h@{random.\+h}!rand\+Semisphere@{rand\+Semisphere}}
+\index{rand\+Semisphere@{rand\+Semisphere}!random.\+h@{random.\+h}}
+\subsubsection[{\texorpdfstring{rand\+Semisphere(\+U\+R\+N\+G \&g, const Vec3 \&st, const Vec3 \&norm, int n=0)}{randSemisphere(URNG &g, const Vec3 &st, const Vec3 &norm, int n=0)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class U\+R\+NG $>$ {\bf Ray} rand\+Semisphere (
+\begin{DoxyParamCaption}
+\item[{U\+R\+NG \&}]{g, }
+\item[{const {\bf Vec3} \&}]{st, }
+\item[{const {\bf Vec3} \&}]{norm, }
+\item[{int}]{n = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{random_8h_ab2d793c9f208115b2ca484dff8553420}{}\label{random_8h_ab2d793c9f208115b2ca484dff8553420}
+
+
+Random ray goes from {\ttfamily st}, with the direction in the semi sphere around {\ttfamily norm} For each ray {\ttfamily x}, its weight is cos(x . 
+
+norm)$^\wedge$n 

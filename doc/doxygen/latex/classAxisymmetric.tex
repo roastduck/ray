@@ -1,0 +1,178 @@
+\hypertarget{classAxisymmetric}{}\section{Axisymmetric Class Reference}
+\label{classAxisymmetric}\index{Axisymmetric@{Axisymmetric}}
+
+
+Rotate a curve around z-\/axis to form a surface omega = u $\ast$ 2 $\ast$ PI, curve param = v \hyperlink{classCurve}{Curve(x, y)} =$>$ \hyperlink{classSurface}{Surface}(z, x $\sim$ y) If curve parameter v is positively correlated with x, normal goes outwards.  
+
+
+
+
+{\ttfamily \#include $<$axisymmetric.\+h$>$}
+
+
+
+Inheritance diagram for Axisymmetric\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classAxisymmetric__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Axisymmetric\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classAxisymmetric__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAxisymmetric_ab9470bf0bc24964f1c8b186d9e900036}{Axisymmetric} (const \hyperlink{classCurve}{Curve} $\ast$\+\_\+curve)
+\item 
+\hyperlink{classAxisymmetric_a3a9d954abfcb1bbb524382c9d64ae412}{Axisymmetric} (const \hyperlink{classAxisymmetric}{Axisymmetric} \&)=delete
+\item 
+\hyperlink{classAxisymmetric}{Axisymmetric} \& \hyperlink{classAxisymmetric_ab788a7e5b1f41fb28a128489cb0312d0}{operator=} (const \hyperlink{classAxisymmetric}{Axisymmetric} \&)=delete
+\item 
+bool \hyperlink{classAxisymmetric_a50b489a9914ad852638b586cc0c6c2dc}{u\+Is\+Circular} () const override
+\item 
+bool \hyperlink{classAxisymmetric_a63d63250b3ca2a34c2707abf35169657}{v\+Is\+Circular} () const override
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classAxisymmetric_a65f503a73188b0647945bf3a6a5b901e}{position\+Impl} (float u, float v) const override
+\begin{DoxyCompactList}\small\item\em Responsible to destroy it. \end{DoxyCompactList}\item 
+\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classAxisymmetric_a2af551bce6cffc034a278de5c2f5f3c4}{derivative\+U\+Impl} (float u, float v) const override
+\item 
+\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classAxisymmetric_ab62630c58ba420d44eb39753f27abba9}{derivative\+V\+Impl} (float u, float v) const override
+\item 
+\hyperlink{structBox3}{Box3} \hyperlink{classAxisymmetric_a2718336bc4e05234a3f57bbe80ec29d3}{xyz\+Min\+Max\+Impl} (float u1, float u2, float v1, float v2) const override
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ const \hyperlink{classCurve}{Curve} $>$ \hyperlink{classAxisymmetric_a9786b5a7bc06ecb80325baf1193a92cc}{curve}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Rotate a curve around z-\/axis to form a surface omega = u $\ast$ 2 $\ast$ PI, curve param = v \hyperlink{classCurve}{Curve(x, y)} =$>$ \hyperlink{classSurface}{Surface}(z, x $\sim$ y) If curve parameter v is positively correlated with x, normal goes outwards. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Axisymmetric@{Axisymmetric}!Axisymmetric@{Axisymmetric}}
+\index{Axisymmetric@{Axisymmetric}!Axisymmetric@{Axisymmetric}}
+\subsubsection[{\texorpdfstring{Axisymmetric(const Curve $\ast$\+\_\+curve)}{Axisymmetric(const Curve *_curve)}}]{\setlength{\rightskip}{0pt plus 5cm}Axisymmetric\+::\+Axisymmetric (
+\begin{DoxyParamCaption}
+\item[{const {\bf Curve} $\ast$}]{\+\_\+curve}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classAxisymmetric_ab9470bf0bc24964f1c8b186d9e900036}{}\label{classAxisymmetric_ab9470bf0bc24964f1c8b186d9e900036}
+\index{Axisymmetric@{Axisymmetric}!Axisymmetric@{Axisymmetric}}
+\index{Axisymmetric@{Axisymmetric}!Axisymmetric@{Axisymmetric}}
+\subsubsection[{\texorpdfstring{Axisymmetric(const Axisymmetric \&)=delete}{Axisymmetric(const Axisymmetric &)=delete}}]{\setlength{\rightskip}{0pt plus 5cm}Axisymmetric\+::\+Axisymmetric (
+\begin{DoxyParamCaption}
+\item[{const {\bf Axisymmetric} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\hypertarget{classAxisymmetric_a3a9d954abfcb1bbb524382c9d64ae412}{}\label{classAxisymmetric_a3a9d954abfcb1bbb524382c9d64ae412}
+
+
+\subsection{Member Function Documentation}
+\index{Axisymmetric@{Axisymmetric}!derivative\+U\+Impl@{derivative\+U\+Impl}}
+\index{derivative\+U\+Impl@{derivative\+U\+Impl}!Axisymmetric@{Axisymmetric}}
+\subsubsection[{\texorpdfstring{derivative\+U\+Impl(float u, float v) const override}{derivativeUImpl(float u, float v) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Axisymmetric\+::derivative\+U\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classAxisymmetric_a2af551bce6cffc034a278de5c2f5f3c4}{}\label{classAxisymmetric_a2af551bce6cffc034a278de5c2f5f3c4}
+
+
+Implements \hyperlink{classSurface_a4de8fb9d4652cc32022c95eb903cce4a}{Surface}.
+
+\index{Axisymmetric@{Axisymmetric}!derivative\+V\+Impl@{derivative\+V\+Impl}}
+\index{derivative\+V\+Impl@{derivative\+V\+Impl}!Axisymmetric@{Axisymmetric}}
+\subsubsection[{\texorpdfstring{derivative\+V\+Impl(float u, float v) const override}{derivativeVImpl(float u, float v) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Axisymmetric\+::derivative\+V\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classAxisymmetric_ab62630c58ba420d44eb39753f27abba9}{}\label{classAxisymmetric_ab62630c58ba420d44eb39753f27abba9}
+
+
+Implements \hyperlink{classSurface_a95d65437419ba8d439fa8f0d71f963a1}{Surface}.
+
+\index{Axisymmetric@{Axisymmetric}!operator=@{operator=}}
+\index{operator=@{operator=}!Axisymmetric@{Axisymmetric}}
+\subsubsection[{\texorpdfstring{operator=(const Axisymmetric \&)=delete}{operator=(const Axisymmetric &)=delete}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Axisymmetric}\& Axisymmetric\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Axisymmetric} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\hypertarget{classAxisymmetric_ab788a7e5b1f41fb28a128489cb0312d0}{}\label{classAxisymmetric_ab788a7e5b1f41fb28a128489cb0312d0}
+\index{Axisymmetric@{Axisymmetric}!position\+Impl@{position\+Impl}}
+\index{position\+Impl@{position\+Impl}!Axisymmetric@{Axisymmetric}}
+\subsubsection[{\texorpdfstring{position\+Impl(float u, float v) const override}{positionImpl(float u, float v) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Axisymmetric\+::position\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classAxisymmetric_a65f503a73188b0647945bf3a6a5b901e}{}\label{classAxisymmetric_a65f503a73188b0647945bf3a6a5b901e}
+
+
+Responsible to destroy it. 
+
+
+
+Implements \hyperlink{classSurface_a379545eea4809f81fe7e037f5e5ff4be}{Surface}.
+
+\index{Axisymmetric@{Axisymmetric}!u\+Is\+Circular@{u\+Is\+Circular}}
+\index{u\+Is\+Circular@{u\+Is\+Circular}!Axisymmetric@{Axisymmetric}}
+\subsubsection[{\texorpdfstring{u\+Is\+Circular() const override}{uIsCircular() const override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Axisymmetric\+::u\+Is\+Circular (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classAxisymmetric_a50b489a9914ad852638b586cc0c6c2dc}{}\label{classAxisymmetric_a50b489a9914ad852638b586cc0c6c2dc}
+
+
+Implements \hyperlink{classSurface_a11d5759ec3e3d43036fb949dcc6f5562}{Surface}.
+
+\index{Axisymmetric@{Axisymmetric}!v\+Is\+Circular@{v\+Is\+Circular}}
+\index{v\+Is\+Circular@{v\+Is\+Circular}!Axisymmetric@{Axisymmetric}}
+\subsubsection[{\texorpdfstring{v\+Is\+Circular() const override}{vIsCircular() const override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Axisymmetric\+::v\+Is\+Circular (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classAxisymmetric_a63d63250b3ca2a34c2707abf35169657}{}\label{classAxisymmetric_a63d63250b3ca2a34c2707abf35169657}
+
+
+Implements \hyperlink{classSurface_af52f9322929a702a9aaeee3ae4a368da}{Surface}.
+
+\index{Axisymmetric@{Axisymmetric}!xyz\+Min\+Max\+Impl@{xyz\+Min\+Max\+Impl}}
+\index{xyz\+Min\+Max\+Impl@{xyz\+Min\+Max\+Impl}!Axisymmetric@{Axisymmetric}}
+\subsubsection[{\texorpdfstring{xyz\+Min\+Max\+Impl(float u1, float u2, float v1, float v2) const override}{xyzMinMaxImpl(float u1, float u2, float v1, float v2) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Box3} Axisymmetric\+::xyz\+Min\+Max\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u1, }
+\item[{float}]{u2, }
+\item[{float}]{v1, }
+\item[{float}]{v2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classAxisymmetric_a2718336bc4e05234a3f57bbe80ec29d3}{}\label{classAxisymmetric_a2718336bc4e05234a3f57bbe80ec29d3}
+
+
+Implements \hyperlink{classSurface_ab1ee990da290748cd86aaf95edb28c38}{Surface}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Axisymmetric@{Axisymmetric}!curve@{curve}}
+\index{curve@{curve}!Axisymmetric@{Axisymmetric}}
+\subsubsection[{\texorpdfstring{curve}{curve}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unique\+\_\+ptr$<$const {\bf Curve}$>$ Axisymmetric\+::curve\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classAxisymmetric_a9786b5a7bc06ecb80325baf1193a92cc}{}\label{classAxisymmetric_a9786b5a7bc06ecb80325baf1193a92cc}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{axisymmetric_8h}{axisymmetric.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,103 @@
+\hypertarget{classPhotonMap}{}\section{Photon\+Map Class Reference}
+\label{classPhotonMap}\index{Photon\+Map@{Photon\+Map}}
+
+
+Photon Map Use in order\+: 1.  
+
+
+
+
+{\ttfamily \#include $<$photonmap.\+h$>$}
+
+
+
+Collaboration diagram for Photon\+Map\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classPhotonMap__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPhotonMap_ac493f8c1f27901b6a3d5703097379332}{Photon\+Map} (const \hyperlink{classSurface}{Surface} \&\+\_\+surf)
+\item 
+void \hyperlink{classPhotonMap_a48205afd792b0339ed4639f2028a3145}{add\+Ray} (const \hyperlink{structColoredRay}{Colored\+Ray} \&ray)
+\item 
+void \hyperlink{classPhotonMap_a0a190c6a8b5dbddc76a369d022685481}{build\+Tree} ()
+\item 
+std\+::vector$<$ \hyperlink{structColoredRay}{Colored\+Ray} $>$ \hyperlink{classPhotonMap_a435d846181e4deed73481e49e8508c07}{get\+K\+NN} (const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&center, int k) const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classSurface}{Surface} \& \hyperlink{classPhotonMap_a347cfa86f86fd505194780438f1fb1d8}{surf}
+\item 
+std\+::unique\+\_\+ptr$<$ std\+::vector$<$ \hyperlink{structColoredRay}{Colored\+Ray} $>$ $>$ \hyperlink{classPhotonMap_a20419eecb0781c24cbda8210bc0df221}{raw\+Data}
+\item 
+std\+::unique\+\_\+ptr$<$ \hyperlink{classKDTree}{K\+D\+Tree} $>$ \hyperlink{classPhotonMap_aab0b914c435f74e2ce85fab273d94030}{tree}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Photon Map Use in order\+: 1. 
+
+Add multiple rays
+\begin{DoxyEnumerate}
+\item Build tree
+\item Find K\+NN multiple times 
+\end{DoxyEnumerate}
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Photon\+Map@{Photon\+Map}!Photon\+Map@{Photon\+Map}}
+\index{Photon\+Map@{Photon\+Map}!Photon\+Map@{Photon\+Map}}
+\subsubsection[{\texorpdfstring{Photon\+Map(const Surface \&\+\_\+surf)}{PhotonMap(const Surface &_surf)}}]{\setlength{\rightskip}{0pt plus 5cm}Photon\+Map\+::\+Photon\+Map (
+\begin{DoxyParamCaption}
+\item[{const {\bf Surface} \&}]{\+\_\+surf}
+\end{DoxyParamCaption}
+)}\hypertarget{classPhotonMap_ac493f8c1f27901b6a3d5703097379332}{}\label{classPhotonMap_ac493f8c1f27901b6a3d5703097379332}
+
+
+\subsection{Member Function Documentation}
+\index{Photon\+Map@{Photon\+Map}!add\+Ray@{add\+Ray}}
+\index{add\+Ray@{add\+Ray}!Photon\+Map@{Photon\+Map}}
+\subsubsection[{\texorpdfstring{add\+Ray(const Colored\+Ray \&ray)}{addRay(const ColoredRay &ray)}}]{\setlength{\rightskip}{0pt plus 5cm}void Photon\+Map\+::add\+Ray (
+\begin{DoxyParamCaption}
+\item[{const {\bf Colored\+Ray} \&}]{ray}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPhotonMap_a48205afd792b0339ed4639f2028a3145}{}\label{classPhotonMap_a48205afd792b0339ed4639f2028a3145}
+\index{Photon\+Map@{Photon\+Map}!build\+Tree@{build\+Tree}}
+\index{build\+Tree@{build\+Tree}!Photon\+Map@{Photon\+Map}}
+\subsubsection[{\texorpdfstring{build\+Tree()}{buildTree()}}]{\setlength{\rightskip}{0pt plus 5cm}void Photon\+Map\+::build\+Tree (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classPhotonMap_a0a190c6a8b5dbddc76a369d022685481}{}\label{classPhotonMap_a0a190c6a8b5dbddc76a369d022685481}
+\index{Photon\+Map@{Photon\+Map}!get\+K\+NN@{get\+K\+NN}}
+\index{get\+K\+NN@{get\+K\+NN}!Photon\+Map@{Photon\+Map}}
+\subsubsection[{\texorpdfstring{get\+K\+N\+N(const Vec3 \&center, int k) const }{getKNN(const Vec3 &center, int k) const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Colored\+Ray} $>$ Photon\+Map\+::get\+K\+NN (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3} \&}]{center, }
+\item[{int}]{k}
+\end{DoxyParamCaption}
+) const}\hypertarget{classPhotonMap_a435d846181e4deed73481e49e8508c07}{}\label{classPhotonMap_a435d846181e4deed73481e49e8508c07}
+
+
+\subsection{Member Data Documentation}
+\index{Photon\+Map@{Photon\+Map}!raw\+Data@{raw\+Data}}
+\index{raw\+Data@{raw\+Data}!Photon\+Map@{Photon\+Map}}
+\subsubsection[{\texorpdfstring{raw\+Data}{rawData}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unique\+\_\+ptr$<$ std\+::vector$<${\bf Colored\+Ray}$>$ $>$ Photon\+Map\+::raw\+Data\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classPhotonMap_a20419eecb0781c24cbda8210bc0df221}{}\label{classPhotonMap_a20419eecb0781c24cbda8210bc0df221}
+\index{Photon\+Map@{Photon\+Map}!surf@{surf}}
+\index{surf@{surf}!Photon\+Map@{Photon\+Map}}
+\subsubsection[{\texorpdfstring{surf}{surf}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Surface}\& Photon\+Map\+::surf\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classPhotonMap_a347cfa86f86fd505194780438f1fb1d8}{}\label{classPhotonMap_a347cfa86f86fd505194780438f1fb1d8}
+\index{Photon\+Map@{Photon\+Map}!tree@{tree}}
+\index{tree@{tree}!Photon\+Map@{Photon\+Map}}
+\subsubsection[{\texorpdfstring{tree}{tree}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unique\+\_\+ptr$<${\bf K\+D\+Tree}$>$ Photon\+Map\+::tree\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classPhotonMap_aab0b914c435f74e2ce85fab273d94030}{}\label{classPhotonMap_aab0b914c435f74e2ce85fab273d94030}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{photonmap_8h}{photonmap.\+h}\item 
+\hyperlink{photonmap_8cpp}{photonmap.\+cpp}\end{DoxyCompactItemize}

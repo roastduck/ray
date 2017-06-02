@@ -1,0 +1,224 @@
+\hypertarget{classBezier3}{}\section{Bezier3 Class Reference}
+\label{classBezier3}\index{Bezier3@{Bezier3}}
+
+
+3-\/dgree Bezier \hyperlink{classCurve}{Curve}  
+
+
+
+
+{\ttfamily \#include $<$bezier3.\+h$>$}
+
+
+
+Inheritance diagram for Bezier3\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classBezier3__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Bezier3\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBezier3__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBezier3_a7ecadca050fc7935c58c67de8b767dcf}{Bezier3} (const \hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \&\+\_\+p0, const \hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \&\+\_\+p1, const \hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \&\+\_\+p2, const \hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \&\+\_\+p3)
+\begin{DoxyCompactList}\small\item\em Extream value for x and y. \end{DoxyCompactList}\item 
+\hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \hyperlink{classBezier3_afd1907f62d8d19b4683f43080a0334db}{position} (float t) const override
+\begin{DoxyCompactList}\small\item\em Get point on the curve. \end{DoxyCompactList}\item 
+\hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \hyperlink{classBezier3_a8f3bc3ba14dae6e9f27366ef587accc5}{derivation} (float t) const override
+\begin{DoxyCompactList}\small\item\em Get derivation. \end{DoxyCompactList}\item 
+\hyperlink{structBox2}{Box2} \hyperlink{classBezier3_aa5a1d33483071204f99774fefb092caf}{xy\+Min\+Max} (float t1, float t2) const override
+\begin{DoxyCompactList}\small\item\em (x\+:(min, max), y\+:(min, max)) when t in \mbox{[}x1, x2\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \hyperlink{classBezier3_a023a628ce0ed0750b3bf9c00086843aa}{mix} (const \hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \&v1, const \hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \&v2, float k)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \hyperlink{classBezier3_a61297313c61fc20a334b12603f59b999}{p0}
+\item 
+\hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \hyperlink{classBezier3_acad9cdcdafe19feef1002ced52099cfe}{p1}
+\item 
+\hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \hyperlink{classBezier3_aa78aee06abc3a06c2dd636df4fe4451d}{p2}
+\item 
+\hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \hyperlink{classBezier3_a0e1e35eb084266b2dcd71ecf9b19b80f}{p3}
+\item 
+\hyperlink{structVec2t}{Vec2t}$<$ double $>$ \hyperlink{classBezier3_ae83be4ce590bf7a7a2bf53adeeb170cf}{a}
+\item 
+\hyperlink{structVec2t}{Vec2t}$<$ double $>$ \hyperlink{classBezier3_ad63b9a75228af1727b61fe032f7e2f68}{b}
+\item 
+\hyperlink{structVec2t}{Vec2t}$<$ double $>$ \hyperlink{classBezier3_aafb4270797f10af53a7feba1a66d59a0}{c}
+\item 
+\hyperlink{structVec2t}{Vec2t}$<$ double $>$ \hyperlink{classBezier3_a5ce0d6743e932b0096b64804324dad9b}{d}
+\item 
+float \hyperlink{classBezier3_ac017ccb0ddaadd93fcb65e144abfab64}{tx1}
+\begin{DoxyCompactList}\small\item\em Expanded polynomial coefficient. \end{DoxyCompactList}\item 
+float \hyperlink{classBezier3_a167a03a8686c66095e36c86b1ce2eef0}{tx2}
+\item 
+float \hyperlink{classBezier3_ad4f47c85e457139bd3f9e344b72309c1}{ty1}
+\item 
+float \hyperlink{classBezier3_aa956edaaef544c1ef270a0e5f9e333f2}{ty2}
+\item 
+\hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \hyperlink{classBezier3_a7d69e4d349bbe7a7351188d2c0a3ef4b}{px1}
+\begin{DoxyCompactList}\small\item\em Coresponding t for extream values. \end{DoxyCompactList}\item 
+\hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \hyperlink{classBezier3_ae439178d68735ec771c72d097cb90997}{px2}
+\item 
+\hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \hyperlink{classBezier3_a6bdba56f87b7c2f2fd32361cd0cccdc8}{py1}
+\item 
+\hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \hyperlink{classBezier3_affcc44acee6b341088cdd403c55fa61e}{py2}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+3-\/dgree Bezier \hyperlink{classCurve}{Curve} 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Bezier3@{Bezier3}!Bezier3@{Bezier3}}
+\index{Bezier3@{Bezier3}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{Bezier3(const Vec2 \&\+\_\+p0, const Vec2 \&\+\_\+p1, const Vec2 \&\+\_\+p2, const Vec2 \&\+\_\+p3)}{Bezier3(const Vec2 &_p0, const Vec2 &_p1, const Vec2 &_p2, const Vec2 &_p3)}}]{\setlength{\rightskip}{0pt plus 5cm}Bezier3\+::\+Bezier3 (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec2} \&}]{\+\_\+p0, }
+\item[{const {\bf Vec2} \&}]{\+\_\+p1, }
+\item[{const {\bf Vec2} \&}]{\+\_\+p2, }
+\item[{const {\bf Vec2} \&}]{\+\_\+p3}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classBezier3_a7ecadca050fc7935c58c67de8b767dcf}{}\label{classBezier3_a7ecadca050fc7935c58c67de8b767dcf}
+
+
+Extream value for x and y. 
+
+Construct with 4 control points Subtracting similar numbers decreses accuracy, so use double 
+
+\subsection{Member Function Documentation}
+\index{Bezier3@{Bezier3}!derivation@{derivation}}
+\index{derivation@{derivation}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{derivation(float t) const override}{derivation(float t) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Bezier3\+::derivation (
+\begin{DoxyParamCaption}
+\item[{float}]{t}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classBezier3_a8f3bc3ba14dae6e9f27366ef587accc5}{}\label{classBezier3_a8f3bc3ba14dae6e9f27366ef587accc5}
+
+
+Get derivation. 
+
+
+
+Implements \hyperlink{classCurve_acca6db6f7d2f45fbea676db16e3784be}{Curve}.
+
+\index{Bezier3@{Bezier3}!mix@{mix}}
+\index{mix@{mix}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{mix(const Vec2 \&v1, const Vec2 \&v2, float k)}{mix(const Vec2 &v1, const Vec2 &v2, float k)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Bezier3\+::mix (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec2} \&}]{v1, }
+\item[{const {\bf Vec2} \&}]{v2, }
+\item[{float}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classBezier3_a023a628ce0ed0750b3bf9c00086843aa}{}\label{classBezier3_a023a628ce0ed0750b3bf9c00086843aa}
+\index{Bezier3@{Bezier3}!position@{position}}
+\index{position@{position}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{position(float t) const override}{position(float t) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Bezier3\+::position (
+\begin{DoxyParamCaption}
+\item[{float}]{t}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classBezier3_afd1907f62d8d19b4683f43080a0334db}{}\label{classBezier3_afd1907f62d8d19b4683f43080a0334db}
+
+
+Get point on the curve. 
+
+
+
+Implements \hyperlink{classCurve_a919ea6d17b6fc0dc6ea6facec6d5623c}{Curve}.
+
+\index{Bezier3@{Bezier3}!xy\+Min\+Max@{xy\+Min\+Max}}
+\index{xy\+Min\+Max@{xy\+Min\+Max}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{xy\+Min\+Max(float t1, float t2) const override}{xyMinMax(float t1, float t2) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Box2} Bezier3\+::xy\+Min\+Max (
+\begin{DoxyParamCaption}
+\item[{float}]{t1, }
+\item[{float}]{t2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classBezier3_aa5a1d33483071204f99774fefb092caf}{}\label{classBezier3_aa5a1d33483071204f99774fefb092caf}
+
+
+(x\+:(min, max), y\+:(min, max)) when t in \mbox{[}x1, x2\mbox{]} 
+
+
+
+Implements \hyperlink{classCurve_add48a303ee076bfce08340dd1241cbf6}{Curve}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Bezier3@{Bezier3}!a@{a}}
+\index{a@{a}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{a}{a}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2t}$<$double$>$ Bezier3\+::a\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_ae83be4ce590bf7a7a2bf53adeeb170cf}{}\label{classBezier3_ae83be4ce590bf7a7a2bf53adeeb170cf}
+\index{Bezier3@{Bezier3}!b@{b}}
+\index{b@{b}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{b}{b}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2t}$<$double$>$ Bezier3\+::b\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_ad63b9a75228af1727b61fe032f7e2f68}{}\label{classBezier3_ad63b9a75228af1727b61fe032f7e2f68}
+\index{Bezier3@{Bezier3}!c@{c}}
+\index{c@{c}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{c}{c}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2t}$<$double$>$ Bezier3\+::c\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_aafb4270797f10af53a7feba1a66d59a0}{}\label{classBezier3_aafb4270797f10af53a7feba1a66d59a0}
+\index{Bezier3@{Bezier3}!d@{d}}
+\index{d@{d}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{d}{d}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2t}$<$double$>$ Bezier3\+::d\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_a5ce0d6743e932b0096b64804324dad9b}{}\label{classBezier3_a5ce0d6743e932b0096b64804324dad9b}
+\index{Bezier3@{Bezier3}!p0@{p0}}
+\index{p0@{p0}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{p0}{p0}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Bezier3\+::p0\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_a61297313c61fc20a334b12603f59b999}{}\label{classBezier3_a61297313c61fc20a334b12603f59b999}
+\index{Bezier3@{Bezier3}!p1@{p1}}
+\index{p1@{p1}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{p1}{p1}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Bezier3\+::p1\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_acad9cdcdafe19feef1002ced52099cfe}{}\label{classBezier3_acad9cdcdafe19feef1002ced52099cfe}
+\index{Bezier3@{Bezier3}!p2@{p2}}
+\index{p2@{p2}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{p2}{p2}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Bezier3\+::p2\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_aa78aee06abc3a06c2dd636df4fe4451d}{}\label{classBezier3_aa78aee06abc3a06c2dd636df4fe4451d}
+\index{Bezier3@{Bezier3}!p3@{p3}}
+\index{p3@{p3}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{p3}{p3}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Bezier3\+::p3\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_a0e1e35eb084266b2dcd71ecf9b19b80f}{}\label{classBezier3_a0e1e35eb084266b2dcd71ecf9b19b80f}
+\index{Bezier3@{Bezier3}!px1@{px1}}
+\index{px1@{px1}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{px1}{px1}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Bezier3\+::px1\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_a7d69e4d349bbe7a7351188d2c0a3ef4b}{}\label{classBezier3_a7d69e4d349bbe7a7351188d2c0a3ef4b}
+
+
+Coresponding t for extream values. 
+
+\index{Bezier3@{Bezier3}!px2@{px2}}
+\index{px2@{px2}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{px2}{px2}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Bezier3\+::px2\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_ae439178d68735ec771c72d097cb90997}{}\label{classBezier3_ae439178d68735ec771c72d097cb90997}
+\index{Bezier3@{Bezier3}!py1@{py1}}
+\index{py1@{py1}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{py1}{py1}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Bezier3\+::py1\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_a6bdba56f87b7c2f2fd32361cd0cccdc8}{}\label{classBezier3_a6bdba56f87b7c2f2fd32361cd0cccdc8}
+\index{Bezier3@{Bezier3}!py2@{py2}}
+\index{py2@{py2}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{py2}{py2}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} Bezier3\+::py2\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_affcc44acee6b341088cdd403c55fa61e}{}\label{classBezier3_affcc44acee6b341088cdd403c55fa61e}
+\index{Bezier3@{Bezier3}!tx1@{tx1}}
+\index{tx1@{tx1}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{tx1}{tx1}}]{\setlength{\rightskip}{0pt plus 5cm}float Bezier3\+::tx1\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_ac017ccb0ddaadd93fcb65e144abfab64}{}\label{classBezier3_ac017ccb0ddaadd93fcb65e144abfab64}
+
+
+Expanded polynomial coefficient. 
+
+\index{Bezier3@{Bezier3}!tx2@{tx2}}
+\index{tx2@{tx2}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{tx2}{tx2}}]{\setlength{\rightskip}{0pt plus 5cm}float Bezier3\+::tx2\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_a167a03a8686c66095e36c86b1ce2eef0}{}\label{classBezier3_a167a03a8686c66095e36c86b1ce2eef0}
+\index{Bezier3@{Bezier3}!ty1@{ty1}}
+\index{ty1@{ty1}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{ty1}{ty1}}]{\setlength{\rightskip}{0pt plus 5cm}float Bezier3\+::ty1\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_ad4f47c85e457139bd3f9e344b72309c1}{}\label{classBezier3_ad4f47c85e457139bd3f9e344b72309c1}
+\index{Bezier3@{Bezier3}!ty2@{ty2}}
+\index{ty2@{ty2}!Bezier3@{Bezier3}}
+\subsubsection[{\texorpdfstring{ty2}{ty2}}]{\setlength{\rightskip}{0pt plus 5cm}float Bezier3\+::ty2\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBezier3_aa956edaaef544c1ef270a0e5f9e333f2}{}\label{classBezier3_aa956edaaef544c1ef270a0e5f9e333f2}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bezier3_8h}{bezier3.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,115 @@
+\hypertarget{structBoxTree_1_1Node}{}\section{Box\+Tree\+:\+:Node Struct Reference}
+\label{structBoxTree_1_1Node}\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}
+
+
+{\ttfamily \#include $<$boxtree.\+h$>$}
+
+
+
+Collaboration diagram for Box\+Tree\+:\+:Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{structBoxTree_1_1Node__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{structBoxTree_1_1Node_af862522c79bbea75bbbfa47614842295}{Slide\+Dir} \{ \hyperlink{structBoxTree_1_1Node_af862522c79bbea75bbbfa47614842295a8de683397fda85467d10531bdaf67577}{B\+Y\+\_\+U} = 0, 
+\hyperlink{structBoxTree_1_1Node_af862522c79bbea75bbbfa47614842295acd6e4816ec952840b6cd2dc8261a3963}{B\+Y\+\_\+V} = 1, 
+\hyperlink{structBoxTree_1_1Node_af862522c79bbea75bbbfa47614842295a06e0ae6f4066175d8a5739b775f52c83}{L\+E\+AF} = -\/1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structBoxTree_1_1Node_a9b631d5d7dd608857dbf6b16407b1e0a}{Node} (float \+\_\+u1, float \+\_\+u2, float \+\_\+v1, float \+\_\+v2, const \hyperlink{structBox3}{Box3} \&\+\_\+box)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \hyperlink{structBoxTree_1_1Node}{Node} $>$ \hyperlink{structBoxTree_1_1Node_a9d101fa1093b0c23cbff294f65c0a04b}{l}
+\item 
+std\+::unique\+\_\+ptr$<$ \hyperlink{structBoxTree_1_1Node}{Node} $>$ \hyperlink{structBoxTree_1_1Node_a8e85cff13a1049196ff4457654c9fa33}{r}
+\item 
+float \hyperlink{structBoxTree_1_1Node_ab92350a00f11c1d1f7c7c076029bfa65}{u1}
+\begin{DoxyCompactList}\small\item\em children \end{DoxyCompactList}\item 
+float \hyperlink{structBoxTree_1_1Node_a5f00089be77fb8baf47bde296a491a5b}{u2}
+\item 
+float \hyperlink{structBoxTree_1_1Node_a6776d4995a710d07a91c8ce29d6ca8e8}{v1}
+\item 
+float \hyperlink{structBoxTree_1_1Node_a00397c546d573ed0018f43b714414303}{v2}
+\item 
+\hyperlink{structBox3}{Box3} \hyperlink{structBoxTree_1_1Node_a0926dd1c5b248667de3399a08bf6bc6f}{box}
+\item 
+\hyperlink{structBoxTree_1_1Node_af862522c79bbea75bbbfa47614842295}{Slide\+Dir} \hyperlink{structBoxTree_1_1Node_a23938b7d422df4c0faebd8fe0af43bd3}{slide\+By}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}!Slide\+Dir@{Slide\+Dir}}
+\index{Slide\+Dir@{Slide\+Dir}!Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{Slide\+Dir}{SlideDir}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Box\+Tree\+::\+Node\+::\+Slide\+Dir}}\hypertarget{structBoxTree_1_1Node_af862522c79bbea75bbbfa47614842295}{}\label{structBoxTree_1_1Node_af862522c79bbea75bbbfa47614842295}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{B\+Y\+\_\+U@{B\+Y\+\_\+U}!Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}!B\+Y\+\_\+U@{B\+Y\+\_\+U}}\item[{\em 
+B\+Y\+\_\+U\hypertarget{structBoxTree_1_1Node_af862522c79bbea75bbbfa47614842295a8de683397fda85467d10531bdaf67577}{}\label{structBoxTree_1_1Node_af862522c79bbea75bbbfa47614842295a8de683397fda85467d10531bdaf67577}
+}]\index{B\+Y\+\_\+V@{B\+Y\+\_\+V}!Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}!B\+Y\+\_\+V@{B\+Y\+\_\+V}}\item[{\em 
+B\+Y\+\_\+V\hypertarget{structBoxTree_1_1Node_af862522c79bbea75bbbfa47614842295acd6e4816ec952840b6cd2dc8261a3963}{}\label{structBoxTree_1_1Node_af862522c79bbea75bbbfa47614842295acd6e4816ec952840b6cd2dc8261a3963}
+}]\index{L\+E\+AF@{L\+E\+AF}!Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}!L\+E\+AF@{L\+E\+AF}}\item[{\em 
+L\+E\+AF\hypertarget{structBoxTree_1_1Node_af862522c79bbea75bbbfa47614842295a06e0ae6f4066175d8a5739b775f52c83}{}\label{structBoxTree_1_1Node_af862522c79bbea75bbbfa47614842295a06e0ae6f4066175d8a5739b775f52c83}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}!Node@{Node}}
+\index{Node@{Node}!Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{Node(float \+\_\+u1, float \+\_\+u2, float \+\_\+v1, float \+\_\+v2, const Box3 \&\+\_\+box)}{Node(float _u1, float _u2, float _v1, float _v2, const Box3 &_box)}}]{\setlength{\rightskip}{0pt plus 5cm}Box\+Tree\+::\+Node\+::\+Node (
+\begin{DoxyParamCaption}
+\item[{float}]{\+\_\+u1, }
+\item[{float}]{\+\_\+u2, }
+\item[{float}]{\+\_\+v1, }
+\item[{float}]{\+\_\+v2, }
+\item[{const {\bf Box3} \&}]{\+\_\+box}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structBoxTree_1_1Node_a9b631d5d7dd608857dbf6b16407b1e0a}{}\label{structBoxTree_1_1Node_a9b631d5d7dd608857dbf6b16407b1e0a}
+
+
+\subsection{Member Data Documentation}
+\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}!box@{box}}
+\index{box@{box}!Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{box}{box}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Box3} Box\+Tree\+::\+Node\+::box}\hypertarget{structBoxTree_1_1Node_a0926dd1c5b248667de3399a08bf6bc6f}{}\label{structBoxTree_1_1Node_a0926dd1c5b248667de3399a08bf6bc6f}
+\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}!l@{l}}
+\index{l@{l}!Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{l}{l}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unique\+\_\+ptr$<${\bf Node}$>$ Box\+Tree\+::\+Node\+::l}\hypertarget{structBoxTree_1_1Node_a9d101fa1093b0c23cbff294f65c0a04b}{}\label{structBoxTree_1_1Node_a9d101fa1093b0c23cbff294f65c0a04b}
+\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}!r@{r}}
+\index{r@{r}!Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{r}{r}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unique\+\_\+ptr$<${\bf Node}$>$ Box\+Tree\+::\+Node\+::r}\hypertarget{structBoxTree_1_1Node_a8e85cff13a1049196ff4457654c9fa33}{}\label{structBoxTree_1_1Node_a8e85cff13a1049196ff4457654c9fa33}
+\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}!slide\+By@{slide\+By}}
+\index{slide\+By@{slide\+By}!Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{slide\+By}{slideBy}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Slide\+Dir} Box\+Tree\+::\+Node\+::slide\+By}\hypertarget{structBoxTree_1_1Node_a23938b7d422df4c0faebd8fe0af43bd3}{}\label{structBoxTree_1_1Node_a23938b7d422df4c0faebd8fe0af43bd3}
+\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}!u1@{u1}}
+\index{u1@{u1}!Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{u1}{u1}}]{\setlength{\rightskip}{0pt plus 5cm}float Box\+Tree\+::\+Node\+::u1}\hypertarget{structBoxTree_1_1Node_ab92350a00f11c1d1f7c7c076029bfa65}{}\label{structBoxTree_1_1Node_ab92350a00f11c1d1f7c7c076029bfa65}
+
+
+children 
+
+\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}!u2@{u2}}
+\index{u2@{u2}!Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{u2}{u2}}]{\setlength{\rightskip}{0pt plus 5cm}float Box\+Tree\+::\+Node\+::u2}\hypertarget{structBoxTree_1_1Node_a5f00089be77fb8baf47bde296a491a5b}{}\label{structBoxTree_1_1Node_a5f00089be77fb8baf47bde296a491a5b}
+\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}!v1@{v1}}
+\index{v1@{v1}!Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{v1}{v1}}]{\setlength{\rightskip}{0pt plus 5cm}float Box\+Tree\+::\+Node\+::v1}\hypertarget{structBoxTree_1_1Node_a6776d4995a710d07a91c8ce29d6ca8e8}{}\label{structBoxTree_1_1Node_a6776d4995a710d07a91c8ce29d6ca8e8}
+\index{Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}!v2@{v2}}
+\index{v2@{v2}!Box\+Tree\+::\+Node@{Box\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{v2}{v2}}]{\setlength{\rightskip}{0pt plus 5cm}float Box\+Tree\+::\+Node\+::v2}\hypertarget{structBoxTree_1_1Node_a00397c546d573ed0018f43b714414303}{}\label{structBoxTree_1_1Node_a00397c546d573ed0018f43b714414303}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{boxtree_8h}{boxtree.\+h}\end{DoxyCompactItemize}

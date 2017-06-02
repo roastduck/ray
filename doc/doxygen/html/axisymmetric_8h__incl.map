@@ -1,0 +1,17 @@
+<map id="axisymmetric.h" name="axisymmetric.h">
+<area shape="rect" id="node4" href="$surface_8h.html" title="../surface.h" alt="" coords="448,80,536,107"/>
+<area shape="rect" id="node27" href="$curve_8h.html" title="../curve.h" alt="" coords="327,80,404,107"/>
+<area shape="rect" id="node6" href="$utils_8h.html" title="utils.h" alt="" coords="438,304,495,331"/>
+<area shape="rect" id="node19" href="$boxtree_8h.html" title="boxtree.h" alt="" coords="618,155,694,181"/>
+<area shape="rect" id="node21" href="$intersection_8h.html" title="intersection.h" alt="" coords="465,229,565,256"/>
+<area shape="rect" id="node22" href="$material_8h.html" title="material.h" alt="" coords="147,155,226,181"/>
+<area shape="rect" id="node25" href="$photonmap_8h.html" title="photonmap.h" alt="" coords="497,155,594,181"/>
+<area shape="rect" id="node7" href="$vec_8h.html" title="utils/vec.h" alt="" coords="441,528,524,555"/>
+<area shape="rect" id="node11" href="$box_8h.html" title="utils/box.h" alt="" coords="316,453,399,480"/>
+<area shape="rect" id="node13" href="$ray_8h.html" title="utils/ray.h" alt="" coords="514,453,593,480"/>
+<area shape="rect" id="node14" href="$math_8h.html" title="utils/math.h" alt="" coords="757,453,848,480"/>
+<area shape="rect" id="node16" href="$random_8h.html" title="utils/random.h" alt="" coords="597,379,701,405"/>
+<area shape="rect" id="node18" href="$optional_8h.html" title="utils/optional.h" alt="" coords="343,379,449,405"/>
+<area shape="rect" id="node23" href="$texture_8h.html" title="texture.h" alt="" coords="113,229,186,256"/>
+<area shape="rect" id="node26" href="$kdtree_8h.html" title="kdtree.h" alt="" coords="640,229,709,256"/>
+</map>

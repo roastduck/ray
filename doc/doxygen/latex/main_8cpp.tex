@@ -1,0 +1,65 @@
+\hypertarget{main_8cpp}{}\section{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+{\ttfamily \#include $<$cstring$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$random$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$opencv2/opencv.\+hpp$>$}\\*
+{\ttfamily \#include \char`\"{}trace.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}const.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}surface.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}photonmap.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}surface/lightsource.\+h\char`\"{}}\\*
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_ab2df3b0fe26c019e681f886165abba6b}{emit} (const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSurface}{Surface} $>$ $>$ \&surfaces)
+\item 
+void \hyperlink{main_8cpp_adcfddd2cd76dbfe2599dd1b27585a6c4}{build} (const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSurface}{Surface} $>$ $>$ \&surfaces)
+\item 
+void \hyperlink{main_8cpp_a0a33279211b722d1ee2e112187ceedaa}{collect} (const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSurface}{Surface} $>$ $>$ \&surfaces, cv\+::\+Mat3b \&canvas)
+\item 
+int \hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{main.\+cpp@{main.\+cpp}!build@{build}}
+\index{build@{build}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{\texorpdfstring{build(const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ Surface $>$ $>$ \&surfaces)}{build(const std::vector< std::unique_ptr< Surface > > &surfaces)}}]{\setlength{\rightskip}{0pt plus 5cm}void build (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ {\bf Surface} $>$ $>$ \&}]{surfaces}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8cpp_adcfddd2cd76dbfe2599dd1b27585a6c4}{}\label{main_8cpp_adcfddd2cd76dbfe2599dd1b27585a6c4}
+\index{main.\+cpp@{main.\+cpp}!collect@{collect}}
+\index{collect@{collect}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{\texorpdfstring{collect(const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ Surface $>$ $>$ \&surfaces, cv\+::\+Mat3b \&canvas)}{collect(const std::vector< std::unique_ptr< Surface > > &surfaces, cv::Mat3b &canvas)}}]{\setlength{\rightskip}{0pt plus 5cm}void collect (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ {\bf Surface} $>$ $>$ \&}]{surfaces, }
+\item[{cv\+::\+Mat3b \&}]{canvas}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8cpp_a0a33279211b722d1ee2e112187ceedaa}{}\label{main_8cpp_a0a33279211b722d1ee2e112187ceedaa}
+\index{main.\+cpp@{main.\+cpp}!emit@{emit}}
+\index{emit@{emit}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{\texorpdfstring{emit(const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ Surface $>$ $>$ \&surfaces)}{emit(const std::vector< std::unique_ptr< Surface > > &surfaces)}}]{\setlength{\rightskip}{0pt plus 5cm}void emit (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ {\bf Surface} $>$ $>$ \&}]{surfaces}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8cpp_ab2df3b0fe26c019e681f886165abba6b}{}\label{main_8cpp_ab2df3b0fe26c019e681f886165abba6b}
+Thread safe \index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{\texorpdfstring{main()}{main()}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}

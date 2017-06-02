@@ -1,0 +1,109 @@
+\hypertarget{classCurve}{}\section{Curve Class Reference}
+\label{classCurve}\index{Curve@{Curve}}
+
+
+\hyperlink{classCurve}{Curve} base class \hyperlink{classCurve}{Curve} with parameter t in \mbox{[}0,1\mbox{]}.  
+
+
+
+
+{\ttfamily \#include $<$curve.\+h$>$}
+
+
+
+Inheritance diagram for Curve\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classCurve__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Curve\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classCurve__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classCurve_ae7e4b9473d8b7d0b015eb0c230256498}{$\sim$\+Curve} ()
+\item 
+virtual \hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \hyperlink{classCurve_a919ea6d17b6fc0dc6ea6facec6d5623c}{position} (float t) const =0
+\begin{DoxyCompactList}\small\item\em Get point on the curve. \end{DoxyCompactList}\item 
+virtual \hyperlink{vec_8h_a871640c4eb6057d21b25824c55250629}{Vec2} \hyperlink{classCurve_acca6db6f7d2f45fbea676db16e3784be}{derivation} (float t) const =0
+\begin{DoxyCompactList}\small\item\em Get derivation. \end{DoxyCompactList}\item 
+virtual \hyperlink{structBox2}{Box2} \hyperlink{classCurve_add48a303ee076bfce08340dd1241cbf6}{xy\+Min\+Max} (float t1, float t2) const =0
+\begin{DoxyCompactList}\small\item\em (x\+:(min, max), y\+:(min, max)) when t in \mbox{[}x1, x2\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classCurve}{Curve} base class \hyperlink{classCurve}{Curve} with parameter t in \mbox{[}0,1\mbox{]}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Curve@{Curve}!````~Curve@{$\sim$\+Curve}}
+\index{````~Curve@{$\sim$\+Curve}!Curve@{Curve}}
+\subsubsection[{\texorpdfstring{$\sim$\+Curve()}{~Curve()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual Curve\+::$\sim$\+Curve (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classCurve_ae7e4b9473d8b7d0b015eb0c230256498}{}\label{classCurve_ae7e4b9473d8b7d0b015eb0c230256498}
+
+
+\subsection{Member Function Documentation}
+\index{Curve@{Curve}!derivation@{derivation}}
+\index{derivation@{derivation}!Curve@{Curve}}
+\subsubsection[{\texorpdfstring{derivation(float t) const =0}{derivation(float t) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Vec2} Curve\+::derivation (
+\begin{DoxyParamCaption}
+\item[{float}]{t}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classCurve_acca6db6f7d2f45fbea676db16e3784be}{}\label{classCurve_acca6db6f7d2f45fbea676db16e3784be}
+
+
+Get derivation. 
+
+
+
+Implemented in \hyperlink{classBezier3_a8f3bc3ba14dae6e9f27366ef587accc5}{Bezier3}.
+
+\index{Curve@{Curve}!position@{position}}
+\index{position@{position}!Curve@{Curve}}
+\subsubsection[{\texorpdfstring{position(float t) const =0}{position(float t) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Vec2} Curve\+::position (
+\begin{DoxyParamCaption}
+\item[{float}]{t}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classCurve_a919ea6d17b6fc0dc6ea6facec6d5623c}{}\label{classCurve_a919ea6d17b6fc0dc6ea6facec6d5623c}
+
+
+Get point on the curve. 
+
+
+
+Implemented in \hyperlink{classBezier3_afd1907f62d8d19b4683f43080a0334db}{Bezier3}.
+
+\index{Curve@{Curve}!xy\+Min\+Max@{xy\+Min\+Max}}
+\index{xy\+Min\+Max@{xy\+Min\+Max}!Curve@{Curve}}
+\subsubsection[{\texorpdfstring{xy\+Min\+Max(float t1, float t2) const =0}{xyMinMax(float t1, float t2) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Box2} Curve\+::xy\+Min\+Max (
+\begin{DoxyParamCaption}
+\item[{float}]{t1, }
+\item[{float}]{t2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classCurve_add48a303ee076bfce08340dd1241cbf6}{}\label{classCurve_add48a303ee076bfce08340dd1241cbf6}
+
+
+(x\+:(min, max), y\+:(min, max)) when t in \mbox{[}x1, x2\mbox{]} 
+
+
+
+Implemented in \hyperlink{classBezier3_aa5a1d33483071204f99774fefb092caf}{Bezier3}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{curve_8h}{curve.\+h}\end{DoxyCompactItemize}

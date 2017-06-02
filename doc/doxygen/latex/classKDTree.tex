@@ -1,0 +1,151 @@
+\hypertarget{classKDTree}{}\section{K\+D\+Tree Class Reference}
+\label{classKDTree}\index{K\+D\+Tree@{K\+D\+Tree}}
+
+
+{\ttfamily \#include $<$kdtree.\+h$>$}
+
+
+
+Collaboration diagram for K\+D\+Tree\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classKDTree__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structKDTree_1_1Node}{Node}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{structColoredRay}{Colored\+Ray} \hyperlink{classKDTree_ab000d86d0fb4aaedcc83b5b7a584c25e}{data\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classKDTree_a4c0f47702f2326bef96eac59184502b4}{K\+D\+Tree} (std\+::vector$<$ \hyperlink{classKDTree_ab000d86d0fb4aaedcc83b5b7a584c25e}{data\+\_\+t} $>$ \&data)
+\item 
+std\+::vector$<$ \hyperlink{classKDTree_ab000d86d0fb4aaedcc83b5b7a584c25e}{data\+\_\+t} $>$ \hyperlink{classKDTree_af77f46cd77a1a798cf911a521563d3b3}{get\+K\+NN} (const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&center, int k) const 
+\begin{DoxyCompactList}\small\item\em find {\ttfamily k} nearest neighbors around {\ttfamily center} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \& \hyperlink{classKDTree_a40fd2a926b4d28ec387372553c51749b}{get\+Point} (const \hyperlink{classKDTree_ab000d86d0fb4aaedcc83b5b7a584c25e}{data\+\_\+t} \&data)
+\begin{DoxyCompactList}\small\item\em {\ttfamily data} will be modified \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classKDTree_a4862664dcb6ac6ddc21a5447721ebab7}{build\+Tree} (std\+::vector$<$ \hyperlink{classKDTree_ab000d86d0fb4aaedcc83b5b7a584c25e}{data\+\_\+t} $>$ \&data, int l, int r, \hyperlink{structKDTree_1_1Node}{Node} $\ast$\&x, \hyperlink{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34}{Node\+::split\+\_\+t} split\+By)
+\begin{DoxyCompactList}\small\item\em Build tree recursively. \end{DoxyCompactList}\item 
+void \hyperlink{classKDTree_a5fed302ab0121b6903d60d1ae46a7654}{get\+K\+N\+N\+Impl} (const \hyperlink{structKDTree_1_1Node}{Node} $\ast$x, std\+::vector$<$ \hyperlink{classKDTree_ab000d86d0fb4aaedcc83b5b7a584c25e}{data\+\_\+t} $>$ \&res, const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&center, int k) const 
+\begin{DoxyCompactList}\small\item\em Get K\+NN recursively. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structKDTree_1_1Node}{K\+D\+Tree\+::\+Node} $\ast$ \hyperlink{classKDTree_af6c514e842e138504160e8d14fa084f7}{root}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\index{K\+D\+Tree@{K\+D\+Tree}!data\+\_\+t@{data\+\_\+t}}
+\index{data\+\_\+t@{data\+\_\+t}!K\+D\+Tree@{K\+D\+Tree}}
+\subsubsection[{\texorpdfstring{data\+\_\+t}{data_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Colored\+Ray} {\bf K\+D\+Tree\+::data\+\_\+t}}\hypertarget{classKDTree_ab000d86d0fb4aaedcc83b5b7a584c25e}{}\label{classKDTree_ab000d86d0fb4aaedcc83b5b7a584c25e}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{K\+D\+Tree@{K\+D\+Tree}!K\+D\+Tree@{K\+D\+Tree}}
+\index{K\+D\+Tree@{K\+D\+Tree}!K\+D\+Tree@{K\+D\+Tree}}
+\subsubsection[{\texorpdfstring{K\+D\+Tree(std\+::vector$<$ data\+\_\+t $>$ \&data)}{KDTree(std::vector< data_t > &data)}}]{\setlength{\rightskip}{0pt plus 5cm}K\+D\+Tree\+::\+K\+D\+Tree (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf data\+\_\+t} $>$ \&}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classKDTree_a4c0f47702f2326bef96eac59184502b4}{}\label{classKDTree_a4c0f47702f2326bef96eac59184502b4}
+
+
+\subsection{Member Function Documentation}
+\index{K\+D\+Tree@{K\+D\+Tree}!build\+Tree@{build\+Tree}}
+\index{build\+Tree@{build\+Tree}!K\+D\+Tree@{K\+D\+Tree}}
+\subsubsection[{\texorpdfstring{build\+Tree(std\+::vector$<$ data\+\_\+t $>$ \&data, int l, int r, Node $\ast$\&x, Node\+::split\+\_\+t split\+By)}{buildTree(std::vector< data_t > &data, int l, int r, Node *&x, Node::split_t splitBy)}}]{\setlength{\rightskip}{0pt plus 5cm}void K\+D\+Tree\+::build\+Tree (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf data\+\_\+t} $>$ \&}]{data, }
+\item[{int}]{l, }
+\item[{int}]{r, }
+\item[{{\bf Node} $\ast$\&}]{x, }
+\item[{{\bf Node\+::split\+\_\+t}}]{split\+By}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classKDTree_a4862664dcb6ac6ddc21a5447721ebab7}{}\label{classKDTree_a4862664dcb6ac6ddc21a5447721ebab7}
+
+
+Build tree recursively. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \+: All points built into K\+D-\/tree. Will be modified \\
+\hline
+{\em l,r,x} & \+: Current node is {\ttfamily x} which represent range \mbox{[}l, r) \\
+\hline
+{\em split\+By} & \+: Splitting direction. This is cycling \\
+\hline
+\end{DoxyParams}
+\index{K\+D\+Tree@{K\+D\+Tree}!get\+K\+NN@{get\+K\+NN}}
+\index{get\+K\+NN@{get\+K\+NN}!K\+D\+Tree@{K\+D\+Tree}}
+\subsubsection[{\texorpdfstring{get\+K\+N\+N(const Vec3 \&center, int k) const }{getKNN(const Vec3 &center, int k) const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf K\+D\+Tree\+::data\+\_\+t} $>$ K\+D\+Tree\+::get\+K\+NN (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3} \&}]{center, }
+\item[{int}]{k}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classKDTree_af77f46cd77a1a798cf911a521563d3b3}{}\label{classKDTree_af77f46cd77a1a798cf911a521563d3b3}
+
+
+find {\ttfamily k} nearest neighbors around {\ttfamily center} 
+
+\index{K\+D\+Tree@{K\+D\+Tree}!get\+K\+N\+N\+Impl@{get\+K\+N\+N\+Impl}}
+\index{get\+K\+N\+N\+Impl@{get\+K\+N\+N\+Impl}!K\+D\+Tree@{K\+D\+Tree}}
+\subsubsection[{\texorpdfstring{get\+K\+N\+N\+Impl(const Node $\ast$x, std\+::vector$<$ data\+\_\+t $>$ \&res, const Vec3 \&center, int k) const }{getKNNImpl(const Node *x, std::vector< data_t > &res, const Vec3 &center, int k) const }}]{\setlength{\rightskip}{0pt plus 5cm}void K\+D\+Tree\+::get\+K\+N\+N\+Impl (
+\begin{DoxyParamCaption}
+\item[{const {\bf Node} $\ast$}]{x, }
+\item[{std\+::vector$<$ {\bf data\+\_\+t} $>$ \&}]{res, }
+\item[{const {\bf Vec3} \&}]{center, }
+\item[{int}]{k}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classKDTree_a5fed302ab0121b6903d60d1ae46a7654}{}\label{classKDTree_a5fed302ab0121b6903d60d1ae46a7654}
+
+
+Get K\+NN recursively. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \+: Current node \\
+\hline
+{\em res} & \+: Results \\
+\hline
+{\em center,k} & \+: See get\+K\+NN \\
+\hline
+\end{DoxyParams}
+\index{K\+D\+Tree@{K\+D\+Tree}!get\+Point@{get\+Point}}
+\index{get\+Point@{get\+Point}!K\+D\+Tree@{K\+D\+Tree}}
+\subsubsection[{\texorpdfstring{get\+Point(const data\+\_\+t \&data)}{getPoint(const data_t &data)}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Vec3} \& K\+D\+Tree\+::get\+Point (
+\begin{DoxyParamCaption}
+\item[{const {\bf data\+\_\+t} \&}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classKDTree_a40fd2a926b4d28ec387372553c51749b}{}\label{classKDTree_a40fd2a926b4d28ec387372553c51749b}
+
+
+{\ttfamily data} will be modified 
+
+Get point that used in this kd-\/tree from data\+\_\+t 
+
+\subsection{Member Data Documentation}
+\index{K\+D\+Tree@{K\+D\+Tree}!root@{root}}
+\index{root@{root}!K\+D\+Tree@{K\+D\+Tree}}
+\subsubsection[{\texorpdfstring{root}{root}}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf K\+D\+Tree\+::\+Node} $\ast$ K\+D\+Tree\+::root\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classKDTree_af6c514e842e138504160e8d14fa084f7}{}\label{classKDTree_af6c514e842e138504160e8d14fa084f7}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{kdtree_8h}{kdtree.\+h}\item 
+\hyperlink{kdtree_8cpp}{kdtree.\+cpp}\end{DoxyCompactItemize}

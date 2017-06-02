@@ -1,0 +1,157 @@
+\hypertarget{classTrace}{}\section{Trace Class Reference}
+\label{classTrace}\index{Trace@{Trace}}
+
+
+Perform tracing This is a static class.  
+
+
+
+
+{\ttfamily \#include $<$trace.\+h$>$}
+
+
+
+Collaboration diagram for Trace\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classTrace__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classOptional}{Optional}$<$ \hyperlink{structSurfInterType}{Surf\+Inter\+Type} $>$ \hyperlink{classTrace_a8c00d14f0bf81947f50a8f31a71f92a2}{find\+Inter} (const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSurface}{Surface} $>$ $>$ \&surfaces, const \hyperlink{structRay}{Ray} \&ray)
+\begin{DoxyCompactList}\small\item\em Find nearest intersection on all surfaces. \end{DoxyCompactList}\item 
+static \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classTrace_aa41cdecb2f1cade91f6b4f5984caf80d}{reflect\+Dir} (const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&input, const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&norm)
+\begin{DoxyCompactList}\small\item\em Calculate reflection direction. \end{DoxyCompactList}\item 
+static \hyperlink{classOptional}{Optional}$<$ \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} $>$ \hyperlink{classTrace_acb72c69982228a36045ef13b17fe5f11}{refrect\+Dir} (const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&input, const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&norm, float refr\+Idx)
+\begin{DoxyCompactList}\small\item\em Calculate refrection direction. \end{DoxyCompactList}\item 
+static \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classTrace_a49d8f6c6b4e6a300f92f8eb710a8a486}{color\+Factor} (const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&ray1, const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&ray2, const \hyperlink{structSurfInterType}{Surf\+Inter\+Type} \&inter)
+\begin{DoxyCompactList}\small\item\em Calculate light attenuation. \end{DoxyCompactList}\item 
+static void \hyperlink{classTrace_a5e6bcc0a6ae36ba73b88b393b90deba1}{trace} (std\+::default\+\_\+random\+\_\+engine \&urng, const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSurface}{Surface} $>$ $>$ \&surfaces, const \hyperlink{structColoredRay}{Colored\+Ray} \&ray, int depth, bool is\+Sight, const std\+::function$<$ bool(const \hyperlink{structSurfInterType}{Surf\+Inter\+Type} \&, const \hyperlink{structColoredRay}{Colored\+Ray} \&ray, int depth)$>$ \&callback)
+\begin{DoxyCompactList}\small\item\em Monte Carlo photon trace. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classTrace_a52ebdc34b53604881f72bf665da4d46c}{correct\+Front\+Back} (const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&input, \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&norm, float \&refr\+Idx)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Perform tracing This is a static class. 
+
+\subsection{Member Function Documentation}
+\index{Trace@{Trace}!color\+Factor@{color\+Factor}}
+\index{color\+Factor@{color\+Factor}!Trace@{Trace}}
+\subsubsection[{\texorpdfstring{color\+Factor(const Vec3 \&ray1, const Vec3 \&ray2, const Surf\+Inter\+Type \&inter)}{colorFactor(const Vec3 &ray1, const Vec3 &ray2, const SurfInterType &inter)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Trace\+::color\+Factor (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3} \&}]{ray1, }
+\item[{const {\bf Vec3} \&}]{ray2, }
+\item[{const {\bf Surf\+Inter\+Type} \&}]{inter}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classTrace_a49d8f6c6b4e6a300f92f8eb710a8a486}{}\label{classTrace_a49d8f6c6b4e6a300f92f8eb710a8a486}
+
+
+Calculate light attenuation. 
+
+\index{Trace@{Trace}!correct\+Front\+Back@{correct\+Front\+Back}}
+\index{correct\+Front\+Back@{correct\+Front\+Back}!Trace@{Trace}}
+\subsubsection[{\texorpdfstring{correct\+Front\+Back(const Vec3 \&input, Vec3 \&norm, float \&refr\+Idx)}{correctFrontBack(const Vec3 &input, Vec3 &norm, float &refrIdx)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\+::correct\+Front\+Back (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3} \&}]{input, }
+\item[{{\bf Vec3} \&}]{norm, }
+\item[{float \&}]{refr\+Idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classTrace_a52ebdc34b53604881f72bf665da4d46c}{}\label{classTrace_a52ebdc34b53604881f72bf665da4d46c}
+\index{Trace@{Trace}!find\+Inter@{find\+Inter}}
+\index{find\+Inter@{find\+Inter}!Trace@{Trace}}
+\subsubsection[{\texorpdfstring{find\+Inter(const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ Surface $>$ $>$ \&surfaces, const Ray \&ray)}{findInter(const std::vector< std::unique_ptr< Surface > > &surfaces, const Ray &ray)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Optional}$<$ {\bf Surf\+Inter\+Type} $>$ Trace\+::find\+Inter (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ {\bf Surface} $>$ $>$ \&}]{surfaces, }
+\item[{const {\bf Ray} \&}]{ray}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classTrace_a8c00d14f0bf81947f50a8f31a71f92a2}{}\label{classTrace_a8c00d14f0bf81947f50a8f31a71f92a2}
+
+
+Find nearest intersection on all surfaces. 
+
+\index{Trace@{Trace}!reflect\+Dir@{reflect\+Dir}}
+\index{reflect\+Dir@{reflect\+Dir}!Trace@{Trace}}
+\subsubsection[{\texorpdfstring{reflect\+Dir(const Vec3 \&input, const Vec3 \&norm)}{reflectDir(const Vec3 &input, const Vec3 &norm)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Trace\+::reflect\+Dir (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3} \&}]{input, }
+\item[{const {\bf Vec3} \&}]{norm}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classTrace_aa41cdecb2f1cade91f6b4f5984caf80d}{}\label{classTrace_aa41cdecb2f1cade91f6b4f5984caf80d}
+
+
+Calculate reflection direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & \+: \hyperlink{structRay}{Ray} goes in \\
+\hline
+{\em norm} & \+: U\+N\+I\+F\+I\+ED normal vector points O\+P\+P\+O\+S\+I\+TE to input \\
+\hline
+\end{DoxyParams}
+\index{Trace@{Trace}!refrect\+Dir@{refrect\+Dir}}
+\index{refrect\+Dir@{refrect\+Dir}!Trace@{Trace}}
+\subsubsection[{\texorpdfstring{refrect\+Dir(const Vec3 \&input, const Vec3 \&norm, float refr\+Idx)}{refrectDir(const Vec3 &input, const Vec3 &norm, float refrIdx)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Optional}$<$ {\bf Vec3} $>$ Trace\+::refrect\+Dir (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3} \&}]{input, }
+\item[{const {\bf Vec3} \&}]{norm, }
+\item[{float}]{refr\+Idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classTrace_acb72c69982228a36045ef13b17fe5f11}{}\label{classTrace_acb72c69982228a36045ef13b17fe5f11}
+
+
+Calculate refrection direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & \+: \hyperlink{structRay}{Ray} goes in \\
+\hline
+{\em norm} & \+: U\+N\+I\+F\+I\+ED normal vector points O\+P\+P\+O\+S\+I\+TE to input \\
+\hline
+{\em refr\+Idx} & \+: Relative refrection index \\
+\hline
+\end{DoxyParams}
+\index{Trace@{Trace}!trace@{trace}}
+\index{trace@{trace}!Trace@{Trace}}
+\subsubsection[{\texorpdfstring{trace(std\+::default\+\_\+random\+\_\+engine \&urng, const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ Surface $>$ $>$ \&surfaces, const Colored\+Ray \&ray, int depth, bool is\+Sight, const std\+::function$<$ bool(const Surf\+Inter\+Type \&, const Colored\+Ray \&ray, int depth)$>$ \&callback)}{trace(std::default_random_engine &urng, const std::vector< std::unique_ptr< Surface > > &surfaces, const ColoredRay &ray, int depth, bool isSight, const std::function< bool(const SurfInterType &, const ColoredRay &ray, int depth)> &callback)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\+::trace (
+\begin{DoxyParamCaption}
+\item[{std\+::default\+\_\+random\+\_\+engine \&}]{urng, }
+\item[{const std\+::vector$<$ std\+::unique\+\_\+ptr$<$ {\bf Surface} $>$ $>$ \&}]{surfaces, }
+\item[{const {\bf Colored\+Ray} \&}]{ray, }
+\item[{int}]{depth, }
+\item[{bool}]{is\+Sight, }
+\item[{const std\+::function$<$ bool(const {\bf Surf\+Inter\+Type} \&, const {\bf Colored\+Ray} \&ray, int depth)$>$ \&}]{callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classTrace_a5e6bcc0a6ae36ba73b88b393b90deba1}{}\label{classTrace_a5e6bcc0a6ae36ba73b88b393b90deba1}
+
+
+Monte Carlo photon trace. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em urng} & \+: Thread-\/safe random generator \\
+\hline
+{\em surfaces} & \+: All surfaces \\
+\hline
+{\em ray} & \+: Incoming ray \\
+\hline
+{\em depth} & \+: Recursion depth \\
+\hline
+{\em is\+Sight} & \+: What is traced is sight rather than photom \\
+\hline
+{\em callback} & \+: fn(intersection, incoming ray, depth left). Return false to stop tracing \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{trace_8h}{trace.\+h}\item 
+\hyperlink{trace_8cpp}{trace.\+cpp}\end{DoxyCompactItemize}

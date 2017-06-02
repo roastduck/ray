@@ -1,0 +1,200 @@
+\hypertarget{classSquareYZ}{}\section{Square\+YZ Class Reference}
+\label{classSquareYZ}\index{Square\+YZ@{Square\+YZ}}
+
+
+Square on y-\/z plane x+ means outwards.  
+
+
+
+
+{\ttfamily \#include $<$squareyz.\+h$>$}
+
+
+
+Inheritance diagram for Square\+YZ\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classSquareYZ__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Square\+YZ\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classSquareYZ__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSquareYZ_a3d88bfd27f8d9a833a54ef3d2d885831}{Square\+YZ} (float \+\_\+edgeY, float \+\_\+edgeZ)
+\item 
+bool \hyperlink{classSquareYZ_adc74593250e7aaf7f8d733e22e3951b6}{u\+Is\+Circular} () const override
+\item 
+bool \hyperlink{classSquareYZ_ab6a94e65acedccedd4556023b1490841}{v\+Is\+Circular} () const override
+\item 
+\hyperlink{classOptional}{Optional}$<$ \hyperlink{structSurfInterType}{Surf\+Inter\+Type} $>$ \hyperlink{classSquareYZ_a75ffd1eda4c026706513dfa07043ffc8}{find\+Inter} (const \hyperlink{structRay}{Ray} \&ray) const override
+\begin{DoxyCompactList}\small\item\em Find intersection on 1 surface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSquareYZ_a1d82d4fea479dd58096d723eb9109cfe}{init} () override
+\begin{DoxyCompactList}\small\item\em Something can\textquotesingle{}t be put in constructor. \end{DoxyCompactList}\item 
+\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classSquareYZ_a56695f7f1cbd288bf93918deac0feb4c}{position\+Impl} (float u, float v) const override
+\begin{DoxyCompactList}\small\item\em Do nothing because find\+Inter is overrided. \end{DoxyCompactList}\item 
+\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classSquareYZ_a2b37c54c61d5f2896657f8510884e64e}{derivative\+U\+Impl} (float u, float v) const override
+\item 
+\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classSquareYZ_a6fc7a2189bf889b0dd99c229d2a6d0da}{derivative\+V\+Impl} (float u, float v) const override
+\item 
+\hyperlink{structBox3}{Box3} \hyperlink{classSquareYZ_a61260b3bae72f9354a8fe4c145bce87d}{xyz\+Min\+Max\+Impl} (float u1, float u2, float v1, float v2) const override
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classSquareYZ_a6d7f81cfc7814c9d3f948b0115606254}{edgeY}
+\item 
+float \hyperlink{classSquareYZ_a87fc6f3c129ce52756296f2cbf402bc6}{edgeZ}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Square on y-\/z plane x+ means outwards. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Square\+YZ@{Square\+YZ}!Square\+YZ@{Square\+YZ}}
+\index{Square\+YZ@{Square\+YZ}!Square\+YZ@{Square\+YZ}}
+\subsubsection[{\texorpdfstring{Square\+Y\+Z(float \+\_\+edge\+Y, float \+\_\+edge\+Z)}{SquareYZ(float _edgeY, float _edgeZ)}}]{\setlength{\rightskip}{0pt plus 5cm}Square\+Y\+Z\+::\+Square\+YZ (
+\begin{DoxyParamCaption}
+\item[{float}]{\+\_\+edgeY, }
+\item[{float}]{\+\_\+edgeZ}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSquareYZ_a3d88bfd27f8d9a833a54ef3d2d885831}{}\label{classSquareYZ_a3d88bfd27f8d9a833a54ef3d2d885831}
+
+
+\subsection{Member Function Documentation}
+\index{Square\+YZ@{Square\+YZ}!derivative\+U\+Impl@{derivative\+U\+Impl}}
+\index{derivative\+U\+Impl@{derivative\+U\+Impl}!Square\+YZ@{Square\+YZ}}
+\subsubsection[{\texorpdfstring{derivative\+U\+Impl(float u, float v) const override}{derivativeUImpl(float u, float v) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Square\+Y\+Z\+::derivative\+U\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classSquareYZ_a2b37c54c61d5f2896657f8510884e64e}{}\label{classSquareYZ_a2b37c54c61d5f2896657f8510884e64e}
+
+
+Implements \hyperlink{classSurface_a4de8fb9d4652cc32022c95eb903cce4a}{Surface}.
+
+\index{Square\+YZ@{Square\+YZ}!derivative\+V\+Impl@{derivative\+V\+Impl}}
+\index{derivative\+V\+Impl@{derivative\+V\+Impl}!Square\+YZ@{Square\+YZ}}
+\subsubsection[{\texorpdfstring{derivative\+V\+Impl(float u, float v) const override}{derivativeVImpl(float u, float v) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Square\+Y\+Z\+::derivative\+V\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classSquareYZ_a6fc7a2189bf889b0dd99c229d2a6d0da}{}\label{classSquareYZ_a6fc7a2189bf889b0dd99c229d2a6d0da}
+
+
+Implements \hyperlink{classSurface_a95d65437419ba8d439fa8f0d71f963a1}{Surface}.
+
+\index{Square\+YZ@{Square\+YZ}!find\+Inter@{find\+Inter}}
+\index{find\+Inter@{find\+Inter}!Square\+YZ@{Square\+YZ}}
+\subsubsection[{\texorpdfstring{find\+Inter(const Ray \&ray) const override}{findInter(const Ray &ray) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Optional}$<${\bf Surf\+Inter\+Type}$>$ Square\+Y\+Z\+::find\+Inter (
+\begin{DoxyParamCaption}
+\item[{const {\bf Ray} \&}]{ray}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classSquareYZ_a75ffd1eda4c026706513dfa07043ffc8}{}\label{classSquareYZ_a75ffd1eda4c026706513dfa07043ffc8}
+
+
+Find intersection on 1 surface. 
+
+
+
+Reimplemented from \hyperlink{classSurface_af7b5584007bf626bf7b37fcf649e6cd6}{Surface}.
+
+\index{Square\+YZ@{Square\+YZ}!init@{init}}
+\index{init@{init}!Square\+YZ@{Square\+YZ}}
+\subsubsection[{\texorpdfstring{init() override}{init() override}}]{\setlength{\rightskip}{0pt plus 5cm}void Square\+Y\+Z\+::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classSquareYZ_a1d82d4fea479dd58096d723eb9109cfe}{}\label{classSquareYZ_a1d82d4fea479dd58096d723eb9109cfe}
+
+
+Something can\textquotesingle{}t be put in constructor. 
+
+
+
+Reimplemented from \hyperlink{classSurface_a194087202684a4b3a71c24f02faeb404}{Surface}.
+
+\index{Square\+YZ@{Square\+YZ}!position\+Impl@{position\+Impl}}
+\index{position\+Impl@{position\+Impl}!Square\+YZ@{Square\+YZ}}
+\subsubsection[{\texorpdfstring{position\+Impl(float u, float v) const override}{positionImpl(float u, float v) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Square\+Y\+Z\+::position\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classSquareYZ_a56695f7f1cbd288bf93918deac0feb4c}{}\label{classSquareYZ_a56695f7f1cbd288bf93918deac0feb4c}
+
+
+Do nothing because find\+Inter is overrided. 
+
+
+
+Implements \hyperlink{classSurface_a379545eea4809f81fe7e037f5e5ff4be}{Surface}.
+
+\index{Square\+YZ@{Square\+YZ}!u\+Is\+Circular@{u\+Is\+Circular}}
+\index{u\+Is\+Circular@{u\+Is\+Circular}!Square\+YZ@{Square\+YZ}}
+\subsubsection[{\texorpdfstring{u\+Is\+Circular() const override}{uIsCircular() const override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Square\+Y\+Z\+::u\+Is\+Circular (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classSquareYZ_adc74593250e7aaf7f8d733e22e3951b6}{}\label{classSquareYZ_adc74593250e7aaf7f8d733e22e3951b6}
+
+
+Implements \hyperlink{classSurface_a11d5759ec3e3d43036fb949dcc6f5562}{Surface}.
+
+\index{Square\+YZ@{Square\+YZ}!v\+Is\+Circular@{v\+Is\+Circular}}
+\index{v\+Is\+Circular@{v\+Is\+Circular}!Square\+YZ@{Square\+YZ}}
+\subsubsection[{\texorpdfstring{v\+Is\+Circular() const override}{vIsCircular() const override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Square\+Y\+Z\+::v\+Is\+Circular (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classSquareYZ_ab6a94e65acedccedd4556023b1490841}{}\label{classSquareYZ_ab6a94e65acedccedd4556023b1490841}
+
+
+Implements \hyperlink{classSurface_af52f9322929a702a9aaeee3ae4a368da}{Surface}.
+
+\index{Square\+YZ@{Square\+YZ}!xyz\+Min\+Max\+Impl@{xyz\+Min\+Max\+Impl}}
+\index{xyz\+Min\+Max\+Impl@{xyz\+Min\+Max\+Impl}!Square\+YZ@{Square\+YZ}}
+\subsubsection[{\texorpdfstring{xyz\+Min\+Max\+Impl(float u1, float u2, float v1, float v2) const override}{xyzMinMaxImpl(float u1, float u2, float v1, float v2) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Box3} Square\+Y\+Z\+::xyz\+Min\+Max\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u1, }
+\item[{float}]{u2, }
+\item[{float}]{v1, }
+\item[{float}]{v2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classSquareYZ_a61260b3bae72f9354a8fe4c145bce87d}{}\label{classSquareYZ_a61260b3bae72f9354a8fe4c145bce87d}
+
+
+Implements \hyperlink{classSurface_ab1ee990da290748cd86aaf95edb28c38}{Surface}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Square\+YZ@{Square\+YZ}!edgeY@{edgeY}}
+\index{edgeY@{edgeY}!Square\+YZ@{Square\+YZ}}
+\subsubsection[{\texorpdfstring{edgeY}{edgeY}}]{\setlength{\rightskip}{0pt plus 5cm}float Square\+Y\+Z\+::edgeY\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classSquareYZ_a6d7f81cfc7814c9d3f948b0115606254}{}\label{classSquareYZ_a6d7f81cfc7814c9d3f948b0115606254}
+\index{Square\+YZ@{Square\+YZ}!edgeZ@{edgeZ}}
+\index{edgeZ@{edgeZ}!Square\+YZ@{Square\+YZ}}
+\subsubsection[{\texorpdfstring{edgeZ}{edgeZ}}]{\setlength{\rightskip}{0pt plus 5cm}float Square\+Y\+Z\+::edgeZ\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classSquareYZ_a87fc6f3c129ce52756296f2cbf402bc6}{}\label{classSquareYZ_a87fc6f3c129ce52756296f2cbf402bc6}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{squareyz_8h}{squareyz.\+h}\end{DoxyCompactItemize}

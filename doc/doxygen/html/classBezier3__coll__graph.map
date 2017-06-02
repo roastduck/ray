@@ -1,0 +1,5 @@
+<map id="Bezier3" name="Bezier3">
+<area shape="rect" id="node2" href="$classCurve.html" title="Curve base class Curve with parameter t in [0,1]. " alt="" coords="5,20,108,141"/>
+<area shape="rect" id="node3" href="$structVec2t.html" title="{Vec2t\&lt; float \&gt;\n|+ x\l+ y\l|+ Vec2t()\l+ Vec2t()\l+ Vec2t()\l+ operator&#45;()\l+ dist2()\l}" alt="" coords="132,5,237,156"/>
+<area shape="rect" id="node4" href="$structVec2t.html" title="{Vec2t\&lt; double \&gt;\n|+ x\l+ y\l|+ Vec2t()\l+ Vec2t()\l+ Vec2t()\l+ operator&#45;()\l+ dist2()\l}" alt="" coords="261,5,380,156"/>
+</map>

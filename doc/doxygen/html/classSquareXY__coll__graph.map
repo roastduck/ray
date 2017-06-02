@@ -1,0 +1,4 @@
+<map id="SquareXY" name="SquareXY">
+<area shape="rect" id="node2" href="$classSurface.html" title="Surface base class Surface decided by parameter (u,v) in [0,1] * [0,1]. " alt="" coords="5,336,139,663"/>
+<area shape="rect" id="node3" href="$structVec3t.html" title="{Vec3t\&lt; float \&gt;\n|+ x\l+ y\l+ z\l|+ Vec3t()\l+ Vec3t()\l+ Vec3t()\l+ operator&#45;()\l+ dist2()\l+ operator+=()\l+ operator&#45;=()\l+ operator*=()\l+ rotateX()\l+ rotateY()\l+ rotateZ()\l+ rotate()\l}" alt="" coords="19,5,125,273"/>
+</map>

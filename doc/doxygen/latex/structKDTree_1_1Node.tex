@@ -1,0 +1,103 @@
+\hypertarget{structKDTree_1_1Node}{}\section{K\+D\+Tree\+:\+:Node Struct Reference}
+\label{structKDTree_1_1Node}\index{K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}}
+
+
+Collaboration diagram for K\+D\+Tree\+:\+:Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structKDTree_1_1Node__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34}{split\+\_\+t} \{ \hyperlink{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34ae9e20517e320a257a7ec3aecb69427ec}{L\+E\+AF} = 0, 
+\hyperlink{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34a36069e5e459835d23e1e4e2412f15f15}{B\+Y\+\_\+X} = 1, 
+\hyperlink{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34a16bcf65fb5fef5f33c18e6de9022fd2d}{B\+Y\+\_\+Y} = 2, 
+\hyperlink{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34a921306d44eb973ea0dffcff75817a095}{B\+Y\+\_\+Z} = 3
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structKDTree_1_1Node_ab83c48d5ca5c7b0aaee2831e8ffcea37}{Node} (const \hyperlink{classKDTree_ab000d86d0fb4aaedcc83b5b7a584c25e}{data\+\_\+t} \&\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Children. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34}{K\+D\+Tree\+::\+Node\+::split\+\_\+t} \hyperlink{structKDTree_1_1Node_a6ab2edd3f12f7e2f547c55d219252469}{split\+By}
+\item 
+\hyperlink{classKDTree_ab000d86d0fb4aaedcc83b5b7a584c25e}{data\+\_\+t} \hyperlink{structKDTree_1_1Node_a314e8792d65f995e383f2658f9c9a9d9}{data}
+\item 
+\hyperlink{structBox3}{Box3} \hyperlink{structKDTree_1_1Node_a71a3c79703c2fac391d11561f05f3bc3}{box}
+\begin{DoxyCompactList}\small\item\em Data associated with this node. \end{DoxyCompactList}\item 
+\hyperlink{structKDTree_1_1Node}{Node} $\ast$ \hyperlink{structKDTree_1_1Node_a9afeb2a23f401c72e147def1e8f9b133}{l}
+\begin{DoxyCompactList}\small\item\em Bounding box of this node. \end{DoxyCompactList}\item 
+\hyperlink{structKDTree_1_1Node}{Node} $\ast$ \hyperlink{structKDTree_1_1Node_a1ee516a9562dc5c6f53ad1176c2016a4}{r}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\index{K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}!split\+\_\+t@{split\+\_\+t}}
+\index{split\+\_\+t@{split\+\_\+t}!K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{split\+\_\+t}{split_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf K\+D\+Tree\+::\+Node\+::split\+\_\+t}}\hypertarget{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34}{}\label{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{L\+E\+AF@{L\+E\+AF}!K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}}\index{K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}!L\+E\+AF@{L\+E\+AF}}\item[{\em 
+L\+E\+AF\hypertarget{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34ae9e20517e320a257a7ec3aecb69427ec}{}\label{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34ae9e20517e320a257a7ec3aecb69427ec}
+}]\index{B\+Y\+\_\+X@{B\+Y\+\_\+X}!K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}}\index{K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}!B\+Y\+\_\+X@{B\+Y\+\_\+X}}\item[{\em 
+B\+Y\+\_\+X\hypertarget{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34a36069e5e459835d23e1e4e2412f15f15}{}\label{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34a36069e5e459835d23e1e4e2412f15f15}
+}]\index{B\+Y\+\_\+Y@{B\+Y\+\_\+Y}!K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}}\index{K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}!B\+Y\+\_\+Y@{B\+Y\+\_\+Y}}\item[{\em 
+B\+Y\+\_\+Y\hypertarget{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34a16bcf65fb5fef5f33c18e6de9022fd2d}{}\label{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34a16bcf65fb5fef5f33c18e6de9022fd2d}
+}]\index{B\+Y\+\_\+Z@{B\+Y\+\_\+Z}!K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}}\index{K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}!B\+Y\+\_\+Z@{B\+Y\+\_\+Z}}\item[{\em 
+B\+Y\+\_\+Z\hypertarget{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34a921306d44eb973ea0dffcff75817a095}{}\label{structKDTree_1_1Node_ab21ae38de8fe0e25d29d0ae136a1db34a921306d44eb973ea0dffcff75817a095}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}!Node@{Node}}
+\index{Node@{Node}!K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{Node(const data\+\_\+t \&\+\_\+data)}{Node(const data_t &_data)}}]{\setlength{\rightskip}{0pt plus 5cm}K\+D\+Tree\+::\+Node\+::\+Node (
+\begin{DoxyParamCaption}
+\item[{const {\bf data\+\_\+t} \&}]{\+\_\+data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structKDTree_1_1Node_ab83c48d5ca5c7b0aaee2831e8ffcea37}{}\label{structKDTree_1_1Node_ab83c48d5ca5c7b0aaee2831e8ffcea37}
+
+
+Children. 
+
+
+
+\subsection{Member Data Documentation}
+\index{K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}!box@{box}}
+\index{box@{box}!K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{box}{box}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Box3} K\+D\+Tree\+::\+Node\+::box}\hypertarget{structKDTree_1_1Node_a71a3c79703c2fac391d11561f05f3bc3}{}\label{structKDTree_1_1Node_a71a3c79703c2fac391d11561f05f3bc3}
+
+
+Data associated with this node. 
+
+\index{K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}!data@{data}}
+\index{data@{data}!K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{data}{data}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf data\+\_\+t} K\+D\+Tree\+::\+Node\+::data}\hypertarget{structKDTree_1_1Node_a314e8792d65f995e383f2658f9c9a9d9}{}\label{structKDTree_1_1Node_a314e8792d65f995e383f2658f9c9a9d9}
+\index{K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}!l@{l}}
+\index{l@{l}!K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{l}{l}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ K\+D\+Tree\+::\+Node\+::l}\hypertarget{structKDTree_1_1Node_a9afeb2a23f401c72e147def1e8f9b133}{}\label{structKDTree_1_1Node_a9afeb2a23f401c72e147def1e8f9b133}
+
+
+Bounding box of this node. 
+
+\index{K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}!r@{r}}
+\index{r@{r}!K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{r}{r}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node} $\ast$ K\+D\+Tree\+::\+Node\+::r}\hypertarget{structKDTree_1_1Node_a1ee516a9562dc5c6f53ad1176c2016a4}{}\label{structKDTree_1_1Node_a1ee516a9562dc5c6f53ad1176c2016a4}
+\index{K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}!split\+By@{split\+By}}
+\index{split\+By@{split\+By}!K\+D\+Tree\+::\+Node@{K\+D\+Tree\+::\+Node}}
+\subsubsection[{\texorpdfstring{split\+By}{splitBy}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf K\+D\+Tree\+::\+Node\+::split\+\_\+t}  K\+D\+Tree\+::\+Node\+::split\+By}\hypertarget{structKDTree_1_1Node_a6ab2edd3f12f7e2f547c55d219252469}{}\label{structKDTree_1_1Node_a6ab2edd3f12f7e2f547c55d219252469}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{kdtree_8h}{kdtree.\+h}\end{DoxyCompactItemize}

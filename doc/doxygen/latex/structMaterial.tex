@@ -1,0 +1,171 @@
+\hypertarget{structMaterial}{}\section{Material Struct Reference}
+\label{structMaterial}\index{Material@{Material}}
+
+
+{\ttfamily \#include $<$material.\+h$>$}
+
+
+
+Collaboration diagram for Material\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structMaterial__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{structMaterial_afca902ab9d34ae538cf8eb74afe51911}{Material\+Name} \{ \\*
+\hyperlink{structMaterial_afca902ab9d34ae538cf8eb74afe51911aafad09ef73f6aaa26e1dc8bee89871f4}{G\+L\+A\+SS} = 0, 
+\hyperlink{structMaterial_afca902ab9d34ae538cf8eb74afe51911aa2ff05704fdd8947102f11cc6b900524}{P\+A\+P\+ER} = 1, 
+\hyperlink{structMaterial_afca902ab9d34ae538cf8eb74afe51911adf626c4a22b6e4ebaf71c865f3745511}{W\+A\+L\+L\+P\+A\+P\+ER} = 2, 
+\hyperlink{structMaterial_afca902ab9d34ae538cf8eb74afe51911a2589b47b8d5b8e31f37f5cfa05eba139}{F\+R\+O\+S\+T\+E\+D\+\_\+\+G\+L\+A\+SS} = 3, 
+\\*
+\hyperlink{structMaterial_afca902ab9d34ae538cf8eb74afe51911aa6a166ca282ccb460f6d6f15ba84330c}{M\+A\+T\+EL} = 4, 
+\hyperlink{structMaterial_afca902ab9d34ae538cf8eb74afe51911a959db05170007afe03fa97ea2da588a6}{A\+P\+P\+LE} = 5, 
+\hyperlink{structMaterial_afca902ab9d34ae538cf8eb74afe51911ac7607d77ae775a5b04874bda2cb82a2e}{I\+N\+V\+A\+L\+ID} = -\/1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ray_8h_a8a2580fb65f7d3d4e24bdd412b9bd92d}{color\+\_\+t} \hyperlink{structMaterial_a4ab05a2f4f22025aee4c5087a3517d48}{get\+Creflec} (float u, float v) const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structMaterial}{Material} \hyperlink{structMaterial_ad488bda0cf014154f97bce06b1c3be29}{by\+Name} (\hyperlink{structMaterial_afca902ab9d34ae538cf8eb74afe51911}{Material\+Name} name)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{structMaterial_a2db17351a8e462cc446520ae49e64350}{Kd}
+\item 
+float \hyperlink{structMaterial_acb75581ad97c1df67172d7d7ec59903d}{Ks}
+\begin{DoxyCompactList}\small\item\em Diffuse reflection rate. \end{DoxyCompactList}\item 
+float \hyperlink{structMaterial_adea51e78c45979bbbb46f04112ea133c}{Ktd}
+\begin{DoxyCompactList}\small\item\em Specular relection rate. \end{DoxyCompactList}\item 
+float \hyperlink{structMaterial_a75cacce03b4ccb56d436cc188f75ec0f}{Kts}
+\begin{DoxyCompactList}\small\item\em Diffuse transition rate. \end{DoxyCompactList}\item 
+float \hyperlink{structMaterial_a36c703d1fd25f5c21d9c30e8b403d849}{Rn}
+\begin{DoxyCompactList}\small\item\em Specular transition rate. \end{DoxyCompactList}\item 
+int \hyperlink{structMaterial_aa45a0497e5baffcebbbe13d5b737f353}{Sn}
+\begin{DoxyCompactList}\small\item\em Refrection rate. \end{DoxyCompactList}\item 
+\hyperlink{ray_8h_a8a2580fb65f7d3d4e24bdd412b9bd92d}{color\+\_\+t} \hyperlink{structMaterial_a9bc38e4305511b6b74a0df019317be0a}{Creflec}
+\begin{DoxyCompactList}\small\item\em Smoothness index (exponent) \end{DoxyCompactList}\item 
+\hyperlink{ray_8h_a8a2580fb65f7d3d4e24bdd412b9bd92d}{color\+\_\+t} \hyperlink{structMaterial_aca86e404d70ef98b5c1e466c9c20cee3}{Ctrans}
+\begin{DoxyCompactList}\small\item\em Reflection color factor. Actual color = Creflec $\ast$ (Kd or Ks) \end{DoxyCompactList}\item 
+\hyperlink{classTexture}{Texture} $\ast$ \hyperlink{structMaterial_ad151148dc3460f25435e951786171350}{texture}
+\begin{DoxyCompactList}\small\item\em Transition color factor. Actual color = Ctrans $\ast$ (Ktd or Kts) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\index{Material@{Material}!Material\+Name@{Material\+Name}}
+\index{Material\+Name@{Material\+Name}!Material@{Material}}
+\subsubsection[{\texorpdfstring{Material\+Name}{MaterialName}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Material\+::\+Material\+Name}}\hypertarget{structMaterial_afca902ab9d34ae538cf8eb74afe51911}{}\label{structMaterial_afca902ab9d34ae538cf8eb74afe51911}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{G\+L\+A\+SS@{G\+L\+A\+SS}!Material@{Material}}\index{Material@{Material}!G\+L\+A\+SS@{G\+L\+A\+SS}}\item[{\em 
+G\+L\+A\+SS\hypertarget{structMaterial_afca902ab9d34ae538cf8eb74afe51911aafad09ef73f6aaa26e1dc8bee89871f4}{}\label{structMaterial_afca902ab9d34ae538cf8eb74afe51911aafad09ef73f6aaa26e1dc8bee89871f4}
+}]\index{P\+A\+P\+ER@{P\+A\+P\+ER}!Material@{Material}}\index{Material@{Material}!P\+A\+P\+ER@{P\+A\+P\+ER}}\item[{\em 
+P\+A\+P\+ER\hypertarget{structMaterial_afca902ab9d34ae538cf8eb74afe51911aa2ff05704fdd8947102f11cc6b900524}{}\label{structMaterial_afca902ab9d34ae538cf8eb74afe51911aa2ff05704fdd8947102f11cc6b900524}
+}]\index{W\+A\+L\+L\+P\+A\+P\+ER@{W\+A\+L\+L\+P\+A\+P\+ER}!Material@{Material}}\index{Material@{Material}!W\+A\+L\+L\+P\+A\+P\+ER@{W\+A\+L\+L\+P\+A\+P\+ER}}\item[{\em 
+W\+A\+L\+L\+P\+A\+P\+ER\hypertarget{structMaterial_afca902ab9d34ae538cf8eb74afe51911adf626c4a22b6e4ebaf71c865f3745511}{}\label{structMaterial_afca902ab9d34ae538cf8eb74afe51911adf626c4a22b6e4ebaf71c865f3745511}
+}]\index{F\+R\+O\+S\+T\+E\+D\+\_\+\+G\+L\+A\+SS@{F\+R\+O\+S\+T\+E\+D\+\_\+\+G\+L\+A\+SS}!Material@{Material}}\index{Material@{Material}!F\+R\+O\+S\+T\+E\+D\+\_\+\+G\+L\+A\+SS@{F\+R\+O\+S\+T\+E\+D\+\_\+\+G\+L\+A\+SS}}\item[{\em 
+F\+R\+O\+S\+T\+E\+D\+\_\+\+G\+L\+A\+SS\hypertarget{structMaterial_afca902ab9d34ae538cf8eb74afe51911a2589b47b8d5b8e31f37f5cfa05eba139}{}\label{structMaterial_afca902ab9d34ae538cf8eb74afe51911a2589b47b8d5b8e31f37f5cfa05eba139}
+}]\index{M\+A\+T\+EL@{M\+A\+T\+EL}!Material@{Material}}\index{Material@{Material}!M\+A\+T\+EL@{M\+A\+T\+EL}}\item[{\em 
+M\+A\+T\+EL\hypertarget{structMaterial_afca902ab9d34ae538cf8eb74afe51911aa6a166ca282ccb460f6d6f15ba84330c}{}\label{structMaterial_afca902ab9d34ae538cf8eb74afe51911aa6a166ca282ccb460f6d6f15ba84330c}
+}]\index{A\+P\+P\+LE@{A\+P\+P\+LE}!Material@{Material}}\index{Material@{Material}!A\+P\+P\+LE@{A\+P\+P\+LE}}\item[{\em 
+A\+P\+P\+LE\hypertarget{structMaterial_afca902ab9d34ae538cf8eb74afe51911a959db05170007afe03fa97ea2da588a6}{}\label{structMaterial_afca902ab9d34ae538cf8eb74afe51911a959db05170007afe03fa97ea2da588a6}
+}]\index{I\+N\+V\+A\+L\+ID@{I\+N\+V\+A\+L\+ID}!Material@{Material}}\index{Material@{Material}!I\+N\+V\+A\+L\+ID@{I\+N\+V\+A\+L\+ID}}\item[{\em 
+I\+N\+V\+A\+L\+ID\hypertarget{structMaterial_afca902ab9d34ae538cf8eb74afe51911ac7607d77ae775a5b04874bda2cb82a2e}{}\label{structMaterial_afca902ab9d34ae538cf8eb74afe51911ac7607d77ae775a5b04874bda2cb82a2e}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{Material@{Material}!by\+Name@{by\+Name}}
+\index{by\+Name@{by\+Name}!Material@{Material}}
+\subsubsection[{\texorpdfstring{by\+Name(\+Material\+Name name)}{byName(MaterialName name)}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Material} Material\+::by\+Name (
+\begin{DoxyParamCaption}
+\item[{{\bf Material\+Name}}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{structMaterial_ad488bda0cf014154f97bce06b1c3be29}{}\label{structMaterial_ad488bda0cf014154f97bce06b1c3be29}
+\index{Material@{Material}!get\+Creflec@{get\+Creflec}}
+\index{get\+Creflec@{get\+Creflec}!Material@{Material}}
+\subsubsection[{\texorpdfstring{get\+Creflec(float u, float v) const }{getCreflec(float u, float v) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf color\+\_\+t} Material\+::get\+Creflec (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structMaterial_a4ab05a2f4f22025aee4c5087a3517d48}{}\label{structMaterial_a4ab05a2f4f22025aee4c5087a3517d48}
+
+
+\subsection{Member Data Documentation}
+\index{Material@{Material}!Creflec@{Creflec}}
+\index{Creflec@{Creflec}!Material@{Material}}
+\subsubsection[{\texorpdfstring{Creflec}{Creflec}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf color\+\_\+t} Material\+::\+Creflec}\hypertarget{structMaterial_a9bc38e4305511b6b74a0df019317be0a}{}\label{structMaterial_a9bc38e4305511b6b74a0df019317be0a}
+
+
+Smoothness index (exponent) 
+
+\index{Material@{Material}!Ctrans@{Ctrans}}
+\index{Ctrans@{Ctrans}!Material@{Material}}
+\subsubsection[{\texorpdfstring{Ctrans}{Ctrans}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf color\+\_\+t} Material\+::\+Ctrans}\hypertarget{structMaterial_aca86e404d70ef98b5c1e466c9c20cee3}{}\label{structMaterial_aca86e404d70ef98b5c1e466c9c20cee3}
+
+
+Reflection color factor. Actual color = Creflec $\ast$ (Kd or Ks) 
+
+\index{Material@{Material}!Kd@{Kd}}
+\index{Kd@{Kd}!Material@{Material}}
+\subsubsection[{\texorpdfstring{Kd}{Kd}}]{\setlength{\rightskip}{0pt plus 5cm}float Material\+::\+Kd}\hypertarget{structMaterial_a2db17351a8e462cc446520ae49e64350}{}\label{structMaterial_a2db17351a8e462cc446520ae49e64350}
+\index{Material@{Material}!Ks@{Ks}}
+\index{Ks@{Ks}!Material@{Material}}
+\subsubsection[{\texorpdfstring{Ks}{Ks}}]{\setlength{\rightskip}{0pt plus 5cm}float Material\+::\+Ks}\hypertarget{structMaterial_acb75581ad97c1df67172d7d7ec59903d}{}\label{structMaterial_acb75581ad97c1df67172d7d7ec59903d}
+
+
+Diffuse reflection rate. 
+
+\index{Material@{Material}!Ktd@{Ktd}}
+\index{Ktd@{Ktd}!Material@{Material}}
+\subsubsection[{\texorpdfstring{Ktd}{Ktd}}]{\setlength{\rightskip}{0pt plus 5cm}float Material\+::\+Ktd}\hypertarget{structMaterial_adea51e78c45979bbbb46f04112ea133c}{}\label{structMaterial_adea51e78c45979bbbb46f04112ea133c}
+
+
+Specular relection rate. 
+
+\index{Material@{Material}!Kts@{Kts}}
+\index{Kts@{Kts}!Material@{Material}}
+\subsubsection[{\texorpdfstring{Kts}{Kts}}]{\setlength{\rightskip}{0pt plus 5cm}float Material\+::\+Kts}\hypertarget{structMaterial_a75cacce03b4ccb56d436cc188f75ec0f}{}\label{structMaterial_a75cacce03b4ccb56d436cc188f75ec0f}
+
+
+Diffuse transition rate. 
+
+\index{Material@{Material}!Rn@{Rn}}
+\index{Rn@{Rn}!Material@{Material}}
+\subsubsection[{\texorpdfstring{Rn}{Rn}}]{\setlength{\rightskip}{0pt plus 5cm}float Material\+::\+Rn}\hypertarget{structMaterial_a36c703d1fd25f5c21d9c30e8b403d849}{}\label{structMaterial_a36c703d1fd25f5c21d9c30e8b403d849}
+
+
+Specular transition rate. 
+
+\index{Material@{Material}!Sn@{Sn}}
+\index{Sn@{Sn}!Material@{Material}}
+\subsubsection[{\texorpdfstring{Sn}{Sn}}]{\setlength{\rightskip}{0pt plus 5cm}int Material\+::\+Sn}\hypertarget{structMaterial_aa45a0497e5baffcebbbe13d5b737f353}{}\label{structMaterial_aa45a0497e5baffcebbbe13d5b737f353}
+
+
+Refrection rate. 
+
+\index{Material@{Material}!texture@{texture}}
+\index{texture@{texture}!Material@{Material}}
+\subsubsection[{\texorpdfstring{texture}{texture}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Texture}$\ast$ Material\+::texture}\hypertarget{structMaterial_ad151148dc3460f25435e951786171350}{}\label{structMaterial_ad151148dc3460f25435e951786171350}
+
+
+Transition color factor. Actual color = Ctrans $\ast$ (Ktd or Kts) 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{material_8h}{material.\+h}\end{DoxyCompactItemize}

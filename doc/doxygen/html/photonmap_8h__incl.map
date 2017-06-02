@@ -1,0 +1,10 @@
+<map id="photonmap.h" name="photonmap.h">
+<area shape="rect" id="node4" href="$utils_8h.html" title="utils.h" alt="" coords="219,155,277,181"/>
+<area shape="rect" id="node17" href="$kdtree_8h.html" title="kdtree.h" alt="" coords="127,80,196,107"/>
+<area shape="rect" id="node5" href="$vec_8h.html" title="utils/vec.h" alt="" coords="192,379,275,405"/>
+<area shape="rect" id="node9" href="$box_8h.html" title="utils/box.h" alt="" coords="67,304,149,331"/>
+<area shape="rect" id="node11" href="$ray_8h.html" title="utils/ray.h" alt="" coords="225,304,303,331"/>
+<area shape="rect" id="node12" href="$math_8h.html" title="utils/math.h" alt="" coords="469,304,560,331"/>
+<area shape="rect" id="node14" href="$random_8h.html" title="utils/random.h" alt="" coords="281,229,385,256"/>
+<area shape="rect" id="node16" href="$optional_8h.html" title="utils/optional.h" alt="" coords="409,229,516,256"/>
+</map>

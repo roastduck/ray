@@ -1,0 +1,7 @@
+<map id="Surface" name="Surface">
+<area shape="rect" id="node2" href="$classAxisymmetric.html" title="Rotate a curve around z&#45;axis to form a surface omega = u * 2 * PI, curve param = v Curve(x..." alt="" coords="5,409,139,604"/>
+<area shape="rect" id="node3" href="$classLightSource.html" title="Light source as a ball Cannot be used as a normal object. " alt="" coords="163,395,296,619"/>
+<area shape="rect" id="node4" href="$classSquareXY.html" title="Square on x&#45;y plane Upwards means outwards. " alt="" coords="320,402,453,611"/>
+<area shape="rect" id="node5" href="$classSquareYZ.html" title="Square on y&#45;z plane x+ means outwards. " alt="" coords="477,402,611,611"/>
+<area shape="rect" id="node6" href="$classSquareZX.html" title="Square on z&#45;x plane y+ means outwards. " alt="" coords="635,402,768,611"/>
+</map>

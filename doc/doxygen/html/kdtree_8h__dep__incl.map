@@ -1,0 +1,19 @@
+<map id="kdtree.h" name="kdtree.h">
+<area shape="rect" id="node2" href="$photonmap_8h.html" title="photonmap.h" alt="" coords="588,80,685,107"/>
+<area shape="rect" id="node18" href="$kdtree_8cpp.html" title="kdtree.cpp" alt="" coords="710,80,793,107"/>
+<area shape="rect" id="node3" href="$surface_8h.html" title="surface.h" alt="" coords="599,155,675,181"/>
+<area shape="rect" id="node8" href="$main_8cpp.html" title="main.cpp" alt="" coords="106,304,181,331"/>
+<area shape="rect" id="node13" href="$photonmap_8cpp.html" title="photonmap.cpp" alt="" coords="1233,229,1344,256"/>
+<area shape="rect" id="node4" href="$boxtree_8cpp.html" title="boxtree.cpp" alt="" coords="761,229,851,256"/>
+<area shape="rect" id="node5" href="$debug_8cpp.html" title="debug.cpp" alt="" coords="875,229,958,256"/>
+<area shape="rect" id="node6" href="$intersection_8cpp.html" title="intersection.cpp" alt="" coords="1094,229,1209,256"/>
+<area shape="rect" id="node7" href="$trace_8h.html" title="trace.h" alt="" coords="43,229,105,256"/>
+<area shape="rect" id="node10" href="$lightsource_8h.html" title="lightsource.h" alt="" coords="181,229,277,256"/>
+<area shape="rect" id="node12" href="$mesh_8cpp.html" title="mesh.cpp" alt="" coords="657,229,736,256"/>
+<area shape="rect" id="node14" href="$axisymmetric_8h.html" title="axisymmetric.h" alt="" coords="523,229,633,256"/>
+<area shape="rect" id="node15" href="$squarexy_8h.html" title="squarexy.h" alt="" coords="983,229,1069,256"/>
+<area shape="rect" id="node16" href="$squareyz_8h.html" title="squareyz.h" alt="" coords="301,229,388,256"/>
+<area shape="rect" id="node17" href="$squarezx_8h.html" title="squarezx.h" alt="" coords="412,229,499,256"/>
+<area shape="rect" id="node9" href="$trace_8cpp.html" title="trace.cpp" alt="" coords="5,304,81,331"/>
+<area shape="rect" id="node11" href="$surface_8cpp.html" title="surface.cpp" alt="" coords="410,304,501,331"/>
+</map>

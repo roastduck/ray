@@ -1,0 +1,217 @@
+\hypertarget{classLightSource}{}\section{Light\+Source Class Reference}
+\label{classLightSource}\index{Light\+Source@{Light\+Source}}
+
+
+Light source as a ball Cannot be used as a normal object.  
+
+
+
+
+{\ttfamily \#include $<$lightsource.\+h$>$}
+
+
+
+Inheritance diagram for Light\+Source\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classLightSource__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Light\+Source\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classLightSource__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLightSource_a9ab7d1b421af490fe5c684e00dae44bc}{Light\+Source} (float \+\_\+radius, const \hyperlink{ray_8h_a8a2580fb65f7d3d4e24bdd412b9bd92d}{color\+\_\+t} \&\+\_\+color)
+\item 
+bool \hyperlink{classLightSource_a6d1e29c394c2ae29c6b913376a3ebbc5}{u\+Is\+Circular} () const override
+\item 
+bool \hyperlink{classLightSource_a617519569f55a575189f0de58f0b8a11}{v\+Is\+Circular} () const override
+\item 
+bool \hyperlink{classLightSource_a5d397dd1719c8aaf9d711bace27a9547}{is\+Light\+Source} () const override
+\item 
+\hyperlink{classOptional}{Optional}$<$ \hyperlink{structSurfInterType}{Surf\+Inter\+Type} $>$ \hyperlink{classLightSource_a7470bd637b7013e310c1a6789d12de92}{find\+Inter} (const \hyperlink{structRay}{Ray} \&ray) const override
+\begin{DoxyCompactList}\small\item\em This function is can only returns t and pos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classLightSource_a6dbf2113c6dac64e323ebf4f691d1e66}{radius}
+\item 
+\hyperlink{ray_8h_a8a2580fb65f7d3d4e24bdd412b9bd92d}{color\+\_\+t} \hyperlink{classLightSource_a4a567c627c51e5850af199a8af6bea27}{color}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classLightSource_a9001c11824ce30f44bdd9a729cc420a6}{init} () override
+\begin{DoxyCompactList}\small\item\em Something can\textquotesingle{}t be put in constructor. \end{DoxyCompactList}\item 
+\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classLightSource_a1ac118f57425ed163c6ab45d6320f401}{position\+Impl} (float u, float v) const override
+\begin{DoxyCompactList}\small\item\em Do nothing because find\+Inter is overrided. \end{DoxyCompactList}\item 
+\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classLightSource_ac9506b1c3f773b0de0c30ca78b4a9aa0}{derivative\+U\+Impl} (float u, float v) const override
+\begin{DoxyCompactList}\small\item\em Forbidden. \end{DoxyCompactList}\item 
+\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classLightSource_a90b1596aca4c3b818fe73d8ef35065da}{derivative\+V\+Impl} (float u, float v) const override
+\item 
+\hyperlink{structBox3}{Box3} \hyperlink{classLightSource_a01f7d7c1cca3b8ab7ec688253a46aaec}{xyz\+Min\+Max\+Impl} (float u1, float u2, float v1, float v2) const override
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Light source as a ball Cannot be used as a normal object. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Light\+Source@{Light\+Source}!Light\+Source@{Light\+Source}}
+\index{Light\+Source@{Light\+Source}!Light\+Source@{Light\+Source}}
+\subsubsection[{\texorpdfstring{Light\+Source(float \+\_\+radius, const color\+\_\+t \&\+\_\+color)}{LightSource(float _radius, const color_t &_color)}}]{\setlength{\rightskip}{0pt plus 5cm}Light\+Source\+::\+Light\+Source (
+\begin{DoxyParamCaption}
+\item[{float}]{\+\_\+radius, }
+\item[{const {\bf color\+\_\+t} \&}]{\+\_\+color}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classLightSource_a9ab7d1b421af490fe5c684e00dae44bc}{}\label{classLightSource_a9ab7d1b421af490fe5c684e00dae44bc}
+
+
+\subsection{Member Function Documentation}
+\index{Light\+Source@{Light\+Source}!derivative\+U\+Impl@{derivative\+U\+Impl}}
+\index{derivative\+U\+Impl@{derivative\+U\+Impl}!Light\+Source@{Light\+Source}}
+\subsubsection[{\texorpdfstring{derivative\+U\+Impl(float u, float v) const override}{derivativeUImpl(float u, float v) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Light\+Source\+::derivative\+U\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classLightSource_ac9506b1c3f773b0de0c30ca78b4a9aa0}{}\label{classLightSource_ac9506b1c3f773b0de0c30ca78b4a9aa0}
+
+
+Forbidden. 
+
+
+
+Implements \hyperlink{classSurface_a4de8fb9d4652cc32022c95eb903cce4a}{Surface}.
+
+\index{Light\+Source@{Light\+Source}!derivative\+V\+Impl@{derivative\+V\+Impl}}
+\index{derivative\+V\+Impl@{derivative\+V\+Impl}!Light\+Source@{Light\+Source}}
+\subsubsection[{\texorpdfstring{derivative\+V\+Impl(float u, float v) const override}{derivativeVImpl(float u, float v) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Light\+Source\+::derivative\+V\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classLightSource_a90b1596aca4c3b818fe73d8ef35065da}{}\label{classLightSource_a90b1596aca4c3b818fe73d8ef35065da}
+
+
+Implements \hyperlink{classSurface_a95d65437419ba8d439fa8f0d71f963a1}{Surface}.
+
+\index{Light\+Source@{Light\+Source}!find\+Inter@{find\+Inter}}
+\index{find\+Inter@{find\+Inter}!Light\+Source@{Light\+Source}}
+\subsubsection[{\texorpdfstring{find\+Inter(const Ray \&ray) const override}{findInter(const Ray &ray) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Optional}$<$ {\bf Surf\+Inter\+Type} $>$ Light\+Source\+::find\+Inter (
+\begin{DoxyParamCaption}
+\item[{const {\bf Ray} \&}]{ray}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classLightSource_a7470bd637b7013e310c1a6789d12de92}{}\label{classLightSource_a7470bd637b7013e310c1a6789d12de92}
+
+
+This function is can only returns t and pos. 
+
+
+
+Reimplemented from \hyperlink{classSurface_af7b5584007bf626bf7b37fcf649e6cd6}{Surface}.
+
+\index{Light\+Source@{Light\+Source}!init@{init}}
+\index{init@{init}!Light\+Source@{Light\+Source}}
+\subsubsection[{\texorpdfstring{init() override}{init() override}}]{\setlength{\rightskip}{0pt plus 5cm}void Light\+Source\+::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classLightSource_a9001c11824ce30f44bdd9a729cc420a6}{}\label{classLightSource_a9001c11824ce30f44bdd9a729cc420a6}
+
+
+Something can\textquotesingle{}t be put in constructor. 
+
+
+
+Reimplemented from \hyperlink{classSurface_a194087202684a4b3a71c24f02faeb404}{Surface}.
+
+\index{Light\+Source@{Light\+Source}!is\+Light\+Source@{is\+Light\+Source}}
+\index{is\+Light\+Source@{is\+Light\+Source}!Light\+Source@{Light\+Source}}
+\subsubsection[{\texorpdfstring{is\+Light\+Source() const override}{isLightSource() const override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Light\+Source\+::is\+Light\+Source (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classLightSource_a5d397dd1719c8aaf9d711bace27a9547}{}\label{classLightSource_a5d397dd1719c8aaf9d711bace27a9547}
+
+
+Reimplemented from \hyperlink{classSurface_a5968cee515dd97f1e5066fec7cbf9b03}{Surface}.
+
+\index{Light\+Source@{Light\+Source}!position\+Impl@{position\+Impl}}
+\index{position\+Impl@{position\+Impl}!Light\+Source@{Light\+Source}}
+\subsubsection[{\texorpdfstring{position\+Impl(float u, float v) const override}{positionImpl(float u, float v) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Light\+Source\+::position\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classLightSource_a1ac118f57425ed163c6ab45d6320f401}{}\label{classLightSource_a1ac118f57425ed163c6ab45d6320f401}
+
+
+Do nothing because find\+Inter is overrided. 
+
+
+
+Implements \hyperlink{classSurface_a379545eea4809f81fe7e037f5e5ff4be}{Surface}.
+
+\index{Light\+Source@{Light\+Source}!u\+Is\+Circular@{u\+Is\+Circular}}
+\index{u\+Is\+Circular@{u\+Is\+Circular}!Light\+Source@{Light\+Source}}
+\subsubsection[{\texorpdfstring{u\+Is\+Circular() const override}{uIsCircular() const override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Light\+Source\+::u\+Is\+Circular (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classLightSource_a6d1e29c394c2ae29c6b913376a3ebbc5}{}\label{classLightSource_a6d1e29c394c2ae29c6b913376a3ebbc5}
+
+
+Implements \hyperlink{classSurface_a11d5759ec3e3d43036fb949dcc6f5562}{Surface}.
+
+\index{Light\+Source@{Light\+Source}!v\+Is\+Circular@{v\+Is\+Circular}}
+\index{v\+Is\+Circular@{v\+Is\+Circular}!Light\+Source@{Light\+Source}}
+\subsubsection[{\texorpdfstring{v\+Is\+Circular() const override}{vIsCircular() const override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Light\+Source\+::v\+Is\+Circular (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classLightSource_a617519569f55a575189f0de58f0b8a11}{}\label{classLightSource_a617519569f55a575189f0de58f0b8a11}
+
+
+Implements \hyperlink{classSurface_af52f9322929a702a9aaeee3ae4a368da}{Surface}.
+
+\index{Light\+Source@{Light\+Source}!xyz\+Min\+Max\+Impl@{xyz\+Min\+Max\+Impl}}
+\index{xyz\+Min\+Max\+Impl@{xyz\+Min\+Max\+Impl}!Light\+Source@{Light\+Source}}
+\subsubsection[{\texorpdfstring{xyz\+Min\+Max\+Impl(float u1, float u2, float v1, float v2) const override}{xyzMinMaxImpl(float u1, float u2, float v1, float v2) const override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Box3} Light\+Source\+::xyz\+Min\+Max\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u1, }
+\item[{float}]{u2, }
+\item[{float}]{v1, }
+\item[{float}]{v2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classLightSource_a01f7d7c1cca3b8ab7ec688253a46aaec}{}\label{classLightSource_a01f7d7c1cca3b8ab7ec688253a46aaec}
+
+
+Implements \hyperlink{classSurface_ab1ee990da290748cd86aaf95edb28c38}{Surface}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Light\+Source@{Light\+Source}!color@{color}}
+\index{color@{color}!Light\+Source@{Light\+Source}}
+\subsubsection[{\texorpdfstring{color}{color}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf color\+\_\+t} Light\+Source\+::color}\hypertarget{classLightSource_a4a567c627c51e5850af199a8af6bea27}{}\label{classLightSource_a4a567c627c51e5850af199a8af6bea27}
+\index{Light\+Source@{Light\+Source}!radius@{radius}}
+\index{radius@{radius}!Light\+Source@{Light\+Source}}
+\subsubsection[{\texorpdfstring{radius}{radius}}]{\setlength{\rightskip}{0pt plus 5cm}float Light\+Source\+::radius}\hypertarget{classLightSource_a6dbf2113c6dac64e323ebf4f691d1e66}{}\label{classLightSource_a6dbf2113c6dac64e323ebf4f691d1e66}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{lightsource_8h}{lightsource.\+h}\end{DoxyCompactItemize}

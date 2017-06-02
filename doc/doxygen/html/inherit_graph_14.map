@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classSurface.html" title="Surface base class Surface decided by parameter (u,v) in [0,1] * [0,1]. " alt="" coords="5,107,72,133"/>
+<area shape="rect" id="node2" href="$classAxisymmetric.html" title="Rotate a curve around z&#45;axis to form a surface omega = u * 2 * PI, curve param = v Curve(x..." alt="" coords="120,5,223,32"/>
+<area shape="rect" id="node3" href="$classLightSource.html" title="Light source as a ball Cannot be used as a normal object. " alt="" coords="126,56,217,83"/>
+<area shape="rect" id="node4" href="$classSquareXY.html" title="Square on x&#45;y plane Upwards means outwards. " alt="" coords="131,107,212,133"/>
+<area shape="rect" id="node5" href="$classSquareYZ.html" title="Square on y&#45;z plane x+ means outwards. " alt="" coords="131,157,211,184"/>
+<area shape="rect" id="node6" href="$classSquareZX.html" title="Square on z&#45;x plane y+ means outwards. " alt="" coords="131,208,211,235"/>
+</map>

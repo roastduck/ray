@@ -1,0 +1,156 @@
+\hypertarget{structBox3}{}\section{Box3 Struct Reference}
+\label{structBox3}\index{Box3@{Box3}}
+
+
+{\ttfamily \#include $<$box.\+h$>$}
+
+
+
+Collaboration diagram for Box3\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{structBox3__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structBox3_a01c66e99dab9c1316365b51f57b1bdb6}{Box3} ()
+\item 
+\hyperlink{structBox3_af368463aef860568bfe9592838d36571}{Box3} (float \+\_\+x\+Min, float \+\_\+x\+Max, float \+\_\+y\+Min, float \+\_\+y\+Max, float \+\_\+z\+Min, float \+\_\+z\+Max)
+\item 
+\hyperlink{structBox3_a4a326b1695b4dc2488cbb41a428ad8c1}{Box3} (const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&v)
+\item 
+float \hyperlink{structBox3_aa78365c1573abce91e6584addcbc686e}{size} () const 
+\item 
+bool \hyperlink{structBox3_a45cc24b44a662f9e7fee59437acb488b}{contains} (const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&v) const 
+\begin{DoxyCompactList}\small\item\em Containing includes falling nearing the edge. \end{DoxyCompactList}\item 
+float \hyperlink{structBox3_a6c532954804f0b0ed01e6d827e31c7fa}{dist2} (const \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \&v) const 
+\item 
+\hyperlink{structBox2}{Box2} \hyperlink{structBox3_a3128c9433bac12944ade0674d2fcb899}{xy\+Side} () const 
+\item 
+\hyperlink{structBox2}{Box2} \hyperlink{structBox3_abfa503aa2f17ec7bffa5a0780aed7b52}{yz\+Side} () const 
+\item 
+\hyperlink{structBox2}{Box2} \hyperlink{structBox3_a17b0e4e98b259d3a262cb2b9e870df42}{xz\+Side} () const 
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{structBox3_a57cfa92667f7a90de818969c45e97202}{x\+Min}
+\item 
+float \hyperlink{structBox3_a4286239d52f1b4092a93269c3082d337}{x\+Max}
+\item 
+float \hyperlink{structBox3_ae8d4e1606538f889c4df868eb55b2c74}{y\+Min}
+\item 
+float \hyperlink{structBox3_a449f23c540bae6c91f0599124a895147}{y\+Max}
+\item 
+float \hyperlink{structBox3_a265c3306101d211cf65fb2fb36dbc276}{z\+Min}
+\item 
+float \hyperlink{structBox3_a4cecfefa0146353bd4e89623176672e1}{z\+Max}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Box3@{Box3}!Box3@{Box3}}
+\index{Box3@{Box3}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{Box3()}{Box3()}}]{\setlength{\rightskip}{0pt plus 5cm}Box3\+::\+Box3 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structBox3_a01c66e99dab9c1316365b51f57b1bdb6}{}\label{structBox3_a01c66e99dab9c1316365b51f57b1bdb6}
+\index{Box3@{Box3}!Box3@{Box3}}
+\index{Box3@{Box3}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{Box3(float \+\_\+x\+Min, float \+\_\+x\+Max, float \+\_\+y\+Min, float \+\_\+y\+Max, float \+\_\+z\+Min, float \+\_\+z\+Max)}{Box3(float _xMin, float _xMax, float _yMin, float _yMax, float _zMin, float _zMax)}}]{\setlength{\rightskip}{0pt plus 5cm}Box3\+::\+Box3 (
+\begin{DoxyParamCaption}
+\item[{float}]{\+\_\+x\+Min, }
+\item[{float}]{\+\_\+x\+Max, }
+\item[{float}]{\+\_\+y\+Min, }
+\item[{float}]{\+\_\+y\+Max, }
+\item[{float}]{\+\_\+z\+Min, }
+\item[{float}]{\+\_\+z\+Max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structBox3_af368463aef860568bfe9592838d36571}{}\label{structBox3_af368463aef860568bfe9592838d36571}
+\index{Box3@{Box3}!Box3@{Box3}}
+\index{Box3@{Box3}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{Box3(const Vec3 \&v)}{Box3(const Vec3 &v)}}]{\setlength{\rightskip}{0pt plus 5cm}Box3\+::\+Box3 (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3} \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structBox3_a4a326b1695b4dc2488cbb41a428ad8c1}{}\label{structBox3_a4a326b1695b4dc2488cbb41a428ad8c1}
+
+
+\subsection{Member Function Documentation}
+\index{Box3@{Box3}!contains@{contains}}
+\index{contains@{contains}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{contains(const Vec3 \&v) const }{contains(const Vec3 &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Box3\+::contains (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3} \&}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structBox3_a45cc24b44a662f9e7fee59437acb488b}{}\label{structBox3_a45cc24b44a662f9e7fee59437acb488b}
+
+
+Containing includes falling nearing the edge. 
+
+\index{Box3@{Box3}!dist2@{dist2}}
+\index{dist2@{dist2}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{dist2(const Vec3 \&v) const }{dist2(const Vec3 &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}float Box3\+::dist2 (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3} \&}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structBox3_a6c532954804f0b0ed01e6d827e31c7fa}{}\label{structBox3_a6c532954804f0b0ed01e6d827e31c7fa}
+\index{Box3@{Box3}!size@{size}}
+\index{size@{size}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}float Box3\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structBox3_aa78365c1573abce91e6584addcbc686e}{}\label{structBox3_aa78365c1573abce91e6584addcbc686e}
+\index{Box3@{Box3}!xy\+Side@{xy\+Side}}
+\index{xy\+Side@{xy\+Side}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{xy\+Side() const }{xySide() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Box2} Box3\+::xy\+Side (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structBox3_a3128c9433bac12944ade0674d2fcb899}{}\label{structBox3_a3128c9433bac12944ade0674d2fcb899}
+\index{Box3@{Box3}!xz\+Side@{xz\+Side}}
+\index{xz\+Side@{xz\+Side}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{xz\+Side() const }{xzSide() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Box2} Box3\+::xz\+Side (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structBox3_a17b0e4e98b259d3a262cb2b9e870df42}{}\label{structBox3_a17b0e4e98b259d3a262cb2b9e870df42}
+\index{Box3@{Box3}!yz\+Side@{yz\+Side}}
+\index{yz\+Side@{yz\+Side}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{yz\+Side() const }{yzSide() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Box2} Box3\+::yz\+Side (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{structBox3_abfa503aa2f17ec7bffa5a0780aed7b52}{}\label{structBox3_abfa503aa2f17ec7bffa5a0780aed7b52}
+
+
+\subsection{Member Data Documentation}
+\index{Box3@{Box3}!x\+Max@{x\+Max}}
+\index{x\+Max@{x\+Max}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{x\+Max}{xMax}}]{\setlength{\rightskip}{0pt plus 5cm}float Box3\+::x\+Max}\hypertarget{structBox3_a4286239d52f1b4092a93269c3082d337}{}\label{structBox3_a4286239d52f1b4092a93269c3082d337}
+\index{Box3@{Box3}!x\+Min@{x\+Min}}
+\index{x\+Min@{x\+Min}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{x\+Min}{xMin}}]{\setlength{\rightskip}{0pt plus 5cm}float Box3\+::x\+Min}\hypertarget{structBox3_a57cfa92667f7a90de818969c45e97202}{}\label{structBox3_a57cfa92667f7a90de818969c45e97202}
+\index{Box3@{Box3}!y\+Max@{y\+Max}}
+\index{y\+Max@{y\+Max}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{y\+Max}{yMax}}]{\setlength{\rightskip}{0pt plus 5cm}float Box3\+::y\+Max}\hypertarget{structBox3_a449f23c540bae6c91f0599124a895147}{}\label{structBox3_a449f23c540bae6c91f0599124a895147}
+\index{Box3@{Box3}!y\+Min@{y\+Min}}
+\index{y\+Min@{y\+Min}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{y\+Min}{yMin}}]{\setlength{\rightskip}{0pt plus 5cm}float Box3\+::y\+Min}\hypertarget{structBox3_ae8d4e1606538f889c4df868eb55b2c74}{}\label{structBox3_ae8d4e1606538f889c4df868eb55b2c74}
+\index{Box3@{Box3}!z\+Max@{z\+Max}}
+\index{z\+Max@{z\+Max}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{z\+Max}{zMax}}]{\setlength{\rightskip}{0pt plus 5cm}float Box3\+::z\+Max}\hypertarget{structBox3_a4cecfefa0146353bd4e89623176672e1}{}\label{structBox3_a4cecfefa0146353bd4e89623176672e1}
+\index{Box3@{Box3}!z\+Min@{z\+Min}}
+\index{z\+Min@{z\+Min}!Box3@{Box3}}
+\subsubsection[{\texorpdfstring{z\+Min}{zMin}}]{\setlength{\rightskip}{0pt plus 5cm}float Box3\+::z\+Min}\hypertarget{structBox3_a265c3306101d211cf65fb2fb36dbc276}{}\label{structBox3_a265c3306101d211cf65fb2fb36dbc276}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{box_8h}{box.\+h}\end{DoxyCompactItemize}

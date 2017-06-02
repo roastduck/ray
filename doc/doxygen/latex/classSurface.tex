@@ -1,0 +1,304 @@
+\hypertarget{classSurface}{}\section{Surface Class Reference}
+\label{classSurface}\index{Surface@{Surface}}
+
+
+\hyperlink{classSurface}{Surface} base class \hyperlink{classSurface}{Surface} decided by parameter (u,v) in \mbox{[}0,1\mbox{]} $\ast$ \mbox{[}0,1\mbox{]}.  
+
+
+
+
+{\ttfamily \#include $<$surface.\+h$>$}
+
+
+
+Inheritance diagram for Surface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSurface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Surface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classSurface__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSurface_a8fc57f2a15292135c00545c9d224ec68}{Surface} ()
+\item 
+virtual \hyperlink{classSurface_a44ff6a911acc4ada428c3d734f342a8a}{$\sim$\+Surface} ()
+\item 
+virtual void \hyperlink{classSurface_a194087202684a4b3a71c24f02faeb404}{init} ()
+\begin{DoxyCompactList}\small\item\em Something can\textquotesingle{}t be put in constructor. \end{DoxyCompactList}\item 
+\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classSurface_ac7eb5876716281ea19945829ff9114b3}{position} (float u, float v) const 
+\begin{DoxyCompactList}\small\item\em Get point on the surface. \end{DoxyCompactList}\item 
+\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classSurface_a3b60891745ce4a2dc1adc379fc69b866}{derivativeU} (float u, float v) const 
+\begin{DoxyCompactList}\small\item\em Get partial S / partial u on the surface. \end{DoxyCompactList}\item 
+\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classSurface_a0c8bd80201b1426d30781d9583e86afd}{derivativeV} (float u, float v) const 
+\begin{DoxyCompactList}\small\item\em Get partial S / partial v on the surface. \end{DoxyCompactList}\item 
+\hyperlink{structBox3}{Box3} \hyperlink{classSurface_aef6ac6d0bd8f7db26b85f140e4ed2ea8}{xyz\+Min\+Max} (float u1, float u2, float v1, float v2) const 
+\begin{DoxyCompactList}\small\item\em (x\+:(min, max), y\+:(min, max), z\+: (min, max)) when (u,v) in \mbox{[}u1, u2\mbox{]} $\ast$ \mbox{[}v1, v2\mbox{]} \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classSurface_a11d5759ec3e3d43036fb949dcc6f5562}{u\+Is\+Circular} () const =0
+\item 
+virtual bool \hyperlink{classSurface_af52f9322929a702a9aaeee3ae4a368da}{v\+Is\+Circular} () const =0
+\item 
+virtual bool \hyperlink{classSurface_a5968cee515dd97f1e5066fec7cbf9b03}{is\+Light\+Source} () const 
+\item 
+virtual \hyperlink{classOptional}{Optional}$<$ \hyperlink{structSurfInterType}{Surf\+Inter\+Type} $>$ \hyperlink{classSurface_af7b5584007bf626bf7b37fcf649e6cd6}{find\+Inter} (const \hyperlink{structRay}{Ray} \&ray) const 
+\begin{DoxyCompactList}\small\item\em Find intersection on 1 surface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classSurface}{Surface} $>$ $>$ \hyperlink{classSurface_a73a61d351a694602ca76ac1ecb3937e9}{load} (const char filename\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Load surfaces from file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classSurface_a442734b024ed1013878d098d27ade6ad}{translate}
+\item 
+std\+::unique\+\_\+ptr$<$ \hyperlink{classPhotonMap}{Photon\+Map} $>$ \hyperlink{classSurface_aa624ee597db52c7c8f341e5a31b9e279}{photon\+Map}
+\item 
+std\+::unique\+\_\+ptr$<$ \hyperlink{structMaterial}{Material} $>$ \hyperlink{classSurface_aa68847b731186c38991568c5925ad862}{material}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classSurface_a379545eea4809f81fe7e037f5e5ff4be}{position\+Impl} (float u, float v) const =0
+\item 
+virtual \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classSurface_a4de8fb9d4652cc32022c95eb903cce4a}{derivative\+U\+Impl} (float u, float v) const =0
+\item 
+virtual \hyperlink{vec_8h_ae4fcaa7c0a3935930ed1be5f70b90373}{Vec3} \hyperlink{classSurface_a95d65437419ba8d439fa8f0d71f963a1}{derivative\+V\+Impl} (float u, float v) const =0
+\item 
+virtual \hyperlink{structBox3}{Box3} \hyperlink{classSurface_ab1ee990da290748cd86aaf95edb28c38}{xyz\+Min\+Max\+Impl} (float u1, float u2, float v1, float v2) const =0
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \hyperlink{classBoxTree}{Box\+Tree} $>$ \hyperlink{classSurface_a0620b2906ff595d71dedec53ff75b924}{box\+Tree}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classSurface}{Surface} base class \hyperlink{classSurface}{Surface} decided by parameter (u,v) in \mbox{[}0,1\mbox{]} $\ast$ \mbox{[}0,1\mbox{]}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Surface@{Surface}!Surface@{Surface}}
+\index{Surface@{Surface}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{Surface()}{Surface()}}]{\setlength{\rightskip}{0pt plus 5cm}Surface\+::\+Surface (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSurface_a8fc57f2a15292135c00545c9d224ec68}{}\label{classSurface_a8fc57f2a15292135c00545c9d224ec68}
+\index{Surface@{Surface}!````~Surface@{$\sim$\+Surface}}
+\index{````~Surface@{$\sim$\+Surface}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{$\sim$\+Surface()}{~Surface()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual Surface\+::$\sim$\+Surface (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classSurface_a44ff6a911acc4ada428c3d734f342a8a}{}\label{classSurface_a44ff6a911acc4ada428c3d734f342a8a}
+
+
+\subsection{Member Function Documentation}
+\index{Surface@{Surface}!derivativeU@{derivativeU}}
+\index{derivativeU@{derivativeU}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{derivative\+U(float u, float v) const }{derivativeU(float u, float v) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Surface\+::derivativeU (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSurface_a3b60891745ce4a2dc1adc379fc69b866}{}\label{classSurface_a3b60891745ce4a2dc1adc379fc69b866}
+
+
+Get partial S / partial u on the surface. 
+
+\index{Surface@{Surface}!derivative\+U\+Impl@{derivative\+U\+Impl}}
+\index{derivative\+U\+Impl@{derivative\+U\+Impl}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{derivative\+U\+Impl(float u, float v) const =0}{derivativeUImpl(float u, float v) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Vec3} Surface\+::derivative\+U\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{classSurface_a4de8fb9d4652cc32022c95eb903cce4a}{}\label{classSurface_a4de8fb9d4652cc32022c95eb903cce4a}
+
+
+Implemented in \hyperlink{classLightSource_ac9506b1c3f773b0de0c30ca78b4a9aa0}{Light\+Source}, \hyperlink{classAxisymmetric_a2af551bce6cffc034a278de5c2f5f3c4}{Axisymmetric}, \hyperlink{classSquareXY_a7507f187a31f589c06afe6dbcbccfe46}{Square\+XY}, \hyperlink{classSquareYZ_a2b37c54c61d5f2896657f8510884e64e}{Square\+YZ}, and \hyperlink{classSquareZX_aafd9b0bfc12a6034d07d4cf27b211cfd}{Square\+ZX}.
+
+\index{Surface@{Surface}!derivativeV@{derivativeV}}
+\index{derivativeV@{derivativeV}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{derivative\+V(float u, float v) const }{derivativeV(float u, float v) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Surface\+::derivativeV (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSurface_a0c8bd80201b1426d30781d9583e86afd}{}\label{classSurface_a0c8bd80201b1426d30781d9583e86afd}
+
+
+Get partial S / partial v on the surface. 
+
+\index{Surface@{Surface}!derivative\+V\+Impl@{derivative\+V\+Impl}}
+\index{derivative\+V\+Impl@{derivative\+V\+Impl}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{derivative\+V\+Impl(float u, float v) const =0}{derivativeVImpl(float u, float v) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Vec3} Surface\+::derivative\+V\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{classSurface_a95d65437419ba8d439fa8f0d71f963a1}{}\label{classSurface_a95d65437419ba8d439fa8f0d71f963a1}
+
+
+Implemented in \hyperlink{classLightSource_a90b1596aca4c3b818fe73d8ef35065da}{Light\+Source}, \hyperlink{classAxisymmetric_ab62630c58ba420d44eb39753f27abba9}{Axisymmetric}, \hyperlink{classSquareXY_a4803259cb98c12ba97eb9e8c57463b2d}{Square\+XY}, \hyperlink{classSquareYZ_a6fc7a2189bf889b0dd99c229d2a6d0da}{Square\+YZ}, and \hyperlink{classSquareZX_a3ede3591078b049a8997ad144d7f92cd}{Square\+ZX}.
+
+\index{Surface@{Surface}!find\+Inter@{find\+Inter}}
+\index{find\+Inter@{find\+Inter}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{find\+Inter(const Ray \&ray) const }{findInter(const Ray &ray) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Optional}$<$ {\bf Surf\+Inter\+Type} $>$ Surface\+::find\+Inter (
+\begin{DoxyParamCaption}
+\item[{const {\bf Ray} \&}]{ray}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classSurface_af7b5584007bf626bf7b37fcf649e6cd6}{}\label{classSurface_af7b5584007bf626bf7b37fcf649e6cd6}
+
+
+Find intersection on 1 surface. 
+
+
+
+Reimplemented in \hyperlink{classLightSource_a7470bd637b7013e310c1a6789d12de92}{Light\+Source}, \hyperlink{classSquareXY_a33545d952933da0107ca9d9a6c8301ff}{Square\+XY}, \hyperlink{classSquareYZ_a75ffd1eda4c026706513dfa07043ffc8}{Square\+YZ}, and \hyperlink{classSquareZX_a2de50bbf52fc3243eaf1b68099224321}{Square\+ZX}.
+
+\index{Surface@{Surface}!init@{init}}
+\index{init@{init}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{init()}{init()}}]{\setlength{\rightskip}{0pt plus 5cm}void Surface\+::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classSurface_a194087202684a4b3a71c24f02faeb404}{}\label{classSurface_a194087202684a4b3a71c24f02faeb404}
+
+
+Something can\textquotesingle{}t be put in constructor. 
+
+
+
+Reimplemented in \hyperlink{classLightSource_a9001c11824ce30f44bdd9a729cc420a6}{Light\+Source}, \hyperlink{classSquareXY_a9dfeebdb190f64c6085625e2dcf7d400}{Square\+XY}, \hyperlink{classSquareYZ_a1d82d4fea479dd58096d723eb9109cfe}{Square\+YZ}, and \hyperlink{classSquareZX_aefbaa1f1b673aa405f427dbacc81114c}{Square\+ZX}.
+
+\index{Surface@{Surface}!is\+Light\+Source@{is\+Light\+Source}}
+\index{is\+Light\+Source@{is\+Light\+Source}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{is\+Light\+Source() const }{isLightSource() const }}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Surface\+::is\+Light\+Source (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classSurface_a5968cee515dd97f1e5066fec7cbf9b03}{}\label{classSurface_a5968cee515dd97f1e5066fec7cbf9b03}
+
+
+Reimplemented in \hyperlink{classLightSource_a5d397dd1719c8aaf9d711bace27a9547}{Light\+Source}.
+
+\index{Surface@{Surface}!load@{load}}
+\index{load@{load}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{load(const char filename[])}{load(const char filename[])}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ std\+::unique\+\_\+ptr$<$ {\bf Surface} $>$ $>$ Surface\+::load (
+\begin{DoxyParamCaption}
+\item[{const char}]{filename\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classSurface_a73a61d351a694602ca76ac1ecb3937e9}{}\label{classSurface_a73a61d351a694602ca76ac1ecb3937e9}
+
+
+Load surfaces from file. 
+
+\index{Surface@{Surface}!position@{position}}
+\index{position@{position}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{position(float u, float v) const }{position(float u, float v) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Surface\+::position (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSurface_ac7eb5876716281ea19945829ff9114b3}{}\label{classSurface_ac7eb5876716281ea19945829ff9114b3}
+
+
+Get point on the surface. 
+
+\index{Surface@{Surface}!position\+Impl@{position\+Impl}}
+\index{position\+Impl@{position\+Impl}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{position\+Impl(float u, float v) const =0}{positionImpl(float u, float v) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Vec3} Surface\+::position\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u, }
+\item[{float}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{classSurface_a379545eea4809f81fe7e037f5e5ff4be}{}\label{classSurface_a379545eea4809f81fe7e037f5e5ff4be}
+
+
+Implemented in \hyperlink{classLightSource_a1ac118f57425ed163c6ab45d6320f401}{Light\+Source}, \hyperlink{classAxisymmetric_a65f503a73188b0647945bf3a6a5b901e}{Axisymmetric}, \hyperlink{classSquareXY_a3d47992c4b73c6f49bade1c7e3fe05fe}{Square\+XY}, \hyperlink{classSquareYZ_a56695f7f1cbd288bf93918deac0feb4c}{Square\+YZ}, and \hyperlink{classSquareZX_a505da0c732d570991b69837e9dac89e5}{Square\+ZX}.
+
+\index{Surface@{Surface}!u\+Is\+Circular@{u\+Is\+Circular}}
+\index{u\+Is\+Circular@{u\+Is\+Circular}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{u\+Is\+Circular() const =0}{uIsCircular() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Surface\+::u\+Is\+Circular (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classSurface_a11d5759ec3e3d43036fb949dcc6f5562}{}\label{classSurface_a11d5759ec3e3d43036fb949dcc6f5562}
+
+
+Implemented in \hyperlink{classAxisymmetric_a50b489a9914ad852638b586cc0c6c2dc}{Axisymmetric}, \hyperlink{classLightSource_a6d1e29c394c2ae29c6b913376a3ebbc5}{Light\+Source}, \hyperlink{classSquareXY_a060cba6cee229bbe185bd59fbc49c461}{Square\+XY}, \hyperlink{classSquareYZ_adc74593250e7aaf7f8d733e22e3951b6}{Square\+YZ}, and \hyperlink{classSquareZX_a912de0928a8332afb6cb89179595668a}{Square\+ZX}.
+
+\index{Surface@{Surface}!v\+Is\+Circular@{v\+Is\+Circular}}
+\index{v\+Is\+Circular@{v\+Is\+Circular}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{v\+Is\+Circular() const =0}{vIsCircular() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Surface\+::v\+Is\+Circular (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classSurface_af52f9322929a702a9aaeee3ae4a368da}{}\label{classSurface_af52f9322929a702a9aaeee3ae4a368da}
+
+
+Implemented in \hyperlink{classAxisymmetric_a63d63250b3ca2a34c2707abf35169657}{Axisymmetric}, \hyperlink{classLightSource_a617519569f55a575189f0de58f0b8a11}{Light\+Source}, \hyperlink{classSquareXY_aeebe33da47d345225afba03b8aa110dc}{Square\+XY}, \hyperlink{classSquareYZ_ab6a94e65acedccedd4556023b1490841}{Square\+YZ}, and \hyperlink{classSquareZX_a5556f34a0c9e6c07f59c488857937b35}{Square\+ZX}.
+
+\index{Surface@{Surface}!xyz\+Min\+Max@{xyz\+Min\+Max}}
+\index{xyz\+Min\+Max@{xyz\+Min\+Max}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{xyz\+Min\+Max(float u1, float u2, float v1, float v2) const }{xyzMinMax(float u1, float u2, float v1, float v2) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Box3} Surface\+::xyz\+Min\+Max (
+\begin{DoxyParamCaption}
+\item[{float}]{u1, }
+\item[{float}]{u2, }
+\item[{float}]{v1, }
+\item[{float}]{v2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSurface_aef6ac6d0bd8f7db26b85f140e4ed2ea8}{}\label{classSurface_aef6ac6d0bd8f7db26b85f140e4ed2ea8}
+
+
+(x\+:(min, max), y\+:(min, max), z\+: (min, max)) when (u,v) in \mbox{[}u1, u2\mbox{]} $\ast$ \mbox{[}v1, v2\mbox{]} 
+
+\index{Surface@{Surface}!xyz\+Min\+Max\+Impl@{xyz\+Min\+Max\+Impl}}
+\index{xyz\+Min\+Max\+Impl@{xyz\+Min\+Max\+Impl}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{xyz\+Min\+Max\+Impl(float u1, float u2, float v1, float v2) const =0}{xyzMinMaxImpl(float u1, float u2, float v1, float v2) const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Box3} Surface\+::xyz\+Min\+Max\+Impl (
+\begin{DoxyParamCaption}
+\item[{float}]{u1, }
+\item[{float}]{u2, }
+\item[{float}]{v1, }
+\item[{float}]{v2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{classSurface_ab1ee990da290748cd86aaf95edb28c38}{}\label{classSurface_ab1ee990da290748cd86aaf95edb28c38}
+
+
+Implemented in \hyperlink{classLightSource_a01f7d7c1cca3b8ab7ec688253a46aaec}{Light\+Source}, \hyperlink{classAxisymmetric_a2718336bc4e05234a3f57bbe80ec29d3}{Axisymmetric}, \hyperlink{classSquareXY_ae03eb06fd6a8b493ebd1acbb0d22f365}{Square\+XY}, \hyperlink{classSquareYZ_a61260b3bae72f9354a8fe4c145bce87d}{Square\+YZ}, and \hyperlink{classSquareZX_a87b224b775e24f1d6ba984d37d0c85eb}{Square\+ZX}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Surface@{Surface}!box\+Tree@{box\+Tree}}
+\index{box\+Tree@{box\+Tree}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{box\+Tree}{boxTree}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unique\+\_\+ptr$<${\bf Box\+Tree}$>$ Surface\+::box\+Tree\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classSurface_a0620b2906ff595d71dedec53ff75b924}{}\label{classSurface_a0620b2906ff595d71dedec53ff75b924}
+\index{Surface@{Surface}!material@{material}}
+\index{material@{material}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{material}{material}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unique\+\_\+ptr$<${\bf Material}$>$ Surface\+::material}\hypertarget{classSurface_aa68847b731186c38991568c5925ad862}{}\label{classSurface_aa68847b731186c38991568c5925ad862}
+\index{Surface@{Surface}!photon\+Map@{photon\+Map}}
+\index{photon\+Map@{photon\+Map}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{photon\+Map}{photonMap}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unique\+\_\+ptr$<${\bf Photon\+Map}$>$ Surface\+::photon\+Map}\hypertarget{classSurface_aa624ee597db52c7c8f341e5a31b9e279}{}\label{classSurface_aa624ee597db52c7c8f341e5a31b9e279}
+\index{Surface@{Surface}!translate@{translate}}
+\index{translate@{translate}!Surface@{Surface}}
+\subsubsection[{\texorpdfstring{translate}{translate}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} Surface\+::translate}\hypertarget{classSurface_a442734b024ed1013878d098d27ade6ad}{}\label{classSurface_a442734b024ed1013878d098d27ade6ad}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{surface_8h}{surface.\+h}\item 
+\hyperlink{surface_8cpp}{surface.\+cpp}\end{DoxyCompactItemize}

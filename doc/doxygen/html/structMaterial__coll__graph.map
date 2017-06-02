@@ -1,0 +1,4 @@
+<map id="Material" name="Material">
+<area shape="rect" id="node2" href="$classTexture.html" title="{Texture\n|&#45; mat\l|+ getColor()\l&#45; Texture()\l}" alt="" coords="5,248,96,340"/>
+<area shape="rect" id="node3" href="$structVec3t.html" title="{Vec3t\&lt; T \&gt;\n||+ Vec3t()\l+ Vec3t()\l+ Vec3t()\l+ operator&#45;()\l+ dist2()\l+ operator+=()\l+ operator&#45;=()\l+ operator*=()\l+ rotateX()\l+ rotateY()\l+ rotateZ()\l+ rotate()\l}" alt="" coords="213,175,318,413"/>
+</map>

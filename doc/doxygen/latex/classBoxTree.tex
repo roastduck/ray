@@ -1,0 +1,115 @@
+\hypertarget{classBoxTree}{}\section{Box\+Tree Class Reference}
+\label{classBoxTree}\index{Box\+Tree@{Box\+Tree}}
+
+
+Tree of bounding box built on a surface Organized by surface parameters (u, v)  
+
+
+
+
+{\ttfamily \#include $<$boxtree.\+h$>$}
+
+
+
+Collaboration diagram for Box\+Tree\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classBoxTree__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structBoxTree_1_1Node}{Node}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBoxTree_a429e95ce51bc58ecd0e15eb11bac60dd}{Box\+Tree} (const \hyperlink{classSurface}{Surface} \&\+\_\+surf)
+\item 
+\hyperlink{classOptional}{Optional}$<$ \hyperlink{structSurfInterType}{Surf\+Inter\+Type} $>$ \hyperlink{classBoxTree_a3bfd0be9d94e7b6917a734b0474d8cff}{find\+Inter} (const \hyperlink{structRay}{Ray} \&ray) const 
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classBoxTree_aff124ae5af1c4ecf8187a7473828229b}{build\+Tree} (const \hyperlink{classSurface}{Surface} \&\hyperlink{classBoxTree_a5c38df1ae1af50fa873ebde61b24df67}{surf}, std\+::unique\+\_\+ptr$<$ \hyperlink{structBoxTree_1_1Node}{Node} $>$ \&node, float u1, float u2, float v1, float v2)
+\item 
+\hyperlink{classOptional}{Optional}$<$ \hyperlink{structSurfInterType}{Surf\+Inter\+Type} $>$ \hyperlink{classBoxTree_a1ce4beeb452ab28f9927d00839f638fe}{find\+Inter\+Recur} (const \hyperlink{structRay}{Ray} \&ray, const std\+::unique\+\_\+ptr$<$ \hyperlink{structBoxTree_1_1Node}{Node} $>$ \&node, const \hyperlink{intersection_8h_a880ab27cdd7ea5eab91289bba0bacadb}{Inter\+Type} \&inter) const 
+\begin{DoxyCompactList}\small\item\em Implement of find\+Inter Asserting ray is intersecting with node-\/$>$box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \hyperlink{structBoxTree_1_1Node}{Node} $>$ \hyperlink{classBoxTree_a12ff787723bc271b246f2662ce7c59b5}{root}
+\item 
+const \hyperlink{classSurface}{Surface} \& \hyperlink{classBoxTree_a5c38df1ae1af50fa873ebde61b24df67}{surf}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Tree of bounding box built on a surface Organized by surface parameters (u, v) 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Box\+Tree@{Box\+Tree}!Box\+Tree@{Box\+Tree}}
+\index{Box\+Tree@{Box\+Tree}!Box\+Tree@{Box\+Tree}}
+\subsubsection[{\texorpdfstring{Box\+Tree(const Surface \&\+\_\+surf)}{BoxTree(const Surface &_surf)}}]{\setlength{\rightskip}{0pt plus 5cm}Box\+Tree\+::\+Box\+Tree (
+\begin{DoxyParamCaption}
+\item[{const {\bf Surface} \&}]{\+\_\+surf}
+\end{DoxyParamCaption}
+)}\hypertarget{classBoxTree_a429e95ce51bc58ecd0e15eb11bac60dd}{}\label{classBoxTree_a429e95ce51bc58ecd0e15eb11bac60dd}
+
+
+\subsection{Member Function Documentation}
+\index{Box\+Tree@{Box\+Tree}!build\+Tree@{build\+Tree}}
+\index{build\+Tree@{build\+Tree}!Box\+Tree@{Box\+Tree}}
+\subsubsection[{\texorpdfstring{build\+Tree(const Surface \&surf, std\+::unique\+\_\+ptr$<$ Node $>$ \&node, float u1, float u2, float v1, float v2)}{buildTree(const Surface &surf, std::unique_ptr< Node > &node, float u1, float u2, float v1, float v2)}}]{\setlength{\rightskip}{0pt plus 5cm}void Box\+Tree\+::build\+Tree (
+\begin{DoxyParamCaption}
+\item[{const {\bf Surface} \&}]{surf, }
+\item[{std\+::unique\+\_\+ptr$<$ {\bf Node} $>$ \&}]{node, }
+\item[{float}]{u1, }
+\item[{float}]{u2, }
+\item[{float}]{v1, }
+\item[{float}]{v2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBoxTree_aff124ae5af1c4ecf8187a7473828229b}{}\label{classBoxTree_aff124ae5af1c4ecf8187a7473828229b}
+\index{Box\+Tree@{Box\+Tree}!find\+Inter@{find\+Inter}}
+\index{find\+Inter@{find\+Inter}!Box\+Tree@{Box\+Tree}}
+\subsubsection[{\texorpdfstring{find\+Inter(const Ray \&ray) const }{findInter(const Ray &ray) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Optional}$<$ {\bf Surf\+Inter\+Type} $>$ Box\+Tree\+::find\+Inter (
+\begin{DoxyParamCaption}
+\item[{const {\bf Ray} \&}]{ray}
+\end{DoxyParamCaption}
+) const}\hypertarget{classBoxTree_a3bfd0be9d94e7b6917a734b0474d8cff}{}\label{classBoxTree_a3bfd0be9d94e7b6917a734b0474d8cff}
+\index{Box\+Tree@{Box\+Tree}!find\+Inter\+Recur@{find\+Inter\+Recur}}
+\index{find\+Inter\+Recur@{find\+Inter\+Recur}!Box\+Tree@{Box\+Tree}}
+\subsubsection[{\texorpdfstring{find\+Inter\+Recur(const Ray \&ray, const std\+::unique\+\_\+ptr$<$ Node $>$ \&node, const Inter\+Type \&inter) const }{findInterRecur(const Ray &ray, const std::unique_ptr< Node > &node, const InterType &inter) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Optional}$<$ {\bf Surf\+Inter\+Type} $>$ Box\+Tree\+::find\+Inter\+Recur (
+\begin{DoxyParamCaption}
+\item[{const {\bf Ray} \&}]{ray, }
+\item[{const std\+::unique\+\_\+ptr$<$ {\bf Node} $>$ \&}]{node, }
+\item[{const {\bf Inter\+Type} \&}]{inter}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBoxTree_a1ce4beeb452ab28f9927d00839f638fe}{}\label{classBoxTree_a1ce4beeb452ab28f9927d00839f638fe}
+
+
+Implement of find\+Inter Asserting ray is intersecting with node-\/$>$box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inter} & \+: intersecting point with \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{Box\+Tree@{Box\+Tree}!root@{root}}
+\index{root@{root}!Box\+Tree@{Box\+Tree}}
+\subsubsection[{\texorpdfstring{root}{root}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::unique\+\_\+ptr$<${\bf Node}$>$ Box\+Tree\+::root\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBoxTree_a12ff787723bc271b246f2662ce7c59b5}{}\label{classBoxTree_a12ff787723bc271b246f2662ce7c59b5}
+\index{Box\+Tree@{Box\+Tree}!surf@{surf}}
+\index{surf@{surf}!Box\+Tree@{Box\+Tree}}
+\subsubsection[{\texorpdfstring{surf}{surf}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Surface}\& Box\+Tree\+::surf\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classBoxTree_a5c38df1ae1af50fa873ebde61b24df67}{}\label{classBoxTree_a5c38df1ae1af50fa873ebde61b24df67}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{boxtree_8h}{boxtree.\+h}\item 
+\hyperlink{boxtree_8cpp}{boxtree.\+cpp}\end{DoxyCompactItemize}
