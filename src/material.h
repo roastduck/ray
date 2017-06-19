@@ -28,6 +28,7 @@ struct Material
         MATEL = 4,
         APPLE1 = 5,
         APPLE2 = 6,
+        CARPET = 7,
         INVALID = -1
     };
 
@@ -36,7 +37,7 @@ struct Material
         switch (name)
         {
         case GLASS:
-            return { 0.00, 0.00, 0.00, 1.00, 1.6, 2000, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0), NULL };
+            return { 0.00, 0.00, 0.00, 1.00, 1.6, 5000, color_t(1.0, 1.0, 1.0), color_t(1.0, 1.0, 1.0), NULL };
         case PAPER:
             return { 0.50, 0.10, 0.00, 0.00, 1.0, 7, color_t(1.1, 1.0, 0.9), color_t(1.0, 1.0, 1.0), NULL };
         case WALLPAPER:
@@ -49,6 +50,8 @@ struct Material
             return { 0.30, 0.30, 0.00, 0.00, 1.0, 7, color_t(0.0, 0.0, 0.0), color_t(1.0, 1.0, 1.0), &Texture::apple1 };
         case APPLE2:
             return { 0.30, 0.30, 0.00, 0.00, 1.0, 7, color_t(0.0, 0.0, 0.0), color_t(1.0, 1.0, 1.0), &Texture::apple2 };
+        case CARPET:
+            return { 0.50, 0.10, 0.00, 0.00, 1.0, 7, color_t(0.0, 0.0, 0.0), color_t(1.0, 1.0, 1.0), &Texture::carpet };
         default:
             assert(false);
         }
