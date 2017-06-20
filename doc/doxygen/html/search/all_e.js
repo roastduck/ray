@@ -13,7 +13,6 @@ var searchData=
   ['ray_5fper_5fpixel',['RAY_PER_PIXEL',['../const_8h.html#ab53b5a6f55f49097e95de28c4ea73994',1,'const.h']]],
   ['reflectdir',['reflectDir',['../classTrace.html#aa41cdecb2f1cade91f6b4f5984caf80d',1,'Trace']]],
   ['refrectdir',['refrectDir',['../classTrace.html#acb72c69982228a36045ef13b17fe5f11',1,'Trace']]],
-  ['res_5fangle',['RES_ANGLE',['../const_8h.html#a0750210ad5debc66b27eca58347cfbe0',1,'const.h']]],
   ['rn',['Rn',['../structMaterial.html#a36c703d1fd25f5c21d9c30e8b403d849',1,'Material']]],
   ['root',['root',['../classBoxTree.html#a12ff787723bc271b246f2662ce7c59b5',1,'BoxTree::root()'],['../classKDTree.html#af6c514e842e138504160e8d14fa084f7',1,'KDTree::root()']]],
   ['rotate',['rotate',['../structVec3t.html#a4dd2b7633407d6eec22ad24a222f9341',1,'Vec3t']]],

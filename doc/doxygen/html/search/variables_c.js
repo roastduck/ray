@@ -1,12 +1,14 @@
 var searchData=
 [
-  ['r',['r',['../structBoxTree_1_1Node.html#a8e85cff13a1049196ff4457654c9fa33',1,'BoxTree::Node::r()'],['../structKDTree_1_1Node.html#a1ee516a9562dc5c6f53ad1176c2016a4',1,'KDTree::Node::r()']]],
-  ['radius',['radius',['../classLightSource.html#a6dbf2113c6dac64e323ebf4f691d1e66',1,'LightSource']]],
-  ['rawdata',['rawData',['../classPhotonMap.html#a20419eecb0781c24cbda8210bc0df221',1,'PhotonMap']]],
-  ['ray',['ray',['../structColoredRay.html#a611f02566718c14e40376dc360b7b8ef',1,'ColoredRay']]],
-  ['ray_5fper_5flight',['RAY_PER_LIGHT',['../const_8h.html#a655c5b3882e191b283e9c1c2917d0223',1,'const.h']]],
-  ['ray_5fper_5fpixel',['RAY_PER_PIXEL',['../const_8h.html#ab53b5a6f55f49097e95de28c4ea73994',1,'const.h']]],
-  ['res_5fangle',['RES_ANGLE',['../const_8h.html#a0750210ad5debc66b27eca58347cfbe0',1,'const.h']]],
-  ['rn',['Rn',['../structMaterial.html#a36c703d1fd25f5c21d9c30e8b403d849',1,'Material']]],
-  ['root',['root',['../classBoxTree.html#a12ff787723bc271b246f2662ce7c59b5',1,'BoxTree::root()'],['../classKDTree.html#af6c514e842e138504160e8d14fa084f7',1,'KDTree::root()']]]
+  ['p0',['p0',['../classBezier3.html#a61297313c61fc20a334b12603f59b999',1,'Bezier3']]],
+  ['p1',['p1',['../classBezier3.html#acad9cdcdafe19feef1002ced52099cfe',1,'Bezier3']]],
+  ['p2',['p2',['../classBezier3.html#aa78aee06abc3a06c2dd636df4fe4451d',1,'Bezier3']]],
+  ['p3',['p3',['../classBezier3.html#a0e1e35eb084266b2dcd71ecf9b19b80f',1,'Bezier3']]],
+  ['photonmap',['photonMap',['../classSurface.html#aa624ee597db52c7c8f341e5a31b9e279',1,'Surface']]],
+  ['pi',['PI',['../math_8h.html#aa08a577393243b86dfd2a97e61443673',1,'math.h']]],
+  ['pos',['pos',['../structSurfInterType.html#aca92cd7c249fe62ecde0fbc6076abe8b',1,'SurfInterType']]],
+  ['px1',['px1',['../classBezier3.html#a7d69e4d349bbe7a7351188d2c0a3ef4b',1,'Bezier3']]],
+  ['px2',['px2',['../classBezier3.html#ae439178d68735ec771c72d097cb90997',1,'Bezier3']]],
+  ['py1',['py1',['../classBezier3.html#a6bdba56f87b7c2f2fd32361cd0cccdc8',1,'Bezier3']]],
+  ['py2',['py2',['../classBezier3.html#affcc44acee6b341088cdd403c55fa61e',1,'Bezier3']]]
 ];

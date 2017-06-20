@@ -1,6 +1,7 @@
 var searchData=
 [
   ['c',['c',['../classBezier3.html#aafb4270797f10af53a7feba1a66d59a0',1,'Bezier3']]],
+  ['carpet',['carpet',['../classTexture.html#ade074c4142073f53a973ec8223395f67',1,'Texture::carpet()'],['../structMaterial.html#afca902ab9d34ae538cf8eb74afe51911a0af45e90f770ebcd117f33e9a902ea21',1,'Material::CARPET()']]],
   ['collect',['collect',['../main_8cpp.html#a0a33279211b722d1ee2e112187ceedaa',1,'main.cpp']]],
   ['color',['color',['../classLightSource.html#a4a567c627c51e5850af199a8af6bea27',1,'LightSource::color()'],['../structColoredRay.html#a25677d1a49f54e8ae35c09adc433c62a',1,'ColoredRay::color()']]],
   ['color_5ft',['color_t',['../ray_8h.html#a8a2580fb65f7d3d4e24bdd412b9bd92d',1,'ray.h']]],
