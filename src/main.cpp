@@ -81,12 +81,14 @@ void collect(const std::vector< std::unique_ptr<Surface> > &surfaces, cv::Mat3b 
         for (int j = 0; j < SCREEN_HEIGHT; j++)
             for (int k = 0; k < RAY_PER_PIXEL; k++)
             {
-                float _i = i + randReal(*(collectRandEngine[i]), -0.5, 0.5);
-                float _j = j + randReal(*(collectRandEngine[i]), -0.5, 0.5);
-                ColoredRay ray(
-                    Vec3(1, 1, 1),
-                    Ray(Vec3(0, -750, 0), Vec3((_i - SCREEN_WIDTH * 0.5) * RES_ANGLE, 1, (_j - SCREEN_HEIGHT * 0.5) * RES_ANGLE))
-                );
+                float eyeX = FILM_WIDTH - (i + randReal(*(collectRandEngine[i]), 0, 1)) * 2 * FILM_WIDTH / SCREEN_WIDTH;
+                float eyeZ = FILM_HEIGHT - (j + randReal(*(collectRandEngine[i]), 0, 1)) * 2 * FILM_HEIGHT / SCREEN_HEIGHT;
+                float objX = -eyeX * LENS_D2 / LENS_D1;
+                float objZ = -eyeZ * LENS_D2 / LENS_D1;
+                float lensX = randReal(*(collectRandEngine[i]), -LENS_H, LENS_H);
+                float lensZ = randReal(*(collectRandEngine[i]), -LENS_H, LENS_H);
+                ColoredRay ray(Vec3(1, 1, 1), Ray(Vec3(lensX, LENS_Y, lensZ), Vec3(objX - lensX, LENS_D2, objZ - lensZ)));
+
                 color_t curColor(0, 0, 0);
                 int curWeight(0);
                 Trace::trace(*(collectRandEngine[i]), surfaces, ray, DEPTH_PER_PIXEL, true,
