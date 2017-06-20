@@ -7,4 +7,4 @@
 
 三角网格输出见 output/mesh.obj
 
-最终渲染结果见 output/output.png
+最终渲染结果见 output/output_depth.png（有景深）或 output/output_nodepth.png（无景深）
